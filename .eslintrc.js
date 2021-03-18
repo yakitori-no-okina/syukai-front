@@ -4,6 +4,7 @@ module.exports = {
         "es2021": true
     },
     extends: [
+        "plugin:react/recommended",
         "airbnb",
         "airbnb/hooks",
         "plugin:import/errors",
@@ -11,7 +12,8 @@ module.exports = {
         "plugin:import/typescript",
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "prettier",
     ],
     parser: "@typescript-eslint/parser",
     parserOptions: {
@@ -40,15 +42,16 @@ module.exports = {
             "error",
             "always",
             {
-                "exceptAfterSingleLine": true,
+                exceptAfterSingleLine: true,
             }
         ],
-        "no-void": [
-            "error",
-            {
-                "allowAsStatement": true,
-            },
-        ],
+        // "no-void": [
+        //     "error",
+        //     {
+        //         allowAsStatement: true,
+        //     },
+        // ],
+        "no-void": "off",
         "@typescript-eslint/no-unused-vars": [
             "error",
             {
