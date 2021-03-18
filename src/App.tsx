@@ -3,9 +3,12 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./tailwind.output.css"
 import "./App.css"
 
+import AppHeader from "./components/layouts/AppHeader";
+
 
 const App: React.VFC = () => (
     <Router>
+        <AppHeader/>
         <section className="container mx-auto">
             <Switch>
                 <Route path="/" exact>
