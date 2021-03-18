@@ -69,11 +69,11 @@
     }
   },
   "lint-staged": {
-    "src/**/*{js,jsx,ts,tsx}": [
+    "src/**/*.{js,jsx,ts,tsx}": [
       "prettier --write --loglevel=warn",
       "eslint --fix"
     ],
-    "src/**/*{gql,graphql,json}": [
+    "src/**/*.{gql,graphql,json}": [
       "prettier --write --loglevel=warn"
     ]
   }
