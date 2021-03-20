@@ -24,11 +24,11 @@ export type RecruitmentDetail = {
       management: number,
       mobile: number,
     },
-    users: [{
-      id: number,
-      name: string,
-      icon: string
-    }],
+    users: {
+        id: number,
+        name: string,
+        icon: string
+    }[],
     title: string,
     message: string,
     purpose: number,
