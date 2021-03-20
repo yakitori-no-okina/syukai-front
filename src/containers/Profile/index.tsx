@@ -31,7 +31,7 @@ const Profile: React.VFC = () => {
             </div>
             <div className="bg-custom-blue-100">
                 <div className="container mx-auto">
-                    <div className="py-12 h-screen">
+                    <div className="py-12">
                         <section className="mb-6">
                             <h2 className="font-bold text-lg mb-4">Skills</h2>
                             <div>

@@ -42,7 +42,7 @@ const RecruitmentContent: React.VFC = () => {
             </div>
             <div className="bg-custom-blue-100">
                 <div className="container mx-auto">
-                    <div className="py-12 h-screen">
+                    <div className="py-12">
                         <div className="mb-6">
                             <h3 className="font-bold text-lg mb-4">Purpose</h3>
                             <p className="bg-white text-custom-black-100 font-bold rounded-lg px-4 py-2">{findPurpose(item.purpose)?.label}</p>
