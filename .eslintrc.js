@@ -39,6 +39,7 @@ module.exports = {
         "@typescript-eslint/no-use-before-define": [
             "error"
         ],
+        "@typescript-eslint/explicit-module-boundary-types": "off",
         "lines-between-class-members": [
             "error",
             "always",
