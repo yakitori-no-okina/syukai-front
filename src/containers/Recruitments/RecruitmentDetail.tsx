@@ -23,37 +23,45 @@ const RecruitmentContent: React.VFC = () => {
         return purposeList.find(v => v.value === val)
     }
     return (
-        <div>
-            <section className="flex flex-col items-center pb-6">
-                <img className="rounded-full inline-block w-16 mb-6" src={item.ownerIcon} alt="" />
-                <h2 className="font-bold text-lg mb-4">{item.message}</h2>
-                <div className="mb-4">
-                    <span>
-                        {DateService.formatTimestamp(new Date(item.startDate))} ~ {DateService.formatTimestamp(new Date(item.endDate))}
-                    </span>
+        <>
+            <div className="bg-custom-gray-100">
+                <div className="container mx-auto">
+                    <section className="flex flex-col items-center pt-12 py-8">
+                        <img className="rounded-full inline-block w-24 mb-6" src={item.ownerIcon} alt="" />
+                        <h2 className="font-bold text-lg mb-4">{item.message}</h2>
+                        <div className="mb-4">
+                            <span className="font-bold text-custom-gray-base">
+                                {DateService.formatTimestamp(new Date(item.startDate))} ~ {DateService.formatTimestamp(new Date(item.endDate))}
+                            </span>
+                        </div>
+                        <div className="text-sm">
+                            <span>😆</span><span className="pl-4 font-bold text-custom-gray-base">4/5</span>
+                        </div>
+                    </section>
                 </div>
-                <div className="text-sm">
-                    <span>😆</span><span className="pl-4">4/5</span>
-                </div>
-            </section>
-            <section>
-                <div className="mb-12">
-                    <h3 className="font-bold text-lg">Purpose</h3>
-                    <p>{findPurpose(item.purpose)?.label}</p>
-                </div>
-                <div className="mb-12">
-                    <h3 className="font-bold text-lg">Member</h3>
-                    <div>
-                        {item.users.map(user => (
-                            <div key={user.id}>
-                                <img className="w-16 inline-block rounded-full" src={user.icon} alt="" />
-                                <p>{user.name}</p>
+            </div>
+            <div className="bg-custom-blue-100">
+                <div className="container mx-auto">
+                    <div className="py-12">
+                        <div className="mb-6">
+                            <h3 className="font-bold text-lg mb-4">Purpose</h3>
+                            <p className="bg-white text-custom-black-100 font-bold rounded-lg px-4 py-2">{findPurpose(item.purpose)?.label}</p>
+                        </div>
+                        <div className="mb-6">
+                            <h3 className="font-bold text-lg mb-4">Member</h3>
+                            <div>
+                                {item.users.map(user => (
+                                    <div className="inline-block" key={user.id}>
+                                        <img className="w-16 inline-block rounded-full" src={user.icon} alt="" />
+                                        <p className="text-center">{user.name}</p>
+                                    </div>
+                                ))}
                             </div>
-                        ))}
+                        </div>
                     </div>
                 </div>
-            </section>
-        </div>
+            </div>
+        </>
     )};
 
 export default RecruitmentContent;

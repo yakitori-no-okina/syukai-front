@@ -1,7 +1,7 @@
 import React from "react";
 
 const Search: React.VFC = () => (
-    <div>
+    <div className="container mx-auto">
         search
     </div>
 );

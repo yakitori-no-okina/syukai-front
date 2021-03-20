@@ -1,7 +1,7 @@
 import React from "react";
 
 const Notify: React.VFC = () => (
-    <div>
+    <div className="container mx-auto">
         Notification
     </div>
 );
