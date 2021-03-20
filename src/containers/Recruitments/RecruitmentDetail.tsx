@@ -24,9 +24,7 @@ const RecruitmentContent: React.VFC = () => {
     return (
         <div>
             <section className="flex flex-col items-center pb-6">
-                <div className="inline-block w-16 mb-6">
-                    <img className="rounded-full" src={item.ownerIcon} alt="" />
-                </div>
+                <img className="rounded-full inline-block w-16 mb-6" src={item.ownerIcon} alt="" />
                 <h2 className="font-bold text-lg mb-4">{item.message}</h2>
                 <div className="mb-4">
                     <span>{item.startDate} ~ {item.endDate}</span>
@@ -45,9 +43,7 @@ const RecruitmentContent: React.VFC = () => {
                     <div>
                         {item.users.map(user => (
                             <div key={user.id}>
-                                <div className="w-16 inline-block">
-                                    <img className="rounded-full" src={user.icon} alt="" />
-                                </div>
+                                <img className="w-16 inline-block rounded-full" src={user.icon} alt="" />
                                 <p>{user.name}</p>
                             </div>
                         ))}

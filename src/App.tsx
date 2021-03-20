@@ -6,6 +6,7 @@ import "./App.css"
 import AppHeader from "./components/layouts/AppHeader";
 import RecruitmentList from "./containers/Recruitments/RecruitmentList";
 import RecruitmentContent from "./containers/Recruitments/RecruitmentDetail";
+import ProfileContent from "./containers/Profile/Profile";
 
 const App: React.VFC = () => (
     <Router>
@@ -17,9 +18,7 @@ const App: React.VFC = () => (
                 </Route>
                 <Route path="/recruitment" component={RecruitmentList} exact/>
                 <Route path="/recruitment/:id" component={RecruitmentContent} />
-                <Route path="/:id/profile">
-                    profile
-                </Route>
+                <Route path="/profile/:id" component={ProfileContent} />
             </Switch>
         </section>
     </Router>
