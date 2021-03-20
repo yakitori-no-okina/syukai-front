@@ -1,7 +1,7 @@
 import React from "react";
 import { User, blankUser } from "../../services/models/user";
 
-const ProfileContent: React.VFC = () => {
+const Profile: React.VFC = () => {
     const user: User = blankUser;
     return (
         <>
@@ -51,4 +51,4 @@ const ProfileContent: React.VFC = () => {
     );
 }
 
-export default ProfileContent;
+export default Profile;
