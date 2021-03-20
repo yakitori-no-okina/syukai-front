@@ -4,20 +4,18 @@ import { User, blankUser } from "../../services/models/user";
 const ProfileContent: React.VFC = () => {
     const user: User = blankUser;
     return (
-        <div>
-            <section>
-                <div className="flex ">
-                    <div>
-                        <img src={user.icon} alt="" />
-                    </div>
-                    <div>
+        <>
+            <div className="mb-8">
+                <div className="flex">
+                    <img className="rounded-full inline-block w-24" src={user.icon} alt="" />
+                    <div className="pl-6">
                         <p>{user.name}</p>
                         <p>{user.about}</p>
                     </div>
                 </div>
                 <div>
-                    <span className="inline-block mx-2">{user.github}</span>
-                    <span className="inline-block mx-2">{user.twitter}</span>
+                    <a href={`https://github.com/${user.github}`} target="_blank" rel="noreferrer" className="inline-block mx-2">github</a>
+                    <a href={`https://twitter.com/${user.twitter}`} target="_blank" rel="noreferrer" className="inline-block mx-2">twitter</a>
                 </div>
                 <div>
                     {user.links.map(link => (
@@ -26,7 +24,7 @@ const ProfileContent: React.VFC = () => {
                         </div>
                     ))}
                 </div>
-            </section>
+            </div>
             <div>
                 <section className="mb-6">
                     <h2 className="font-bold text-lg mb-4">Skills</h2>
@@ -49,7 +47,7 @@ const ProfileContent: React.VFC = () => {
                     </div>
                 </section>
             </div>
-        </div>
+        </>
     );
 }
 

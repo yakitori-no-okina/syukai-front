@@ -25,7 +25,7 @@ export const blankUser: User = {
     name: "tame",
     icon: "https://placehold.jp/150x150.png",
     github: "tamemoto",
-    twitter: "@yusuke_prog_web",
+    twitter: "yusuke_prog_web",
     about: "よろしくね!",
     links: [
         "https://tamblog.net/",
