@@ -1,10 +1,10 @@
 export type Notify = {
     id: number,
-    user_id: number,
+    userId: number,
     about: number,
     message: string,
-    has_read: boolean,
-    approval_wait_id: number,
-    recruitment_id: number,
-    date_time: string,
+    hasRead: boolean,
+    approvalWaitId: number,
+    recruitmentId: number,
+    dateTime: string,
 };
