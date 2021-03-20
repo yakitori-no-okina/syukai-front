@@ -1,5 +1,6 @@
 import React from "react";
 import { RecruitmentDetail, blankRecruitmentDetail } from "../../services/models/recruitment";
+import DateService from "../../services/utils/DateService";
 
 const RecruitmentContent: React.VFC = () => {
     const item: RecruitmentDetail = blankRecruitmentDetail;
@@ -27,7 +28,9 @@ const RecruitmentContent: React.VFC = () => {
                 <img className="rounded-full inline-block w-16 mb-6" src={item.ownerIcon} alt="" />
                 <h2 className="font-bold text-lg mb-4">{item.message}</h2>
                 <div className="mb-4">
-                    <span>{item.startDate} ~ {item.endDate}</span>
+                    <span>
+                        {DateService.formatTimestamp(new Date(item.startDate))} ~ {DateService.formatTimestamp(new Date(item.endDate))}
+                    </span>
                 </div>
                 <div className="text-sm">
                     <span>😆</span><span className="pl-4">4/5</span>

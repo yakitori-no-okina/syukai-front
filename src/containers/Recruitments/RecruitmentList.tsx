@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom"
 import { Recruitment, blankRecruitment } from "../../services/models/recruitment";
+import DateService from "../../services/utils/DateService";
 
 const RecruitmentList: React.VFC = () => {
     const items: Recruitment[] = blankRecruitment
@@ -13,7 +14,9 @@ const RecruitmentList: React.VFC = () => {
                 >
                     <div className="">
                         <div className="text-left">
-                            <span className="text-sm">{item.startDate} ~ {item.endDate}</span>
+                            <span className="text-sm">
+                                {DateService.formatTimestamp(new Date(item.startDate))} ~ {DateService.formatTimestamp(new Date(item.endDate))}
+                            </span>
                         </div>
                         <p className="font-bold text-lg mb-4">{item.message}</p>
                         <div className="flex">
