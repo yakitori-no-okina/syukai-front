@@ -19,7 +19,7 @@ export type User = {
     about: string,
     links: string[],
     skills: Skill,
-}
+};
 
 export const blankUser: User = {
     name: "tame",
@@ -97,4 +97,4 @@ export const blankUser: User = {
             ]
         }
     }
-}
+};

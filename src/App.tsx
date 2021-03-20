@@ -4,7 +4,8 @@ import "./tailwind.output.css"
 import "./App.css"
 
 import AppHeader from "./components/layouts/AppHeader";
-
+import RecruitmentList from "./containers/Recruitments/RecruitmentList";
+import RecruitmentContent from "./containers/Recruitments/RecruitmentDetail";
 
 const App: React.VFC = () => (
     <Router>
@@ -12,8 +13,10 @@ const App: React.VFC = () => (
         <section className="container mx-auto">
             <Switch>
                 <Route path="/" exact>
-                    hoge
+                    home
                 </Route>
+                <Route path="/recruitment" component={RecruitmentList} exact/>
+                <Route path="/recruitment/:id" component={RecruitmentContent} />
                 <Route path="/:id/profile">
                     profile
                 </Route>
