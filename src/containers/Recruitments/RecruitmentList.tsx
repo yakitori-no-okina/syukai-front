@@ -4,7 +4,6 @@ import { Recruitment, blankRecruitment } from "../../services/models/recruitment
 
 const RecruitmentList: React.VFC = () => {
     const items: Recruitment[] = blankRecruitment
-    console.log(items)
     return (
         <div className="flex justify-center">
             {items.map(item => (
