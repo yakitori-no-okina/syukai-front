@@ -1,7 +1,7 @@
 import React from "react";
 
 const UserLogin: React.VFC = () => (
-    <div className="container mx-auto">
+    <div className="container px-6 py-14 box-border mx-auto">
         <div className="px-4 py-6">
             <form className="mb-6">
                 <label className="block mb-4" htmlFor="userName">

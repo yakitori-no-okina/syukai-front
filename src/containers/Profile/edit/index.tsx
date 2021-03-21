@@ -4,7 +4,7 @@ import { User, blankUser } from "../../../services/models/user";
 const EditProfile: React.VFC = () => {
     const user: User = blankUser;
     return (
-      <div className="container mx-auto">
+      <div className="container px-6 py-14 box-border mx-auto">
           <div className="text-center pt-12 py-8">
               <div className="relative inline-block">
                   <img className="rounded-full inline-block w-24" src={user.icon} alt="" />
