@@ -10,6 +10,7 @@ import Profile from "./containers/Profile";
 import EditProfile from "./containers/Profile/edit";
 import UserSkill from "./containers/Profile/skill";
 import Search from "./containers/Search";
+import UserLogin from "./containers/Login";
 
 const App: React.VFC = () => (
     <Router>
@@ -21,6 +22,7 @@ const App: React.VFC = () => (
             <Route path="/profile/:id" component={Profile} exact />
             <Route path="/profile/:id/edit" component={EditProfile} exact />
             <Route path="/profile/:id/skill" component={UserSkill} exact />
+            <Route path="/login" component={UserLogin} exact />
         </Switch>
     </Router>
 )

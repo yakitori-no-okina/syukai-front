@@ -43,7 +43,7 @@ const EditProfile: React.VFC = () => {
               </label>
           </form>
           <div className="text-center">
-              <button type="button" className="bg-custom-blue-base text-white font-bold text-sm rounded-3xl py-2 px-8">
+              <button type="button" className="w-8/12 bg-custom-blue-base text-white font-bold text-sm rounded-3xl py-2 px-8">
                   この内容で保存
               </button>
           </div>
