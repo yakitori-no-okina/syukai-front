@@ -6,7 +6,7 @@ const Profile: React.VFC = () => {
     return (
         <>
             <div className="bg-custom-gray-100">
-                <div className="container mx-auto">
+                <div className="container px-6 py-14 box-border mx-auto">
                     <div className="pt-12 py-8">
                         <div className="flex items-center mb-4">
                             <img className="rounded-full inline-block w-24" src={user.icon} alt="" />
@@ -30,7 +30,7 @@ const Profile: React.VFC = () => {
                 </div>
             </div>
             <div className="bg-custom-blue-100">
-                <div className="container mx-auto">
+                <div className="container px-6 py-14 box-border mx-auto">
                     <div className="py-12">
                         <section className="mb-6">
                             <h2 className="font-bold text-lg mb-4">Skills</h2>

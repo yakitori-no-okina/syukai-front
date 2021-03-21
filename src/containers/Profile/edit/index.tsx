@@ -4,7 +4,7 @@ import { User, blankUser } from "../../../services/models/user";
 const EditProfile: React.VFC = () => {
     const user: User = blankUser;
     return (
-      <div className="container mx-auto">
+      <div className="container px-6 py-14 box-border mx-auto">
           <div className="text-center pt-12 py-8">
               <div className="relative inline-block">
                   <img className="rounded-full inline-block w-24" src={user.icon} alt="" />
@@ -43,7 +43,7 @@ const EditProfile: React.VFC = () => {
               </label>
           </form>
           <div className="text-center">
-              <button type="button" className="bg-custom-blue-base text-white font-bold text-sm rounded-3xl py-2 px-8">
+              <button type="button" className="w-8/12 bg-custom-blue-base text-white font-bold text-sm rounded-3xl py-2 px-8">
                   この内容で保存
               </button>
           </div>

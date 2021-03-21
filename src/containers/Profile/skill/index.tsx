@@ -6,7 +6,7 @@ const UserSkill: React.VFC = () => {
     return (
         <>
             <div className="bg-custom-gray-100">
-                <div className="container mx-auto">
+                <div className="container px-6 py-14 box-border mx-auto">
                     <div className="text-center pt-12 py-8">
                         <div className="relative inline-block">
                             <img className="rounded-full inline-block w-24" src={user.icon} alt="" />
@@ -16,7 +16,7 @@ const UserSkill: React.VFC = () => {
                 </div>
             </div>
             <div className="bg-custom-blue-100">
-                <div className="container mx-auto">
+                <div className="container px-6 py-14 box-border mx-auto">
                     <section className="mb-6">
                         <h2 className="font-bold text-lg mb-4">Skills</h2>
                         <div>

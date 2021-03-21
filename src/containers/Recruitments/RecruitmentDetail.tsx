@@ -25,7 +25,7 @@ const RecruitmentContent: React.VFC = () => {
     return (
         <>
             <div className="bg-custom-gray-100">
-                <div className="container mx-auto">
+                <div className="container px-6 py-14 box-border mx-auto">
                     <section className="flex flex-col items-center pt-12 py-8">
                         <img className="rounded-full inline-block w-24 mb-6" src={item.ownerIcon} alt="" />
                         <h2 className="font-bold text-lg mb-4">{item.message}</h2>
@@ -41,7 +41,7 @@ const RecruitmentContent: React.VFC = () => {
                 </div>
             </div>
             <div className="bg-custom-blue-100">
-                <div className="container mx-auto">
+                <div className="container px-6 py-14 box-border mx-auto">
                     <div className="py-12">
                         <div className="mb-6">
                             <h3 className="font-bold text-lg mb-4">Purpose</h3>
