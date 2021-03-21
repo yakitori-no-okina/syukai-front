@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { User } from "../../../services/models/user";
+import Notification from "../../../containers/Notification";
 
 const AppHeaderComponent: React.VFC<{
     user: User,
@@ -29,8 +30,8 @@ const AppHeaderComponent: React.VFC<{
                   </div>
               </div>
               {isShow && (
-                  <div className="absolute">
-                      aaaaaaaaaa
+                  <div className="absolute z-50 right-0">
+                      <Notification />
                   </div>
               )}
           </div>
