@@ -1,8 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Home: React.VFC = () => (
   <div className="container px-6 py-14 box-border mx-auto h-screen">
-      aaaaa
+      <div className="tablet:w-9/12 mx-auto  flex flex-col items-center text-center mt-36">
+          <Link to="/login" className="inline-block w-8/12 bg-custom-blue-base text-white font-bold text-sm rounded-3xl py-2 px-8 mb-8">
+              ログイン
+          </Link>
+          <Link to="/signup/step1" className="inline-block w-8/12 bg-custom-black-base text-white font-bold text-sm rounded-3xl py-2 px-8 mb-8">
+              新規作成
+          </Link>
+      </div>
   </div>
 );
 

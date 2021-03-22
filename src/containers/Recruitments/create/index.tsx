@@ -23,6 +23,12 @@ const CreateRecruitment: React.VFC = () => (
                   </span>
                     <input className="w-full bg-custom-gray-200 rounded-lg py-1" type="text" id="link"/>
                 </label>
+                <label className="block mb-4" htmlFor="from">
+                  <span className="block font-bold text-custom-black-base">
+                      イベント期間
+                  </span>
+                    <input className="w-full bg-custom-gray-200 rounded-lg py-1" type="time" id="from"/>
+                </label>
             </form>
             <div className="text-center">
                 <button type="button" className="w-64 bg-custom-blue-base text-white font-bold text-sm rounded-3xl py-2 px-8">
