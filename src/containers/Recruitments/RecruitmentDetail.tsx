@@ -34,8 +34,9 @@ const RecruitmentContent: React.VFC = () => {
                                 {DateService.formatTimestamp(new Date(item.startDate))} ~ {DateService.formatTimestamp(new Date(item.endDate))}
                             </span>
                         </div>
-                        <div className="text-sm">
-                            <span>😆</span><span className="pl-4 font-bold text-custom-gray-base">4/5</span>
+                        <div>
+                            <img className="inline-block w-5" src="/images/icons/commons/ion_people_color.svg" alt="" />
+                            <span className="pl-4 text-sm font-bold text-custom-gray-base">4/5</span>
                         </div>
                     </section>
                 </div>

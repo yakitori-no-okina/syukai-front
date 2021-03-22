@@ -4,6 +4,7 @@ import "./tailwind.output.css"
 import "./App.css"
 
 import AppHeader from "./containers/commons/layouts/AppHeader";
+import AppFooter from "./containers/commons/layouts/AppFooter";
 import RecruitmentList from "./containers/Recruitments/RecruitmentList";
 import RecruitmentContent from "./containers/Recruitments/RecruitmentDetail";
 import Profile from "./containers/Profile";
@@ -24,6 +25,7 @@ const App: React.VFC = () => (
             <Route path="/:id/edit" component={EditProfile} exact />
             <Route path="/:id/skill" component={UserSkill} exact />
         </Switch>
+        <AppFooter/>
     </Router>
 )
 
