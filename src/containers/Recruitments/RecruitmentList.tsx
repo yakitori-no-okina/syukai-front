@@ -6,7 +6,7 @@ import DateService from "../../services/utils/DateService";
 const RecruitmentList: React.VFC = () => {
     const items: Recruitment[] = blankRecruitment
     return (
-        <div className="container px-6 py-14 box-border mx-auto">
+        <div className="container px-6 py-14 box-border mx-auto h-screen">
             <div className="flex justify-center py-8">
                 {items.map(item => (
                     <Link
@@ -30,8 +30,9 @@ const RecruitmentList: React.VFC = () => {
                                         <p className="text-sm text-custom-black-100">aaaaaaaaa</p>
                                         <p className="text-sm text-custom-black-100">aaaaaaaaa</p>
                                     </div>
-                                    <div className="text-sm">
-                                        <span>😆</span><span className="pl-4 font-bold text-custom-gray-base">4/5</span>
+                                    <div>
+                                        <img className="inline-block w-5" src="/images/icons/commons/ion_people_color.svg" alt="" />
+                                        <span className="pl-4 text-sm font-bold text-custom-gray-base">4/5</span>
                                     </div>
                                 </div>
                             </div>
