@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
 import React, { useState } from "react";
 import { User, blankUser } from "../../../services/models/user";
+import SelectLanguage from "../../commons/forms/SelectLanguage";
 
 const UserSkill: React.VFC = () => {
     const user: User = blankUser;
@@ -42,7 +43,8 @@ const UserSkill: React.VFC = () => {
             {isOpen && (
                 <div className="fixed top-0 bottom-0 right-0 left-0 bg-black bg-opacity-60 z-40">
                     <div className="container mx-auto h-screen flex justify-center items-center">
-                        <div className="w-5/6 h-auto px-6 py-14 box-border mx-auto bg-custom-gray-100">
+                        <div className="w-5/6 h-auto px-6 py-14 box-border mx-auto bg-custom-gray-100 rounded-lg">
+                            <SelectLanguage />
                             <div className="text-center">
                                 <button onClick={closeModal} type="button" className="w-8/12 bg-custom-blue-base text-white font-bold text-sm rounded-3xl py-2 px-8">
                                     この内容で保存
