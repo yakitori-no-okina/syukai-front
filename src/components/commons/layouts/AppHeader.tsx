@@ -30,9 +30,7 @@ const AppHeaderComponent: React.VFC<{
                   </div>
               </div>
               {isShow && (
-                  <div className="absolute z-30 right-0">
-                      <Notification />
-                  </div>
+                  <Notification />
               )}
           </div>
       </div>
