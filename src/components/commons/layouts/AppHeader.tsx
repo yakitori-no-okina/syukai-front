@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
 import React from "react";
 import { Link } from "react-router-dom";
 import { User } from "../../../services/models/user";
@@ -12,21 +13,21 @@ const AppHeaderComponent: React.VFC<{
       <div className="container px-6 py-2 mx-auto">
           <div className="relative">
               <div className="flex justify-between items-center">
-                  <h1 className="text-white">
-                      <Link to={`/${user.name}`}>
-                          <img className="inline-block w-10 rounded-full" src="https://placehold.jp/150x150.png" alt="my icon"/>
-                      </Link>
-                  </h1>
-                  <div className="flex">
+                  <Link to="/">
+                      <h1 className="text-white text-white font-bold">
+                          syukai
+                      </h1>
+                  </Link>
+                  <div className="flex items-center">
                       <Link to="/search">
                           <img className="inline-block mx-2" src="/images/icons/header/ion_search_white.svg" alt="search"/>
                       </Link>
-                      <Link to="/">
-                          <img className="inline-block mx-2" src="/images/icons/header/ion_chat_white.svg" alt="chat"/>
+                      <div onClick={handleClick}>
+                          <img className="inline-block mx-2" src="/images/icons/header/ion_notifications_white.svg" alt="notifications"/>
+                      </div>
+                      <Link to={`/${user.name}`}>
+                          <img className="inline-block w-10 rounded-full ml-2" src={user.icon} alt="my icon"/>
                       </Link>
-                      <button type="button" onClick={handleClick}>
-                          <img className="inline-block ml-2" src="/images/icons/header/ion_notifications_white.svg" alt="notifications"/>
-                      </button>
                   </div>
               </div>
               {isShow && (

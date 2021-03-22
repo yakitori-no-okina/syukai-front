@@ -1,10 +1,8 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
 import React, { useState } from "react";
-import { User, blankUser } from "../../../services/models/user";
 import SelectLanguage from "../../commons/forms/SelectLanguage";
 
 const UserSkill: React.VFC = () => {
-    const user: User = blankUser;
     const [isOpen, setValue] = useState<boolean>(false);
     const openModal = () => setValue(true);
     const closeModal = () => setValue(false);
@@ -12,11 +10,9 @@ const UserSkill: React.VFC = () => {
         <>
             <div className="bg-custom-gray-100">
                 <div className="container px-6 py-14 box-border mx-auto">
-                    <div className="text-center pt-12 py-8">
-                        <div className="relative inline-block">
-                            <img className="rounded-full inline-block w-24" src={user.icon} alt="" />
-                            <span className="absolute right-0 bottom-0">a</span>
-                        </div>
+                    <div className="flex items-center flex-col pt-12">
+                        <img className="inline-block mb-8" src="/images/skill/img_skill.svg" alt="skill" />
+                        <p className="font-bold text-color-black-base text-2xl">Skillを追加してカスタマイズしよう!</p>
                     </div>
                 </div>
             </div>
@@ -25,15 +21,15 @@ const UserSkill: React.VFC = () => {
                     <section className="mb-6">
                         <h2 className="font-bold text-lg mb-4">Skills</h2>
                         <div>
-                            <div className="inline-block rounded-lg bg-white p-2">
+                            <div className="inline-block mx-1 rounded-lg bg-white p-2">
                                 <div className="relative inline-block p-4">
                                     <img className="inline-block w-16 rounded-full" src="https://placehold.jp/150x150.png" alt="" />
-                                    <span className="absolute right-0 bottom-0">A+</span>
+                                    <span className="absolute right-0 bottom-0 text-custom-black-base font-bold">A+</span>
                                 </div>
                             </div>
-                            <div onClick={openModal} className="inline-block rounded-lg bg-custom-blue-100 border border-custom-gray-base p-2">
+                            <div onClick={openModal} className="inline-block mx-1 cursor-pointer rounded-lg bg-custom-blue-100 border border-custom-gray-base p-2">
                                 <div className="inline-block p-4">
-                                    <img className="inline-block w-16 rounded-full" src="https://placehold.jp/150x150.png" alt="" />
+                                    <img className="inline-block w-16" src="/images/icons/commons/ion_add_color.svg" alt="" />
                                 </div>
                             </div>
                         </div>

@@ -4,6 +4,9 @@ module.exports = {
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
+    screens: {
+      "tablet": "640px",
+    },
     extend: {
       colors: {
         "custom-red-base": "#E6838F",
