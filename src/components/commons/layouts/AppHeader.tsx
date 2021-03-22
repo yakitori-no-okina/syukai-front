@@ -8,7 +8,7 @@ const AppHeaderComponent: React.VFC<{
     handleClick: () => void,
     isShow: boolean
 }> = ({ user, handleClick, isShow }) => (
-  <header className="fixed left-0 right-0 z-50 w-hull bg-custom-black-100 shadow-md">
+  <header className="fixed left-0 right-0 z-20 w-hull bg-custom-black-100 shadow-md">
       <div className="container px-6 py-2 mx-auto">
           <div className="relative">
               <div className="flex justify-between items-center">
@@ -30,7 +30,7 @@ const AppHeaderComponent: React.VFC<{
                   </div>
               </div>
               {isShow && (
-                  <div className="absolute z-50 right-0">
+                  <div className="absolute z-30 right-0">
                       <Notification />
                   </div>
               )}

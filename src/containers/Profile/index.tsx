@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { User, blankUser } from "../../services/models/user";
 
 const Profile: React.VFC = () => {
@@ -33,7 +34,10 @@ const Profile: React.VFC = () => {
                 <div className="container px-6 py-14 box-border mx-auto">
                     <div className="py-12">
                         <section className="mb-6">
-                            <h2 className="font-bold text-lg mb-4">Skills</h2>
+                            <div className="flex justify-between mb-4">
+                                <h2 className="font-bold text-lg">Skills</h2>
+                                <Link to={`/${user.name}/skill`} className="bg-custom-blue-base text-white font-bold text-sm rounded-3xl py-1 px-6">編集する</Link>
+                            </div>
                             <div>
                                 <div className="inline-block rounded-lg bg-white p-2">
                                     <div className="relative inline-block p-4">
