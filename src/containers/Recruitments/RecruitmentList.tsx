@@ -7,10 +7,10 @@ const RecruitmentList: React.VFC = () => {
     const items: Recruitment[] = blankRecruitment
     return (
         <div className="container px-6 py-14 box-border mx-auto">
-            <div className="flex justify-center">
+            <div className="flex justify-center py-8">
                 {items.map(item => (
                     <Link
-                        className="w-9/12 bg-white px-8 py-2 mb-6 shadow rounded-xl"
+                        className="w-96 bg-white px-8 py-2 mb-6 shadow rounded-xl"
                         to={`/recruitment/${item.id}`} key={item.id}
                     >
                         <div className="">
