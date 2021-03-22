@@ -5,8 +5,10 @@ import "./App.css"
 
 import AppHeader from "./containers/commons/layouts/AppHeader";
 import AppFooter from "./containers/commons/layouts/AppFooter";
+import Home from "./containers/Home";
 import RecruitmentList from "./containers/Recruitments/RecruitmentList";
 import RecruitmentContent from "./containers/Recruitments/RecruitmentDetail";
+import CreateRecruitment from "./containers/Recruitments/create";
 import Profile from "./containers/Profile";
 import EditProfile from "./containers/Profile/edit";
 import UserSkill from "./containers/Profile/skill";
@@ -17,7 +19,9 @@ const App: React.VFC = () => (
     <Router>
         <AppHeader/>
         <Switch>
-            <Route path="/" component={RecruitmentList} exact />
+            <Route path="/" component={Home} exact />
+            <Route path="/recruitment" component={RecruitmentList} exact />
+            <Route path="/recruitment/create" component={CreateRecruitment} exact />
             <Route path="/recruitment/:id" component={RecruitmentContent} exact />
             <Route path="/login" component={UserLogin} exact />
             <Route path="/search" component={Search} exact />
