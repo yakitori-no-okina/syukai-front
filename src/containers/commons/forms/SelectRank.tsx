@@ -9,7 +9,7 @@ type Prop = {
 
 const SelectRank: React.VFC<{rank: Prop, handleSetRank: (e: React.ChangeEvent<HTMLSelectElement>) => void}> = ({rank, handleSetRank}) => {
     const rankList = [
-        { label: "ランクで絞り込み", val: null},
+        { label: "", val: null},
         { label: "A", val: 5 },
         { label: "B", val: 4 },
         { label: "C", val: 3 },
@@ -19,6 +19,7 @@ const SelectRank: React.VFC<{rank: Prop, handleSetRank: (e: React.ChangeEvent<HT
 
     return (
         <>
+            <span className="text-custom-black-100 font-bold">ランクは?</span>
             <SelectForm itemList={rankList} val={rank} handleChange={handleSetRank} />
         </>
     );

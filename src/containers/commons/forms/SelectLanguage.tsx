@@ -9,7 +9,7 @@ type Prop = {
 
 const SelectLanguage: React.VFC<{language: Prop, handleSetLanguage: (e: React.ChangeEvent<HTMLSelectElement>) => void}> = ({ language, handleSetLanguage }) => {
     const languageList = [
-        { label: "言語で絞り込み", val: null},
+        { label: "", val: null},
         { label: "Ruby", val: "" },
         { label: "Nuxt", val: "" },
         { label: "Vue", val: "" },
@@ -19,6 +19,7 @@ const SelectLanguage: React.VFC<{language: Prop, handleSetLanguage: (e: React.Ch
 
     return (
         <>
+            <span className="text-custom-black-100 font-bold">言語は?</span>
             <SelectForm itemList={languageList} val={language} handleChange={handleSetLanguage} />
         </>
     );

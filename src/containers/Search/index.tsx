@@ -12,10 +12,10 @@ type Prop = {
 
 const Search: React.VFC = () => {
     const items: Recruitment[] = blankRecruitment;
-    const [language, setLanguage] = useState<Prop>({ label: "言語で絞り込み", val: null})
+    const [language, setLanguage] = useState<Prop>({ label: "", val: null})
 
 
-    const [rank, setRank] = useState<Prop>({ label: "ランクで絞り込み", val: null})
+    const [rank, setRank] = useState<Prop>({ label: "", val: null})
 
     console.log(rank)
     console.log(language)
