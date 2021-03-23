@@ -37,7 +37,7 @@ const AppHeaderComponent: React.VFC<{
                   <Notification />
               )}
               {isMenuShow && (
-                  <ProfileMenu/>
+                  <ProfileMenu user={user} />
               )}
           </div>
       </div>
