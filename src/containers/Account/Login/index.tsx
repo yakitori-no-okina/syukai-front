@@ -3,7 +3,7 @@ import React from "react";
 const UserLogin: React.VFC = () => (
     <div className="container px-6 py-14 box-border mx-auto h-screen">
         <div className="tablet:w-9/12 mx-auto px-4 py-6">
-            <form className="mb-6">
+            <form className="mt-36 mb-6">
                 <label className="block mb-4" htmlFor="userName">
                     <span className="block font-bold text-custom-black-base">ユーザー名</span>
                     <input className="w-full bg-custom-gray-200 rounded-lg py-1" type="text" id="userName"/>

@@ -3,12 +3,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { User } from "../../../services/models/user";
 import Notification from "../../../containers/Notification";
+import ProfileMenu from "../../../containers/Profile/menu";
 
 const AppHeaderComponent: React.VFC<{
     user: User,
-    handleClick: () => void,
-    isShow: boolean
-}> = ({ user, handleClick, isShow }) => (
+    showNotification: () => void,
+    showMenu: () => void,
+    isNotifyShow: boolean,
+    isMenuShow: boolean
+}> = ({ user, showNotification, showMenu, isNotifyShow, isMenuShow }) => (
   <header className="fixed left-0 right-0 z-20 w-hull bg-custom-black-100 shadow-md">
       <div className="container px-6 py-2 mx-auto">
           <div className="relative">
@@ -22,16 +25,19 @@ const AppHeaderComponent: React.VFC<{
                       <Link to="/search">
                           <img className="inline-block mx-2" src="/images/icons/header/ion_search_white.svg" alt="search"/>
                       </Link>
-                      <div onClick={handleClick}>
+                      <div onClick={showNotification}>
                           <img className="inline-block mx-2" src="/images/icons/header/ion_notifications_white.svg" alt="notifications"/>
                       </div>
-                      <Link to={`/${user.name}`}>
+                      <div onClick={showMenu}>
                           <img className="inline-block w-10 rounded-full ml-2" src={user.icon} alt="my icon"/>
-                      </Link>
+                      </div>
                   </div>
               </div>
-              {isShow && (
+              {isNotifyShow && (
                   <Notification />
+              )}
+              {isMenuShow && (
+                  <ProfileMenu/>
               )}
           </div>
       </div>
