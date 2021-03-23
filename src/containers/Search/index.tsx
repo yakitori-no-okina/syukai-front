@@ -13,12 +13,7 @@ type Prop = {
 const Search: React.VFC = () => {
     const items: Recruitment[] = blankRecruitment;
     const [language, setLanguage] = useState<Prop>({ label: "", val: null})
-
-
     const [rank, setRank] = useState<Prop>({ label: "", val: null})
-
-    console.log(rank)
-    console.log(language)
 
     const handleSetLanguage = (e: React.ChangeEvent<HTMLSelectElement>): void => {
         setLanguage({

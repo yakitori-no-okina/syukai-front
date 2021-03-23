@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
 import React, { useState } from "react";
 import SelectLanguage from "../../commons/forms/SelectLanguage";
+import SelectRank from "../../commons/forms/SelectRank";
 
 type Prop = {
     label: string,
@@ -12,10 +13,9 @@ const UserSkill: React.VFC = () => {
     const [isOpen, setValue] = useState<boolean>(false);
     const openModal = () => setValue(true);
     const closeModal = () => setValue(false);
-    const [language, setLanguage] = useState<Prop>({
-        label: "",
-        val: ""
-    })
+    const [language, setLanguage] = useState<Prop>({label: "", val: null})
+    const [rank, setRank] = useState<Prop>({ label: "", val: null})
+
 
     const handleSetLanguage = (e: React.ChangeEvent<HTMLSelectElement>): void => {
         setLanguage({
@@ -23,6 +23,14 @@ const UserSkill: React.VFC = () => {
             val: ""
         })
     }
+
+    const handleSetRank = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+        setRank({
+            label: e.target.value,
+            val: ""
+        })
+    }
+
 
     return (
         <>
@@ -58,7 +66,14 @@ const UserSkill: React.VFC = () => {
                 <div className="fixed top-0 bottom-0 right-0 left-0 bg-black bg-opacity-60 z-40">
                     <div className="container mx-auto h-screen flex justify-center items-center">
                         <div className="w-5/6 h-auto px-6 py-14 box-border mx-auto bg-custom-gray-100 rounded-lg">
-                            <SelectLanguage handleSetLanguage={handleSetLanguage} language={language} />
+                            <div className="mb-10 flex w-9/12 mx-auto justify-between">
+                                <div className="w-1/2 mx-1">
+                                    <SelectLanguage handleSetLanguage={handleSetLanguage} language={language} />
+                                </div>
+                                <div className="w-1/2 mx-1">
+                                    <SelectRank handleSetRank={handleSetRank} rank={rank} />
+                                </div>
+                            </div>
                             <div className="text-center">
                                 <button onClick={closeModal} type="button" className="w-8/12 bg-custom-blue-base text-white font-bold text-sm rounded-3xl py-2 px-8">
                                     この内容で保存
