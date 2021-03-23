@@ -18,8 +18,6 @@ const CreateAccount: React.VFC = () => {
         [val]: e.target.value
     })
 
-    console.log(account)
-
     return (
       <div className="container px-6 py-14 box-border mx-auto h-screen">
           <div className="tablet:w-9/12 mx-auto px-4 py-6">

@@ -24,7 +24,6 @@ const SettingProfile: React.VFC = () => {
         ...form,
         [val]: e.target.value
     })
-    console.log(form)
 
     return (
         <div className="container px-6 py-14 box-border mx-auto">
