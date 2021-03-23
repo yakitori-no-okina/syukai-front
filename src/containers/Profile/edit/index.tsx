@@ -1,8 +1,31 @@
-import React from "react";
+import React, {useState} from "react";
 import { User, blankUser } from "../../../services/models/user";
+
+type Form = {
+    name: string | undefined,
+    github: string | undefined,
+    twitter: string | undefined,
+    link: string | undefined,
+    about: string | undefined
+}
+
+const blackForm = {
+    name: undefined,
+    github: undefined,
+    twitter: undefined,
+    link: undefined,
+    about: undefined
+}
 
 const EditProfile: React.VFC = () => {
     const user: User = blankUser;
+    const [form, setForm] = useState<Form>(blackForm);
+
+    const handleForm = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, val: string): void => setForm({
+        ...form,
+        [val]: e.target.value
+    })
+
     return (
       <div className="container px-6 py-14 box-border mx-auto">
           <div className="tablet:w-9/12 mx-auto">
@@ -15,36 +38,65 @@ const EditProfile: React.VFC = () => {
               <form className="px-4 py-6">
                   <label className="block mb-4" htmlFor="userName">
                       <span className="block font-bold text-custom-black-base">ユーザー名</span>
-                      <input className="w-full bg-custom-gray-200 rounded-lg py-1" type="text" id="userName"/>
+                      <input
+                          value={form.name}
+                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleForm(e, "name")}
+                          className="w-full bg-custom-gray-200 rounded-lg py-1"
+                          type="text"
+                          id="userName"
+                      />
                   </label>
                   <div className="flex justify-between mb-4">
                       <label className="block w-5/12" htmlFor="github">
-                      <span className="block font-bold text-custom-black-base">
-                          <img className="inline-block mr-1 w-4" src="/images/icons/links/ion_logo-github.svg" alt="" />
-                          github
-                      </span>
-                          <input className="w-full bg-custom-gray-200 rounded-lg py-1" type="text" id="github"/>
+                          <span className="block font-bold text-custom-black-base">
+                              <img className="inline-block mr-1 w-4" src="/images/icons/links/ion_logo-github.svg" alt="" />
+                              github
+                          </span>
+                          <input
+                              value={form.github}
+                              onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleForm(e, "github")}
+                              className="w-full bg-custom-gray-200 rounded-lg py-1"
+                              type="text"
+                              id="github"
+                          />
                       </label>
                       <label className="block w-5/12" htmlFor="twitter">
-                      <span className="block font-bold text-custom-black-base">
-                          <img className="inline-block mr-1 w-4" src="/images/icons/links/ion_logo-twitter.svg" alt="" />
-                          twitter
-                      </span>
-                          <input className="w-full bg-custom-gray-200 rounded-lg py-1" type="text" id="twitter"/>
+                          <span className="block font-bold text-custom-black-base">
+                              <img className="inline-block mr-1 w-4" src="/images/icons/links/ion_logo-twitter.svg" alt="" />
+                              twitter
+                          </span>
+                           <input
+                               value={form.twitter}
+                               onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleForm(e, "twitter")}
+                               className="w-full bg-custom-gray-200 rounded-lg py-1"
+                               type="text"
+                               id="twitter"
+                           />
                       </label>
                   </div>
 
                   <label className="block mb-4" htmlFor="link">
-                  <span className="block font-bold text-custom-black-base">
-                      <img className="inline-block mr-1 w-5" src="/images/icons/links/ion_link_color.svg" alt="" />
-                      あなたのリンク
-                  </span>
-                      <input className="w-full bg-custom-gray-200 rounded-lg py-1" type="text" id="link"/>
+                      <span className="block font-bold text-custom-black-base">
+                          <img className="inline-block mr-1 w-5" src="/images/icons/links/ion_link_color.svg" alt="" />
+                          あなたのリンク
+                      </span>
+                      <input
+                          value={form.link}
+                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleForm(e, "link")}
+                          className="w-full bg-custom-gray-200 rounded-lg py-1"
+                          type="text"
+                          id="link"
+                      />
                   </label>
 
                   <label className="block mb-4" htmlFor="bio">
                       <span className="block font-bold text-custom-black-base">自己紹介</span>
-                      <textarea className="w-full bg-custom-gray-200 rounded-lg p-4" id="bio"/>
+                      <textarea
+                          value={form.about}
+                          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => handleForm(e, "about")}
+                          className="w-full bg-custom-gray-200 rounded-lg p-4"
+                          id="bio"
+                      />
                   </label>
               </form>
               <div className="text-center">
