@@ -17,11 +17,6 @@ const EditProfile: React.VFC = () => {
                       <span className="block font-bold text-custom-black-base">ユーザー名</span>
                       <input className="w-full bg-custom-gray-200 rounded-lg py-1" type="text" id="userName"/>
                   </label>
-                  <label className="block mb-4" htmlFor="displayName">
-                      <span className="block font-bold text-custom-black-base">表示名</span>
-                      <input className="w-full bg-custom-gray-200 rounded-lg py-1" type="text" id="displayName"/>
-                  </label>
-
                   <div className="flex justify-between mb-4">
                       <label className="block w-5/12" htmlFor="github">
                       <span className="block font-bold text-custom-black-base">

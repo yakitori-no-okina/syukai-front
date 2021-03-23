@@ -10,10 +10,12 @@ type Prop = {
     img?: null
 }
 
+
 const Search: React.VFC = () => {
     const items: Recruitment[] = blankRecruitment;
     const [language, setLanguage] = useState<Prop>({ label: "", val: null})
     const [rank, setRank] = useState<Prop>({ label: "", val: null})
+    const [word, setWord] = useState<string>("")
 
     const handleSetLanguage = (e: React.ChangeEvent<HTMLSelectElement>): void => {
         setLanguage({
@@ -29,6 +31,13 @@ const Search: React.VFC = () => {
         })
     }
 
+    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>): void => {
+        setWord(e.target.value)
+    }
+
+    console.log(word)
+    console.log(rank)
+    console.log(language)
 
     return (
         <div className="container px-6 py-14 box-border mx-auto h-screen">
@@ -43,7 +52,11 @@ const Search: React.VFC = () => {
             <form className="text-center">
                 <div className="relative">
                     <img className="inline-block absolute mt-2 ml-3 w-6" src="/images/icons/commons/ion_search_color.svg" alt="" />
-                    <input className="w-9/12 inline-block py-2 pl-12 pr-4 bg-custom-gray-200 rounded-3xl" type="text"/>
+                    <input
+                        value={word}
+                        onChange={handleSearch}
+                        className="w-9/12 inline-block py-2 pl-12 pr-4 bg-custom-gray-200 rounded-3xl"
+                        type="text"/>
                 </div>
             </form>
             <div className="flex justify-center py-8">
