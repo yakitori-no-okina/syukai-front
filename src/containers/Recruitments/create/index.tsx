@@ -11,7 +11,7 @@ const CreateRecruitment: React.VFC = () => (
                     </div>
                 </div>
             </section>
-            <form>
+            <form className="mb-6">
                 <label className="block mb-4" htmlFor="content">
                     <span className="block font-bold text-custom-black-base">募集内容</span>
                     <textarea className="w-full bg-custom-gray-200 rounded-lg p-4" id="content"/>
@@ -23,12 +23,27 @@ const CreateRecruitment: React.VFC = () => (
                   </span>
                     <input className="w-full bg-custom-gray-200 rounded-lg py-1" type="text" id="link"/>
                 </label>
-                <label className="block mb-4" htmlFor="from">
+                <span className="block font-bold text-custom-black-base">
+                    イベント期間
+                </span>
+                <div className="flex justify-between">
+                    <label className="w-5/12 block mb-4" htmlFor="from">
+                        <input className="w-full bg-custom-gray-200 rounded-lg py-1" type="date" id="from"/>
+                    </label>
+                    <span className="font-bold">~</span>
+                    <label className="w-5/12 block mb-4" htmlFor="to">
+                        <input className="w-full bg-custom-gray-200 rounded-lg py-1" type="date" id="to"/>
+                    </label>
+                </div>
+                <label className="block mb-4" htmlFor="num_of_users">
                   <span className="block font-bold text-custom-black-base">
-                      イベント期間
+                      募集人数
                   </span>
-                    <input className="w-full bg-custom-gray-200 rounded-lg py-1" type="time" id="from"/>
+                    <input className="w-5/12 bg-custom-gray-200 rounded-lg py-1" type="number" id="num_of_users"/> 人
                 </label>
+                <p className="text-center font-bold text-custom-black-100">
+                    現在のチーム人数は<span className="text-custom-blue-base">1人</span>です
+                </p>
             </form>
             <div className="text-center">
                 <button type="button" className="w-64 bg-custom-blue-base text-white font-bold text-sm rounded-3xl py-2 px-8">
