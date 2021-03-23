@@ -1,7 +1,8 @@
-import React, {useState} from "react";
+import React from "react";
+import {useHistory} from "react-router-dom";
 import StepBarComponent from "../../../components/commons/ui/StepBar";
 
-type Form = {
+type Prop = {
     name: string | undefined,
     github: string | undefined,
     twitter: string | undefined,
@@ -9,21 +10,18 @@ type Form = {
     about: string | undefined
 }
 
-const blackForm = {
-    name: undefined,
-    github: undefined,
-    twitter: undefined,
-    link: undefined,
-    about: undefined
-}
 
-const SettingProfile: React.VFC = () => {
-    const [form, setForm] = useState<Form>(blackForm)
+const SettingProfile: React.VFC<{
+    form: Prop,
+    handleForm: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, val: string) => void
+}> = ({ form, handleForm }) => {
 
-    const handleForm = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, val: string): void => setForm({
-        ...form,
-        [val]: e.target.value
-    })
+    const history = useHistory()
+
+    const LinkToStep = () => {
+        if(!form) return
+        history.push("/signup?step=3")
+    }
 
     return (
         <div className="container px-6 py-14 box-border mx-auto">
@@ -100,13 +98,17 @@ const SettingProfile: React.VFC = () => {
                     </label>
                 </form>
                 <div className="text-center">
-                    <button type="button" className="w-64 bg-custom-black-base text-white font-bold text-sm rounded-3xl py-2 px-8">
+                    <button
+                        onClick={LinkToStep}
+                        type="button"
+                        className="w-64 bg-custom-black-base text-white font-bold text-sm rounded-3xl py-2 px-8"
+                    >
                         この内容で登録
                     </button>
                 </div>
             </div>
         </div>
     );
-};
+}
 
 export default SettingProfile;

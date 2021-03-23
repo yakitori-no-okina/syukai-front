@@ -8,7 +8,7 @@ const Home: React.VFC = () => (
           <Link to="/login" className="inline-block w-8/12 bg-custom-blue-base text-white font-bold text-sm rounded-3xl py-2 px-8 mb-6">
               ログイン
           </Link>
-          <Link to="/signup/step1" className="inline-block w-8/12 bg-custom-black-base text-white font-bold text-sm rounded-3xl py-2 px-8 mb-6">
+          <Link to="/signup?step=1" className="inline-block w-8/12 bg-custom-black-base text-white font-bold text-sm rounded-3xl py-2 px-8 mb-6">
               新規作成
           </Link>
       </div>

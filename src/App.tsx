@@ -14,9 +14,7 @@ import EditProfile from "./containers/Profile/edit";
 import UserSkill from "./containers/Profile/skill";
 import Search from "./containers/Search";
 import UserLogin from "./containers/Account/Login";
-import CreateAccount from "./containers/Account/Signup/CreateAccount";
-import SettingProfile from "./containers/Account/Signup/SettingProfile";
-import SettingDone from "./containers/Account/Signup/SettingDone";
+import Signup from "./containers/Account/Signup";
 
 const App: React.VFC = () => (
     <Router>
@@ -27,9 +25,7 @@ const App: React.VFC = () => (
             <Route path="/recruitment/create" component={CreateRecruitment} exact />
             <Route path="/recruitment/:id" component={RecruitmentContent} exact />
             <Route path="/login" component={UserLogin} exact />
-            <Route path="/signup/step1" component={CreateAccount} exact />
-            <Route path="/signup/step2" component={SettingProfile} exact />
-            <Route path="/signup/step3" component={SettingDone} exact />
+            <Route path="/signup" component={Signup} />
             <Route path="/search" component={Search} exact />
             <Route path="/:id" component={Profile} exact />
             <Route path="/:id/edit" component={EditProfile} exact />
