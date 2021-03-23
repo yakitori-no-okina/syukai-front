@@ -34,8 +34,6 @@ const CreateRecruitment: React.VFC = () => {
         }
     };
 
-    console.log(form)
-
     return (
       <div className="container px-6 py-14 box-border mx-auto">
           <div className="tablet:w-9/12 mx-auto h-screen">

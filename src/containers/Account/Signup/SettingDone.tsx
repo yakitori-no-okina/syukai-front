@@ -25,9 +25,6 @@ const SettingDone: React.VFC<{
         history.push("/recruitment")
     }
 
-    console.log(form)
-    console.log(account)
-
     return (
         <div className="container px-6 py-14 box-border mx-auto h-screen">
             <div className="tablet:w-9/12 text-center mx-auto px-4 py-6">
