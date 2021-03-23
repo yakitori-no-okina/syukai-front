@@ -1,22 +1,26 @@
 import React from "react";
+import SelectForm from "./SelectForm";
 
-const SelectLanguage = () => {
+type Prop = {
+    label: string,
+    val: string | number | null,
+    img?: null
+}
+
+const SelectLanguage: React.VFC<{language: Prop, handleSetLanguage: (e: React.ChangeEvent<HTMLSelectElement>) => void}> = ({ language, handleSetLanguage }) => {
     const languageList = [
-        { name: "Ruby", img: "" },
-        { name: "Nuxt", img: "" },
-        { name: "Vue", img: "" },
-        { name: "Laravel", img: "" },
-        { name: "Kotlin", img: "" },
+        { label: "言語で絞り込み", val: null},
+        { label: "Ruby", val: "" },
+        { label: "Nuxt", val: "" },
+        { label: "Vue", val: "" },
+        { label: "Laravel", val: "" },
+        { label: "Kotlin", val: "" },
     ]
 
     return (
-      <div>
-          <select size={3} className="" placeholder="Skillを追加しよう">
-              {languageList.map(item => (
-                  <option value={item.name}>{item.name}</option>
-              ))}
-          </select>
-      </div>
+        <>
+            <SelectForm itemList={languageList} val={language} handleChange={handleSetLanguage} />
+        </>
     );
 };
 
