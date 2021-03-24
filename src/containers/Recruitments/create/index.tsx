@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+// import SelectPurpose from "../../commons/forms/SelectPurpose";
 
 
 type Form = {
     icon?: string | undefined,
+    purpose: {label: string, val: string | number | null}
     message: string | undefined,
     link: string | undefined,
     startDate: string | undefined,
@@ -12,6 +14,7 @@ type Form = {
 
 const blackForm = {
     icon: "https://placehold.jp/150x150.png",
+    purpose: {label: "賞を受賞したい", val: 0},
     message: undefined,
     link: undefined,
     startDate: undefined,
