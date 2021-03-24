@@ -17,6 +17,7 @@ const blackAccount = {
 
 type Form = {
     name: string | undefined,
+    icon: string | undefined,
     github: string | undefined,
     twitter: string | undefined,
     link: string | undefined,
@@ -25,6 +26,7 @@ type Form = {
 
 const blackForm = {
     name: undefined,
+    icon: "https://placehold.jp/150x150.png",
     github: undefined,
     twitter: undefined,
     link: undefined,
@@ -50,13 +52,42 @@ const Signup: React.VFC = () => {
         [val]: e.target.value
     })
 
+    /* eslint-disable */
+    const handleImage = (i: any): void => {
+        const file = i.target.files[0]
+        if (!file) {
+            alert("ファイルを選択して")
+            return
+        }
+        if (file.size > 10000000) {
+            alert("ファイルサイズがでかすぎ")
+            return
+        }
+        if (file.type !== "image/jpeg" && file.type !== "image/png") {
+            alert("jpegかpngで")
+            return
+        }
+
+        const reader: any = new FileReader()
+        reader.onerror = () => alert("画像の読み取りに失敗しました")
+        reader.readAsDataURL(file)
+        reader.onload = () => {
+            const base64 = reader.result as string
+            setForm({
+                ...form,
+                icon: base64
+            })
+        }
+    };
+    /* eslint-disable */
+
     return (
         <>
             {step === 1 && (
                 <CreateAccount account={account} handleAccount={handleAccount} />
             )}
             {step === 2 && (
-                <SettingProfile form={form} handleForm={handleForm} />
+                <SettingProfile form={form} handleForm={handleForm} handleImage={handleImage} />
             )}
             {step === 3 && (
                 <SettingDone account={account} form={form} />

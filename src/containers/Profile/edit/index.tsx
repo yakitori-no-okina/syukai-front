@@ -1,8 +1,9 @@
 import React, {useState} from "react";
-import { User, blankUser } from "../../../services/models/user";
+// import { User, blankUser } from "../../../services/models/user";
 
 type Form = {
     name: string | undefined,
+    icon: string | undefined
     github: string | undefined,
     twitter: string | undefined,
     link: string | undefined,
@@ -11,6 +12,7 @@ type Form = {
 
 const blackForm = {
     name: undefined,
+    icon: "https://placehold.jp/150x150.png",
     github: undefined,
     twitter: undefined,
     link: undefined,
@@ -18,7 +20,6 @@ const blackForm = {
 }
 
 const EditProfile: React.VFC = () => {
-    const user: User = blankUser;
     const [form, setForm] = useState<Form>(blackForm);
 
     const handleForm = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, val: string): void => setForm({
@@ -26,13 +27,46 @@ const EditProfile: React.VFC = () => {
         [val]: e.target.value
     })
 
+    /* eslint-disable */
+    const handleImage = (i: any): void => {
+        const file = i.target.files[0]
+        if (!file) {
+            alert("ファイルを選択して")
+            return
+        }
+        if (file.size > 10000000) {
+            alert("ファイルサイズがでかすぎ")
+            return
+        }
+        if (file.type !== "image/jpeg" && file.type !== "image/png") {
+            alert("jpegかpngで")
+            return
+        }
+
+        const reader: any = new FileReader()
+        reader.onerror = () => alert("画像の読み取りに失敗しました")
+        reader.readAsDataURL(file)
+        reader.onload = () => {
+            const base64 = reader.result as string
+            setForm({
+                ...form,
+                icon: base64
+            })
+        }
+    };
+    /* eslint-disable */
+
+
     return (
       <div className="container px-6 py-14 box-border mx-auto">
           <div className="tablet:w-9/12 mx-auto">
               <div className="text-center pt-12 py-8">
                   <div className="relative inline-block">
-                      <img className="rounded-full inline-block w-24" src={user.icon} alt="" />
-                      <img className="inline-block absolute right-0 bottom-0 rounded-full" src="/images/icons/commons/ion_add_circle.svg" alt=""/>
+                      <img className="rounded-full inline-block w-24 h24" src={form.icon} alt="" />
+                      <label htmlFor="icon">
+                          <input onChange={(i: any) => handleImage(i)} className="hidden" type="file" id="icon"/>
+                          <img className="inline-block absolute right-0 bottom-0 rounded-full" src="/images/icons/commons/ion_add_circle.svg" alt=""/>
+                      </label>
                   </div>
               </div>
               <form className="px-4 py-6">

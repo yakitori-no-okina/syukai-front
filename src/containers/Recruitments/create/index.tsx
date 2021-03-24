@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 
 type Form = {
+    icon?: string | undefined,
     message: string | undefined,
     link: string | undefined,
     startDate: string | undefined,
@@ -10,6 +11,7 @@ type Form = {
 }
 
 const blackForm = {
+    icon: "https://placehold.jp/150x150.png",
     message: undefined,
     link: undefined,
     startDate: undefined,
@@ -34,14 +36,47 @@ const CreateRecruitment: React.VFC = () => {
         }
     };
 
+    /* eslint-disable */
+    const handleImage = (i: any): void => {
+        const file = i.target.files[0]
+        if (!file) {
+            alert("ファイルを選択して")
+            return
+        }
+        if (file.size > 10000000) {
+            alert("ファイルサイズがでかすぎ")
+            return
+        }
+        if (file.type !== "image/jpeg" && file.type !== "image/png") {
+            alert("jpegかpngで")
+            return
+        }
+
+        const reader: any = new FileReader()
+        reader.onerror = () => alert("画像の読み取りに失敗しました")
+        reader.readAsDataURL(file)
+        reader.onload = () => {
+            const base64 = reader.result as string
+            setForm({
+                ...form,
+                icon: base64
+            })
+        }
+    };
+    /* eslint-disable */
+
+
     return (
       <div className="container px-6 py-14 box-border mx-auto">
           <div className="tablet:w-9/12 mx-auto h-screen">
               <section className="flex flex-col items-center pt-12">
                   <div className="text-center pt-12 py-8">
                       <div className="relative inline-block">
-                          <img className="rounded-full inline-block w-24" src="https://placehold.jp/150x150.png" alt="" />
-                          <img className="inline-block absolute right-0 bottom-0 rounded-full" src="/images/icons/commons/ion_add_circle.svg" alt=""/>
+                          <img className="rounded-full inline-block w-24" src={form.icon} alt="" />
+                          <label htmlFor="icon">
+                              <input onChange={(i: any) => handleImage(i)} className="hidden" type="file" id="icon"/>
+                              <img className="inline-block absolute right-0 bottom-0 rounded-full" src="/images/icons/commons/ion_add_circle.svg" alt=""/>
+                          </label>
                       </div>
                   </div>
               </section>

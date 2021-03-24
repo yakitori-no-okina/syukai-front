@@ -4,6 +4,7 @@ import StepBarComponent from "../../../components/commons/ui/StepBar";
 
 type Prop = {
     name: string | undefined,
+    icon: string | undefined,
     github: string | undefined,
     twitter: string | undefined,
     link: string | undefined,
@@ -13,8 +14,9 @@ type Prop = {
 
 const SettingProfile: React.VFC<{
     form: Prop,
-    handleForm: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, val: string) => void
-}> = ({ form, handleForm }) => {
+    handleForm: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, val: string) => void,
+    handleImage: (i: any) => void
+}> = ({ form, handleForm, handleImage }) => {
 
     const history = useHistory()
 
@@ -29,8 +31,11 @@ const SettingProfile: React.VFC<{
                 <StepBarComponent num={2} />
                 <div className="text-center pt-12 pb-8">
                     <div className="relative inline-block">
-                        <img className="rounded-full inline-block w-24" src="https://placehold.jp/150x150.png" alt="" />
-                        <img className="inline-block absolute right-0 bottom-0 rounded-full" src="/images/icons/commons/ion_add_circle.svg" alt=""/>
+                        <img className="rounded-full inline-block w-24" src={form.icon} alt="" />
+                        <label htmlFor="icon">
+                            <input onChange={(i: any) => handleImage(i)} className="hidden" type="file" id="icon"/>
+                            <img className="inline-block absolute right-0 bottom-0 rounded-full" src="/images/icons/commons/ion_add_circle.svg" alt=""/>
+                        </label>
                     </div>
                 </div>
                 <form className="px-4 py-6">
