@@ -1,4 +1,4 @@
-import React from "react";
+import React, {ChangeEventHandler} from "react";
 import {useHistory} from "react-router-dom";
 import StepBarComponent from "../../../components/commons/ui/StepBar";
 
@@ -15,7 +15,7 @@ type Prop = {
 const SettingProfile: React.VFC<{
     form: Prop,
     handleForm: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, val: string) => void,
-    handleImage: (i: any) => void
+    handleImage: (i: React.ChangeEvent<HTMLInputElement>) => void
 }> = ({ form, handleForm, handleImage }) => {
 
     const history = useHistory()
@@ -33,7 +33,7 @@ const SettingProfile: React.VFC<{
                     <div className="relative inline-block">
                         <img className="rounded-full inline-block w-24" src={form.icon} alt="" />
                         <label htmlFor="icon">
-                            <input onChange={(i: any) => handleImage(i)} className="hidden" type="file" id="icon"/>
+                            <input onChange={(i: React.ChangeEvent<HTMLInputElement>) => handleImage(i)} className="hidden" type="file" id="icon"/>
                             <img className="inline-block absolute right-0 bottom-0 rounded-full" src="/images/icons/commons/ion_add_circle.svg" alt=""/>
                         </label>
                     </div>

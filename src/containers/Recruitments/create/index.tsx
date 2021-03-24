@@ -77,7 +77,7 @@ const CreateRecruitment: React.VFC = () => {
                       <div className="relative inline-block">
                           <img className="rounded-full inline-block w-24" src={form.icon} alt="" />
                           <label htmlFor="icon">
-                              <input onChange={(i: any) => handleImage(i)} className="hidden" type="file" id="icon"/>
+                              <input onChange={(i: React.ChangeEvent<HTMLInputElement>) => handleImage(i)} className="hidden" type="file" id="icon"/>
                               <img className="inline-block absolute right-0 bottom-0 rounded-full" src="/images/icons/commons/ion_add_circle.svg" alt=""/>
                           </label>
                       </div>
