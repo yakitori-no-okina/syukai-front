@@ -51,9 +51,6 @@ const Search: React.VFC = () => {
         setWord(e.target.value)
     }
 
-    console.log(rank)
-    console.log(language)
-
     return (
         <div className="container px-6 py-14 box-border mx-auto h-screen">
             <div className="my-10 flex w-9/12 mx-auto justify-between">
