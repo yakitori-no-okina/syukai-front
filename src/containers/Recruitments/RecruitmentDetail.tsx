@@ -1,15 +1,14 @@
 import React from "react";
-import { useParams } from "react-router-dom"
+// import { useParams } from "react-router-dom"
 import { RecruitmentDetail, blankRecruitmentDetail } from "../../services/models/recruitment";
 import DateService from "../../services/utils/DateService";
-import useRecruitment from "../../hooks/use-recruitment";
+// import useRecruitment from "../../hooks/use-recruitment";
 
 
 const RecruitmentContent: React.VFC = () => {
     const item: RecruitmentDetail = blankRecruitmentDetail;
-    const {id} = useParams<{id: string}>()
-    const { recruitment } = useRecruitment(Number(id))
-    console.log(recruitment)
+    // const {id} = useParams<{id: string}>()
+    // const { recruitment } = useRecruitment(Number(id))
     const findPurpose = (val: number) => {
         const purposeList = [
             {label: "賞を受賞したい", val: 0},

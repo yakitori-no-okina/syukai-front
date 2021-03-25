@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Notify, blankNotify } from "../../services/models/notify";
-import useNotification from "../../hooks/use-notification";
+// import useNotification from "../../hooks/use-notification";
 
 const Notification: React.VFC = () => {
   const notifications: Notify[] = blankNotify;
   // TODO 修正
-  const { notification } = useNotification(1)
-  console.log(notification)
+  // const { notification } = useNotification(1)
+  // console.log(notification)
   return (
       <div className="absolute z-30 right-0">
           <div className="container px-4 py-2 box-border mx-auto shadow-lg bg-white rounded-lg w-64 h-80 overflow-y-scroll">
