@@ -8,6 +8,10 @@ class UserProfileService extends ApiService{
         const data = res.data as User
         return data
     }
+
+    async editUserProfile(userId: number, form: User): Promise<void> {
+        await axios.put(`${this.url}/user/${userId}`, form)
+    }
 }
 
 export default UserProfileService;

@@ -8,6 +8,12 @@ class NotificationService extends ApiService {
         const data = res.data as Notify[]
         return data
     }
+
+    async updateNotification(userId: number, notificationId: number): Promise<{hasRead: boolean}> {
+        const res = await axios.patch(`${this.url}/notification/${userId}/${notificationId}`)
+        const data = res.data as {hasRead: true}
+        return data
+    }
 }
 
 export default NotificationService;
