@@ -1,15 +1,12 @@
-type Language = {
-    value: number,
-    detail: {
-        name: string,
-        value: number,
-    }[]
-};
+export type StringKeyObject = {
+    [key: string]: string | number
+}
 
-export type Skill = {
-    backend: Language
-    frontend: Language,
-    management: Language,
-    mobile: Language,
-    AI: Language,
+export type Skill = StringKeyObject & {
+    icon: string,
+    backend: number
+    frontend: number,
+    management: number,
+    mobile: number,
+    AI: number,
 };

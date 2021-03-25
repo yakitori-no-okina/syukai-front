@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import SelectLanguage from "../../commons/forms/SelectLanguage";
 import SelectRank from "../../commons/forms/SelectRank";
+import {Skill} from "../../../services/models/skill";
+import {blankUser, User} from "../../../services/models/user";
 
 type Prop = {
     label: string,
@@ -10,8 +12,9 @@ type Prop = {
 }
 
 const UserSkill: React.VFC = () => {
+    const user: User = blankUser;
     const [isOpen, setValue] = useState<boolean>(false);
-    const openModal = () => setValue(true);
+    // const openModal = () => setValue(true);
     const closeModal = () => setValue(false);
     const [language, setLanguage] = useState<Prop>({label: "", val: null})
     const [rank, setRank] = useState<Prop>({ label: "", val: null})
@@ -31,6 +34,60 @@ const UserSkill: React.VFC = () => {
         })
     }
 
+    const SearchSkill = (skill: Skill) => {
+        const result = {
+            skill: "",
+            val: 0,
+        }
+        const userSkills = Object.keys(skill);
+        // eslint-disable-next-line
+        for (const userSkill of userSkills) {
+            if(userSkill === "icon") {
+                // eslint-disable-next-line no-continue
+                continue
+            }
+            if(skill[userSkill] === 0) {
+                // eslint-disable-next-line no-continue
+                continue
+            }
+
+            result.val = skill[userSkill] as number
+            result.skill = userSkill
+        }
+        return result
+    }
+
+    const findRank = (skill: Skill) => {
+        const rankList = [
+            { label: "A", val: 5 },
+            { label: "B", val: 4 },
+            { label: "C", val: 3 },
+            { label: "D", val: 2 },
+            { label: "E", val: 1 },
+        ]
+        const res = SearchSkill(skill)
+
+        const hoge = rankList.find(item => item.val === res.val)
+
+        return hoge?.label
+    }
+
+    const findSkill = (skill: Skill) => {
+        const skillList = [
+            { label: "🐶", val: "backend" },
+            { label: "🐱", val: "frontend" },
+            { label: "🐭", val: "management" },
+            { label: "🦊", val: "mobile" },
+            { label: "🐼", val: "AI" },
+        ]
+        const res = SearchSkill(skill)
+
+        const target = skillList.find(item => item.val === res.skill)
+
+        return target
+    }
+
+
 
     return (
         <>
@@ -47,17 +104,28 @@ const UserSkill: React.VFC = () => {
                     <section className="mb-6">
                         <h2 className="font-bold text-lg mb-4">Skills</h2>
                         <div>
-                            <div className="inline-block mx-1 rounded-lg bg-white p-2">
-                                <div className="relative inline-block p-4">
-                                    <img className="inline-block w-16 rounded-full" src="https://placehold.jp/150x150.png" alt="" />
-                                    <span className="absolute right-0 bottom-0 text-custom-black-base font-bold">A+</span>
-                                </div>
+                            <div className="flex flex-wrap justify-between">
+                                {user.skills.map((skill: Skill) => (
+                                    <div className="inline-block w-40 rounded-lg inline-flex flex-col bg-white p-2 mb-6">
+                                        <div className="inline-block font-bold text-custom-black-100">{findSkill(skill)?.val}</div>
+                                        <div className="relative text-center inline-block p-4">
+                                            <p className="inline-block text-6xl rounded-full">{findSkill(skill)?.label}</p>
+                                            <span className="absolute right-0 bottom-0 text-custom-black-base font-bold">{findRank(skill)}</span>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
-                            <div onClick={openModal} className="inline-block mx-1 cursor-pointer rounded-lg bg-custom-blue-100 border border-custom-gray-base p-2">
-                                <div className="inline-block p-4">
-                                    <img className="inline-block w-16" src="/images/icons/commons/ion_add_color.svg" alt="" />
-                                </div>
-                            </div>
+                            {
+                                /*
+*
+*
+* <div onClick={openModal} className="inline-block mx-1 cursor-pointer rounded-lg bg-custom-blue-100 border border-custom-gray-base p-2">
+*    <div className="inline-block p-4">
+*        <img className="inline-block w-16" src="/images/icons/commons/ion_add_color.svg" alt="" />
+*    </div>
+*</div>
+*/
+                            }
                         </div>
                     </section>
                 </div>

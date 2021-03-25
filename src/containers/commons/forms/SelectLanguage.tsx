@@ -9,9 +9,9 @@ type Prop = {
 
 const SelectLanguage: React.VFC<{language: Prop, handleSetLanguage: (e: React.ChangeEvent<HTMLSelectElement>) => void}> = ({ language, handleSetLanguage }) => {
     const languageList = [
-        { label: "", val: null},
-        { label: "Ruby", val: "" },
-        { label: "Nuxt", val: "" },
+        { label: "frontend", val: null},
+        { label: "backend", val: "" },
+        { label: "manegement", val: "" },
         { label: "Vue", val: "" },
         { label: "Laravel", val: "" },
         { label: "Kotlin", val: "" },

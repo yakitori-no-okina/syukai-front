@@ -18,7 +18,7 @@ export type User = {
     twitter: string,
     about: string,
     links: string[],
-    skills: Skill,
+    skills: Skill[],
 };
 
 export const blankUser: User = {
@@ -30,71 +30,49 @@ export const blankUser: User = {
     links: [
         "https://tamblog.net/",
     ],
-    skills: {
-        backend: {
-            value: 13,
-            detail: [
-                {
-                    name: "Golang",
-                    value: 6
-                },
-                {
-                    name: "Python",
-                    value: 7
-                }
-            ]
+    skills: [
+        {
+            icon: "https://placehold.jp/150x150.png",
+            backend: 5,
+            frontend: 0,
+            management: 0,
+            mobile: 0,
+            AI: 0
         },
-        frontend: {
-            value: 13,
-            detail: [
-                {
-                    name: "React",
-                    value: 6
-                },
-                {
-                    name: "Nuxt",
-                    value: 7
-                }
-            ]
+        {
+            icon: "https://placehold.jp/150x150.png",
+            backend: 0,
+            frontend: 4,
+            management: 0,
+            mobile: 0,
+            AI: 0
         },
-        management: {
-            value: 7,
-            detail: [
-                {
-                    name: "Leader",
-                    value: 7
-                }
-            ]
+        {
+            icon: "https://placehold.jp/150x150.png",
+            backend: 0,
+            frontend: 0,
+            management: 3,
+            mobile: 0,
+            AI: 0
         },
-        mobile: {
-            value: 8,
-            detail: [
-                {
-                    name: "swift",
-                    value: 5
-                },
-                {
-                    name: "kotlin",
-                    value: 3
-                }
-            ]
+        {
+
+            icon: "https://placehold.jp/150x150.png",
+            backend: 0,
+            frontend: 0,
+            management: 0,
+            mobile: 1,
+            AI: 0
         },
-        AI: {
-            value: 22,
-            detail: [
-                {
-                    name: "RNN",
-                    "value": 7
-                },
-                {
-                    name: "自然言語処理",
-                    value: 8
-                },
-                {
-                    name: "画像認識",
-                    "value": 7
-                }
-            ]
+        {
+            icon: "https://placehold.jp/150x150.png",
+            backend: 0,
+            frontend: 0,
+            management: 0,
+            mobile: 0,
+            AI: 1
         }
-    }
+
+
+    ]
 };
