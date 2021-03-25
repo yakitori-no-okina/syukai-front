@@ -10,7 +10,7 @@ class AccountService extends ApiService{
     }
 
     async loginUser(form: Login): Promise<{id: number, token: string}> {
-        const res = await axios.post(`/login`, form)
+        const res = await axios.post(`${this.url}/login`, form)
         const data = res.data as {id: number, token: string}
         return data
     }

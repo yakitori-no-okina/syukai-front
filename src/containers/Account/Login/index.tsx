@@ -1,10 +1,9 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import {useHistory} from "react-router-dom";
+import { Login } from "../../../services/models/user";
+import {UserContext} from "../../../contexts";
 
-type Account = {
-    mail: string | undefined,
-    password: string | undefined
-}
+
 
 const blackAccount = {
     mail: undefined,
@@ -13,8 +12,9 @@ const blackAccount = {
 
 
 const UserLogin: React.VFC = () => {
+    const { login, user } = useContext(UserContext)
     const history = useHistory()
-    const [account, setAccount] = useState<Account>(blackAccount);
+    const [account, setAccount] = useState<Login>(blackAccount);
     const handleAccount = (e: React.ChangeEvent<HTMLInputElement>, val: string): void => setAccount({
         ...account,
         [val]: e.target.value
@@ -22,8 +22,12 @@ const UserLogin: React.VFC = () => {
 
     const LinkTo = () => {
         if(!account) return
+        login(account)
         history.push("/recruitment")
     }
+
+    console.log(account)
+    console.log(user)
 
     return (
         <div className="container px-6 py-14 box-border mx-auto h-screen">
