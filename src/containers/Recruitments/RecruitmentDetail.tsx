@@ -6,21 +6,11 @@ const RecruitmentContent: React.VFC = () => {
     const item: RecruitmentDetail = blankRecruitmentDetail;
     const findPurpose = (val: number) => {
         const purposeList = [
-            {
-                label: "新しい技術に触れる",
-                value: 0,
-            },
-            {
-                label: "受賞を目指す",
-                value: 1,
-            },
-            {
-                label: "友達を増やしたい",
-                value: 2,
-            },
+            {label: "賞を受賞したい", val: 0},
+            {label: "新しい技術を触りたい", val: 1},
         ]
 
-        return purposeList.find(v => v.value === val)
+        return purposeList.find(v => v.val === val)
     }
     return (
         <>

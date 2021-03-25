@@ -7,8 +7,8 @@ import {blankUser, User} from "../../../services/models/user";
 
 type Prop = {
     label: string,
-    val: string | number | null,
-    img?: null
+    val: string | number | undefined,
+    img?: undefined
 }
 
 const UserSkill: React.VFC = () => {
@@ -16,8 +16,8 @@ const UserSkill: React.VFC = () => {
     const [isOpen, setValue] = useState<boolean>(false);
     // const openModal = () => setValue(true);
     const closeModal = () => setValue(false);
-    const [language, setLanguage] = useState<Prop>({label: "", val: null})
-    const [rank, setRank] = useState<Prop>({ label: "", val: null})
+    const [language, setLanguage] = useState<Prop>({label: "", val: undefined})
+    const [rank, setRank] = useState<Prop>({ label: "", val: undefined})
 
 
     const handleSetLanguage = (e: React.ChangeEvent<HTMLSelectElement>): void => {

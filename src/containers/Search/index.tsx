@@ -6,34 +6,53 @@ import {Recruitment, blankRecruitment} from "../../services/models/recruitment";
 
 type Prop = {
     label: string,
-    val: string | number | null,
-    img?: null
+    val: string | number | undefined,
+    img?: undefined
 }
 
 
 const Search: React.VFC = () => {
     const items: Recruitment[] = blankRecruitment;
-    const [language, setLanguage] = useState<Prop>({ label: "", val: null})
-    const [rank, setRank] = useState<Prop>({ label: "", val: null})
+    const [language, setLanguage] = useState<Prop>({ label: "", val: undefined})
+    const [rank, setRank] = useState<Prop>({ label: "", val: undefined})
     const [word, setWord] = useState<string>("")
 
     const handleSetLanguage = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+        const languageList = [
+            { label: "", val: undefined},
+            { label: "frontend", val: "frontend"},
+            { label: "backend", val: "backend" },
+            { label: "management", val: "management" },
+            { label: "mobile", val: "mobile" },
+            { label: "AI", val: "AI" },
+        ]
+        const result = languageList.find(item => item.val === e.target.value) as Prop
         setLanguage({
-            label: e.target.value,
-            val: ""
+            ...result
         })
     }
 
     const handleSetRank = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+        const rankList = [
+            { label: "", val: undefined},
+            { label: "A", val: 5 },
+            { label: "B", val: 4 },
+            { label: "C", val: 3 },
+            { label: "D", val: 2 },
+            { label: "E", val: 1 },
+        ]
+        const result = rankList.find(item => item.val === Number(e.target.value)) as Prop
         setRank({
-            label: e.target.value,
-            val: ""
+            ...result
         })
     }
 
     const handleSearch = (e: React.ChangeEvent<HTMLInputElement>): void => {
         setWord(e.target.value)
     }
+
+    console.log(rank)
+    console.log(language)
 
     return (
         <div className="container px-6 py-14 box-border mx-auto h-screen">

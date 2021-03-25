@@ -3,13 +3,16 @@ import SelectForm from "./SelectForm";
 
 type Prop = {
     label: string,
-    val: string | number | null,
-    img?: null
+    val: string | number | undefined,
+    img?: undefined
 }
 
-const SelectRank: React.VFC<{rank: Prop, handleSetRank: (e: React.ChangeEvent<HTMLSelectElement>) => void}> = ({rank, handleSetRank}) => {
+const SelectRank: React.VFC<{
+    rank: Prop,
+    handleSetRank: (e: React.ChangeEvent<HTMLSelectElement>) => void,
+}> = ({rank, handleSetRank}) => {
     const rankList = [
-        { label: "", val: null},
+        { label: "", val: undefined},
         { label: "A", val: 5 },
         { label: "B", val: 4 },
         { label: "C", val: 3 },
