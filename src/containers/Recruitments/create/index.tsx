@@ -4,9 +4,10 @@ import React, { useState } from "react";
 
 type Form = {
     icon?: string | undefined,
-    purpose: {label: string, val: string | number | null}
+    purpose: number,
     message: string | undefined,
-    link: string | undefined,
+    eventLink: string | undefined,
+    eventName: string | undefined
     startDate: string | undefined,
     endDate: string | undefined,
     numOfUsers: number
@@ -14,9 +15,10 @@ type Form = {
 
 const blackForm = {
     icon: "https://placehold.jp/150x150.png",
-    purpose: {label: "賞を受賞したい", val: 0},
+    purpose: 0,
     message: undefined,
-    link: undefined,
+    eventLink: undefined,
+    eventName: undefined,
     startDate: undefined,
     endDate: undefined,
     numOfUsers: 0
@@ -25,8 +27,8 @@ const blackForm = {
 
 const CreateRecruitment: React.VFC = () => {
     const [form, setForm] = useState<Form>(blackForm)
-    const handleForm = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, val: string): void => {
-        if(val === "numOfUsers") {
+    const handleForm = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>, val: string): void => {
+        if(val === "numOfUsers" || val === "purpose") {
             setForm({
                 ...form,
                 [val]: Number(e.target.value)
@@ -68,6 +70,10 @@ const CreateRecruitment: React.VFC = () => {
     };
     /* eslint-disable */
 
+    const purposeList = [
+        {label: "賞を受賞したい", val: 0},
+        {label: "新しい技術を触りたい", val: 1},
+    ]
 
     return (
       <div className="container px-6 py-14 box-border mx-auto">
@@ -93,13 +99,39 @@ const CreateRecruitment: React.VFC = () => {
                           id="content"
                       />
                   </label>
+                  <span className="block font-bold text-custom-black-base">
+                      参加目的
+                  </span>
+                  <select
+                      value={form.purpose}
+                      onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handleForm(e, "purpose")}
+                      className="inline-block bg-transparent font-bold text-custom-black-100 border-none outline-none w-full bg-custom-gray-200 rounded-md py-2 px-4 mb-4"
+                  >
+                      {purposeList.map(item => (
+                          <option value={item.val} className="my-3" key={item.val}>
+                              {item.label}
+                          </option>
+                      ))}
+                  </select>
+                  <label className="block mb-4" htmlFor="eventName">
+                      <span className="block font-bold text-custom-black-base">
+                          イベント名
+                      </span>
+                      <input
+                          value={form.eventName}
+                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleForm(e, "eventName")}
+                          className="w-full bg-custom-gray-200 rounded-lg py-1"
+                          type="text"
+                          id="eventName"
+                      />
+                  </label>
                   <label className="block mb-4" htmlFor="link">
                       <span className="block font-bold text-custom-black-base">
                           <img className="inline-block mr-1 w-5" src="/images/icons/links/ion_link_color.svg" alt="" />
                           イベントのリンク
                       </span>
                       <input
-                          value={form.link}
+                          value={form.eventLink}
                           onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleForm(e, "link")}
                           className="w-full bg-custom-gray-200 rounded-lg py-1"
                           type="text"
