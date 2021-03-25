@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Notify } from "../services/models/notify";
-import ApiService from "../services/api/ApiService";
+import NotificationService from "../services/api/NotificationService";
 
 const useNotification = (id: number) => {
     const [notification, setNotification] = useState<Notify[]>([]);
@@ -9,7 +9,7 @@ const useNotification = (id: number) => {
     useEffect(() => {
         const load = async () : Promise<void> => {
             try {
-                const res = await (new ApiService())?.getNotification(id)
+                const res = await (new NotificationService())?.getNotification(id)
                 setNotification(res)
                 setError(null)
             }catch (e) {

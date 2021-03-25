@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { Recruitment } from "../services/models/recruitment";
-import ApiService from "../services/api/ApiService";
+import RecruitmentService from "../services/api/RecruitmentService";
 
 const useRecruitment = (id: number) => {
     const [recruitment, setRecruitment] = useState<Recruitment | null>(null);
@@ -9,7 +9,7 @@ const useRecruitment = (id: number) => {
     useEffect(() => {
         const load = async (): Promise<void> => {
             try {
-                const res = await (new ApiService())?.getRecruitmentDetail(id)
+                const res = await (new RecruitmentService())?.getRecruitmentDetail(id)
                 setRecruitment(res);
                 setError(null);
             }catch (e) {

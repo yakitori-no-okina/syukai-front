@@ -11,6 +11,11 @@ export type InitUser = {
     links: string[],
 };
 
+export type Login = {
+    mail: string,
+    password: string
+}
+
 export type User = {
     name: string,
     icon: string,
