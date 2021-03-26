@@ -97,7 +97,7 @@ export type createForm = {
 export const blackForm: createForm = {
     icon: "https://placehold.jp/150x150.png",
     purpose: 0,
-    message: undefined,
+    message: "aaa",
     event_link: undefined,
     event_name: undefined,
     start_date: undefined,

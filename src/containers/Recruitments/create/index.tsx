@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom"
 import { createForm, blackForm } from "../../../services/models/recruitment";
 import RecruitmentService from "../../../services/api/RecruitmentService";
 import SelectLanguage from "../../commons/forms/SelectLanguage";
 import SelectRank from "../../commons/forms/SelectRank";
+import {UserContext} from "../../../providers/AuthProvider";
 
 
 type Prop = {
@@ -14,6 +15,8 @@ type Prop = {
 
 
 const CreateRecruitment: React.VFC = () => {
+    const { userInfo } = useContext(UserContext)
+    const data = JSON.parse(userInfo) as { id: number, token: string }
     const history = useHistory()
     const [form, setForm] = useState<createForm>({...blackForm})
     const [language, setLanguage] = useState<Prop>({ label: "", val: undefined})
@@ -103,6 +106,7 @@ const CreateRecruitment: React.VFC = () => {
         if(!form) return
         const inputForm = {
             ...form,
+            owner_id: data.id,
             conditions: {
                 ...form.conditions,
                 [language.label]: rank.val
