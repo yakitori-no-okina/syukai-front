@@ -1,4 +1,5 @@
 import React, {useState, useContext} from "react";
+import {useHistory} from "react-router-dom"
 import { Login } from "../../../services/models/user";
 import {UserContext} from "../../../providers/AuthProvider";
 
@@ -9,6 +10,7 @@ const blackAccount = {
 }
 
 const UserLogin: React.VFC = () => {
+    const history = useHistory()
     const usercontext = useContext(UserContext)
     const [account, setAccount] = useState<Login>(blackAccount);
     const handleAccount = (e: React.ChangeEvent<HTMLInputElement>, val: string): void => setAccount({
@@ -16,9 +18,12 @@ const UserLogin: React.VFC = () => {
         [val]: e.target.value
     })
 
-    const LinkTo = () => {
+    const LinkTo = async () => {
         if(!account) return
         usercontext.login(account)
+        await new Promise(() => setTimeout(() => {
+            history.push("/recruitment")
+        }, 3000))
     }
 
     return (

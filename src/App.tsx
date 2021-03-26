@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./tailwind.output.css"
 import "./App.css"
 import { UserContext } from "./providers/AuthProvider";
@@ -21,7 +21,7 @@ import Signup from "./containers/Account/Signup";
 const App: React.VFC = () => {
     const { userInfo } = useContext(UserContext)
     return userInfo ? (
-    <Router>
+    <Router forceRefresh>
         <AppHeader/>
         <Switch>
             <Route path="/" component={Home} exact />
@@ -37,13 +37,14 @@ const App: React.VFC = () => {
         <AppFooter/>
     </Router>
 ) : (
-        <Router>
+        <Router forceRefresh>
             <AppGuestHeader />
             <Switch>
                 <Route path="/" component={Home} exact />
+                <Route path="/recruitment" component={RecruitmentList} exact />
+                <Route path="/recruitment/:id" component={RecruitmentContent} exact />
                 <Route path="/login" component={UserLogin} exact />
                 <Route path="/signup" component={Signup} />
-                <Redirect to="/" exact />
             </Switch>
             <AppFooter/>
         </Router>
