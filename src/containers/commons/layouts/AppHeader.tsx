@@ -3,6 +3,8 @@ import AppHeaderComponent from "../../../components/commons/layouts/AppHeader";
 import {UserContext} from "../../../providers/AuthProvider";
 import useProfile from "../../../hooks/use-profile";
 
+
+
 const AppHeader: React.VFC = () => {
     const [isNotifyShow, setNotifyFlag] = useState<boolean>(false)
     const [isMenuShow, setMenuFlag] = useState<boolean>(false);
@@ -19,6 +21,7 @@ const AppHeader: React.VFC = () => {
         isNotifyShow={isNotifyShow}
         isMenuShow={isMenuShow}
         user={profile}
+        userInfo={data}
 
     />
 }

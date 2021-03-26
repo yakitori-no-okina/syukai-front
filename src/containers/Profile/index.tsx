@@ -1,10 +1,12 @@
 import React, {useContext} from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Skill } from "../../services/models/skill";
 import useProfile from "../../hooks/use-profile"
 import {UserContext} from "../../providers/AuthProvider";
 
 const Profile: React.VFC = () => {
+    const params = useParams<{id: string}>()
+    const id = Number(params.id)
     const { userInfo } = useContext(UserContext)
     const data = JSON.parse(userInfo) as {id: number, token: string}
     const { profile } = useProfile(data.id)
@@ -83,9 +85,11 @@ const Profile: React.VFC = () => {
                             <div className="ml-6 mb-4">
                                 <p className="font-bold text-lg">
                                     {profile.name}
-                                    <Link to={`/${profile.name}/edit`}>
-                                        <img className="inline-block w-4 mx-1" src="/images/icons/commons/ion_pencil_color.svg" alt="" />
-                                    </Link>
+                                    {data.id === id && (
+                                        <Link to={`/${profile.name}/edit`}>
+                                            <img className="inline-block w-4 mx-1" src="/images/icons/commons/ion_pencil_color.svg" alt="" />
+                                        </Link>
+                                    )}
                                 </p>
                                 <p className="text-custom-black-100 break-all mb-2">{profile.about}</p>
                                 <div>
@@ -109,10 +113,12 @@ const Profile: React.VFC = () => {
                         <section className="mb-6">
                             <div className="flex justify-between mb-4">
                                 <h2 className="font-bold text-lg">Skills</h2>
-                                <Link to={`/${profile.name}/skill`} className="bg-custom-blue-base text-white font-bold text-sm rounded-3xl py-1 px-6">
-                                    <img className="w-4 inline-block mr-1" src="/images/icons/commons/ion_pencil_white.svg" alt="" />
-                                    編集する
-                                </Link>
+                                {data.id === id && (
+                                    <Link to={`/${profile.name}/skill`} className="bg-custom-blue-base text-white font-bold text-sm rounded-3xl py-1 px-6">
+                                        <img className="w-4 inline-block mr-1" src="/images/icons/commons/ion_pencil_white.svg" alt="" />
+                                        編集する
+                                    </Link>
+                                )}
                             </div>
                             <div className="flex flex-wrap justify-between">
                                 {profile.skills.map((skill: Skill) => (

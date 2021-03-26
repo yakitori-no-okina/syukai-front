@@ -3,11 +3,16 @@ import { Link } from "react-router-dom";
 import useNotification from "../../hooks/use-notification";
 import {UserContext} from "../../providers/AuthProvider";
 import {Notify} from "../../services/models/notify";
+import NotificationService from "../../services/api/NotificationService";
 
 const Notification: React.VFC = () => {
     const { userInfo } = useContext(UserContext)
     const data = JSON.parse(userInfo) as {id: number, token: string}
     const { notification } = useNotification(data.id)
+
+    const handleSubmit = async (userId: number, notificationId: number) => {
+        await (new NotificationService()).updateNotification(userId, notificationId)
+    }
 
   return notification ? (
       <div className="absolute z-30 right-0">
@@ -21,7 +26,7 @@ const Notification: React.VFC = () => {
                           </div>
                           {item.approval_wait_id && (
                               <div className="text-right">
-                                  <button type="button" className="bg-custom-blue-base text-white  font-bold text-xs rounded-lg py-1 px-6">
+                                  <button onClick={() => handleSubmit(data.id, item.id)} type="button" className="bg-custom-blue-base text-white  font-bold text-xs rounded-lg py-1 px-6">
                                       承認する
                                   </button>
                               </div>

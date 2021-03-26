@@ -26,6 +26,17 @@ export type User = {
     skills: Skill[],
 };
 
+export type loginUserProfile = {
+    id: number,
+    name: string,
+    icon: string,
+    github: string,
+    twitter: string,
+    about: string,
+    links: string[],
+    skills: Skill[],
+}
+
 export const blankUser: User = {
     name: "tame",
     icon: "https://placehold.jp/150x150.png",
