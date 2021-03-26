@@ -23,7 +23,8 @@ const UserLogin: React.VFC = () => {
         usercontext.login(account)
         await new Promise(() => setTimeout(() => {
             history.push("/recruitment")
-        }, 3000))
+            history.go(0)
+        }, 2000))
     }
 
     return (

@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import "./tailwind.output.css"
 import "./App.css"
 import { UserContext } from "./providers/AuthProvider";
@@ -33,21 +33,21 @@ const App: React.VFC = () => {
             <Route path="/:id" component={Profile} exact />
             <Route path="/:id/edit" component={EditProfile} exact />
             <Route path="/:id/skill" component={UserSkill} exact />
+            <Redirect to="/" exact />
         </Switch>
         <AppFooter/>
     </Router>
 ) : (
-        <Router forceRefresh>
+    <>
+        <Router>
             <AppGuestHeader />
             <Switch>
                 <Route path="/" component={Home} exact />
-                <Route path="/recruitment" component={RecruitmentList} exact />
-                <Route path="/recruitment/:id" component={RecruitmentContent} exact />
                 <Route path="/login" component={UserLogin} exact />
                 <Route path="/signup" component={Signup} />
             </Switch>
-            <AppFooter/>
         </Router>
+    </>
     )
 }
 
