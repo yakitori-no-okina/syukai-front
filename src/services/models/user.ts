@@ -24,6 +24,8 @@ export type User = {
     about: string,
     links: string[],
     skills: Skill[],
+    team_id: number,
+    team_icon: string
 };
 
 export type loginUserProfile = {
@@ -88,5 +90,7 @@ export const blankUser: User = {
             mobile: 0,
             AI: 1
         }
-    ]
+    ],
+    team_id: 2,
+    team_icon: "https://placehold.jp/150x150.png"
 };

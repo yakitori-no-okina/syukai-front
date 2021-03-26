@@ -112,7 +112,7 @@ const Profile: React.VFC = () => {
                     <div className="">
                         <section className="mb-6">
                             <div className="flex justify-between mb-4">
-                                <h2 className="font-bold text-lg">Skills</h2>
+                                <h2 className="font-bold text-lg">スキル</h2>
                                 {data.id === id && (
                                     <Link to={`/${profile.name}/skill`} className="bg-custom-blue-base text-white font-bold text-sm rounded-3xl py-1 px-6">
                                         <img className="w-4 inline-block mr-1" src="/images/icons/commons/ion_pencil_white.svg" alt="" />
@@ -133,13 +133,10 @@ const Profile: React.VFC = () => {
                             </div>
                         </section>
                         <section className="mb-6">
-                            <h2 className="font-bold text-lg mb-4">Joined</h2>
-                            <div>
-                                <div className="inline-block">
-                                    <img className="w-16 inline-block rounded-full" src={profile.icon} alt="" />
-                                    <p className="text-center font-bold text-custom-black-100">{profile.name}</p>
-                                </div>
-                            </div>
+                            <h2 className="font-bold text-lg mb-4">参加チーム</h2>
+                            <Link to={`/recruitment/${profile.team_id}`} className="inline-block">
+                                <img className="w-16 inline-block rounded-full" src={profile.team_icon} alt="" />
+                            </Link>
                         </section>
                     </div>
                 </div>
