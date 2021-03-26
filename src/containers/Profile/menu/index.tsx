@@ -6,7 +6,8 @@ import { User } from "../../../services/models/user";
 
 const ProfileMenu: React.VFC<{
     user: User,
-}> = ({ user }) => {
+    userInfo: {id: number, token: string}
+}> = ({ user, userInfo }) => {
     const history = useHistory()
     const { logout } = useContext(UserContext)
     const handleLogout = () => {
@@ -16,7 +17,7 @@ const ProfileMenu: React.VFC<{
     return (
         <div className="absolute z-30 right-0">
             <div className="container mx-auto box-border rounded-lg shadow-lg bg-white w-48 h-80">
-                <Link to={`/${user.name}`}>
+                <Link to={`/${userInfo.id}`}>
                     <div className="flex items-center py-2 px-4">
                         <img className="inline-block w-6" src="/images/icons/profile/ion_person-circle-color.svg" alt="" />
                         <p className="break-all text-custom-black-100 leading-none font-bold ml-2">{user.name}</p>

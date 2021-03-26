@@ -1,11 +1,16 @@
-import React from "react";
-import { useParams } from "react-router-dom"
+import React, {useContext} from "react";
+import { useParams, Link } from "react-router-dom"
 import DateService from "../../services/utils/DateService";
 import useRecruitment from "../../hooks/use-recruitment";
+import RecruitmentService from "../../services/api/RecruitmentService";
+import {UserContext} from "../../providers/AuthProvider";
 
 
 const RecruitmentContent: React.VFC = () => {
     const {id} = useParams<{id: string}>()
+    const { userInfo } = useContext(UserContext)
+    const data = JSON.parse(userInfo) as {id: number, token: string}
+
     const { recruitment } = useRecruitment(Number(id))
     const findPurpose = (val: number | undefined) => {
         const purposeList = [
@@ -14,6 +19,10 @@ const RecruitmentContent: React.VFC = () => {
         ]
 
         return purposeList.find(v => v.val === val)
+    }
+
+    const requestApprovalRecruitment = async (useId: number, recruitmentId: number) => {
+        await (new RecruitmentService()).requestRecruitment(useId, recruitmentId)
     }
 
     return (
@@ -57,13 +66,18 @@ const RecruitmentContent: React.VFC = () => {
                             <h3 className="font-bold text-lg mb-4">メンバー</h3>
                             <div>
                                 {recruitment.users.map(user => (
-                                    <div className="inline-block" key={user.id}>
+                                    <Link to={`/${user.id}`} className="inline-block" key={user.id}>
                                         <img className="w-16 inline-block rounded-full" src={user.icon} alt="" />
                                         <p className="text-center">{user.name}</p>
-                                    </div>
+                                    </Link>
                                 ))}
                             </div>
                         </div>
+                    </div>
+                    <div className="text-center">
+                        <button onClick={() => requestApprovalRecruitment(data.id, Number(id))} type="button" className="w-64 bg-custom-blue-base text-white font-bold text-sm rounded-3xl py-2 px-8">
+                            参加を希望する
+                        </button>
                     </div>
                 </div>
             </div>

@@ -7,11 +7,12 @@ import ProfileMenu from "../../../containers/Profile/menu";
 
 const AppHeaderComponent: React.VFC<{
     user: User | null,
+    userInfo: {id: number, token: string}
     showNotification: () => void,
     showMenu: () => void,
     isNotifyShow: boolean,
     isMenuShow: boolean
-}> = ({ user, showNotification, showMenu, isNotifyShow, isMenuShow }) => user ? (
+}> = ({ user, userInfo, showNotification, showMenu, isNotifyShow, isMenuShow }) => user ? (
   <header className="fixed left-0 right-0 z-20 w-hull bg-custom-black-100 shadow-md">
       <div className="container px-6 py-2 mx-auto">
           <div className="relative">
@@ -34,7 +35,7 @@ const AppHeaderComponent: React.VFC<{
                   <Notification />
               )}
               {isMenuShow && (
-                  <ProfileMenu user={user} />
+                  <ProfileMenu user={user} userInfo={userInfo} />
               )}
           </div>
       </div>

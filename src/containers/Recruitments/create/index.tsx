@@ -117,7 +117,7 @@ const CreateRecruitment: React.VFC = () => {
 
     return (
       <div className="container px-6 py-14 box-border mx-auto">
-          <div className="tablet:w-9/12 mx-auto h-screen">
+          <div className="tablet:w-9/12 mx-auto">
               <section className="flex flex-col items-center pt-12">
                   <div className="text-center pt-12 py-8">
                       <div className="relative inline-block">
@@ -222,15 +222,15 @@ const CreateRecruitment: React.VFC = () => {
                           id="num_of_users"
                       /> 人
                   </label>
-                  <p className="text-center font-bold text-custom-black-100">
+                  <p className="text-center font-bold text-custom-black-100 mb-6">
                       現在のチーム人数は<span className="text-custom-blue-base"> {form.num_of_users+1}人 </span>です
                   </p>
+                  <div className="text-center mb-6">
+                      <button onClick={submitRecruitment} type="button" className="w-64 bg-custom-blue-base text-white font-bold text-sm rounded-3xl py-2 px-8">
+                          この内容で作成
+                      </button>
+                  </div>
               </form>
-              <div className="text-center">
-                  <button onClick={submitRecruitment} type="button" className="w-64 bg-custom-blue-base text-white font-bold text-sm rounded-3xl py-2 px-8">
-                      この内容で作成
-                  </button>
-              </div>
           </div>
       </div>
   );
