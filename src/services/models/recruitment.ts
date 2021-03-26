@@ -93,6 +93,7 @@ export type createForm = {
         AI: number
     },
     num_of_users: number,
+    address: string
 }
 
 export const blackForm: createForm = {
@@ -111,5 +112,6 @@ export const blackForm: createForm = {
         mobile: 0,
         AI: 0
     },
-    num_of_users: 0
+    num_of_users: 0,
+    address: ""
 }

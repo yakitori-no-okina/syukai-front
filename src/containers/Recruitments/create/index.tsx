@@ -180,6 +180,18 @@ const CreateRecruitment: React.VFC = () => {
                           id="link"
                       />
                   </label>
+                  <label className="block mb-4" htmlFor="address">
+                      <span className="block font-bold text-custom-black-base">
+                          連絡先
+                      </span>
+                      <input
+                          value={form.address}
+                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleForm(e, "address")}
+                          className="w-full bg-custom-gray-200 rounded-lg py-1"
+                          type="text"
+                          id="address"
+                      />
+                  </label>
                   <span className="block font-bold text-custom-black-base">
                     イベント期間
                   </span>
