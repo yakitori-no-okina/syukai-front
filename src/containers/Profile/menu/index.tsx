@@ -11,7 +11,7 @@ const ProfileMenu: React.VFC<{
     const { logout } = useContext(UserContext)
     const handleLogout = () => {
         logout()
-        history.push("/")
+        history.go(0)
     }
     return (
         <div className="absolute z-30 right-0">
