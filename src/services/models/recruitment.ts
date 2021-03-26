@@ -75,3 +75,37 @@ export const blankRecruitmentDetail = {
     start_date: "2021-03-20",
     end_date: "2021-03-20"
 };
+
+export type createForm = {
+    icon?: string | undefined,
+    purpose: number,
+    message: string | undefined,
+    event_link: string | undefined,
+    event_name: string | undefined
+    start_date: string | undefined,
+    end_date: string | undefined,
+    conditions: {
+        backend: number,
+        frontend: number,
+        mobile: number,
+        AI: number
+    },
+    num_of_users: number,
+}
+
+export const blackForm: createForm = {
+    icon: "https://placehold.jp/150x150.png",
+    purpose: 0,
+    message: undefined,
+    event_link: undefined,
+    event_name: undefined,
+    start_date: undefined,
+    end_date: undefined,
+    conditions: {
+        backend: 0,
+        frontend: 0,
+        mobile: 0,
+        AI: 0
+    },
+    num_of_users: 0
+}

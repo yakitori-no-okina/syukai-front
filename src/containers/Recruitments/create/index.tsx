@@ -1,34 +1,26 @@
 import React, { useState } from "react";
-// import SelectPurpose from "../../commons/forms/SelectPurpose";
+import { useHistory } from "react-router-dom"
+import { createForm, blackForm } from "../../../services/models/recruitment";
+import RecruitmentService from "../../../services/api/RecruitmentService";
+import SelectLanguage from "../../commons/forms/SelectLanguage";
+import SelectRank from "../../commons/forms/SelectRank";
 
 
-type Form = {
-    icon?: string | undefined,
-    purpose: number,
-    message: string | undefined,
-    eventLink: string | undefined,
-    eventName: string | undefined
-    startDate: string | undefined,
-    endDate: string | undefined,
-    numOfUsers: number
-}
-
-const blackForm = {
-    icon: "https://placehold.jp/150x150.png",
-    purpose: 0,
-    message: undefined,
-    eventLink: undefined,
-    eventName: undefined,
-    startDate: undefined,
-    endDate: undefined,
-    numOfUsers: 0
+type Prop = {
+    label: string,
+    val: string | number | undefined,
+    img?: undefined
 }
 
 
 const CreateRecruitment: React.VFC = () => {
-    const [form, setForm] = useState<Form>(blackForm)
+    const history = useHistory()
+    const [form, setForm] = useState<createForm>(blackForm)
+    const [language, setLanguage] = useState<Prop>({ label: "", val: undefined})
+    const [rank, setRank] = useState<Prop>({ label: "", val: undefined})
+
     const handleForm = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>, val: string): void => {
-        if(val === "numOfUsers" || val === "purpose") {
+        if(val === "num_of_users" || val === "purpose") {
             setForm({
                 ...form,
                 [val]: Number(e.target.value)
@@ -40,6 +32,38 @@ const CreateRecruitment: React.VFC = () => {
             });
         }
     };
+
+    const handleSetLanguage = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+        const languageList = [
+            { label: "", val: undefined},
+            { label: "frontend", val: "frontend"},
+            { label: "backend", val: "backend" },
+            { label: "management", val: "management" },
+            { label: "mobile", val: "mobile" },
+            { label: "AI", val: "AI" },
+        ]
+        const result = languageList.find(item => item.val === e.target.value) as Prop
+        setLanguage({
+            ...result
+        })
+    }
+
+    const handleSetRank = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+        const rankList = [
+            { label: "", val: undefined},
+            { label: "A", val: 5 },
+            { label: "B", val: 4 },
+            { label: "C", val: 3 },
+            { label: "D", val: 2 },
+            { label: "E", val: 1 },
+        ]
+        const result = rankList.find(item => item.val === Number(e.target.value)) as Prop
+        setRank({
+            ...result
+        })
+    }
+
+
 
     /* eslint-disable */
     const handleImage = (i: any): void => {
@@ -74,6 +98,15 @@ const CreateRecruitment: React.VFC = () => {
         {label: "賞を受賞したい", val: 0},
         {label: "新しい技術を触りたい", val: 1},
     ]
+    console.log(form)
+
+    const submitRecruitment = async () => {
+        if(!form) return
+        const res = await (new RecruitmentService()).addRecruitment(form)
+        if(res) {
+            history.push("/recruitment")
+        }
+    }
 
     return (
       <div className="container px-6 py-14 box-border mx-auto">
@@ -118,8 +151,8 @@ const CreateRecruitment: React.VFC = () => {
                           イベント名
                       </span>
                       <input
-                          value={form.eventName}
-                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleForm(e, "eventName")}
+                          value={form.event_name}
+                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleForm(e, "event_name")}
                           className="w-full bg-custom-gray-200 rounded-lg py-1"
                           type="text"
                           id="eventName"
@@ -131,8 +164,8 @@ const CreateRecruitment: React.VFC = () => {
                           イベントのリンク
                       </span>
                       <input
-                          value={form.eventLink}
-                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleForm(e, "link")}
+                          value={form.event_link}
+                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleForm(e, "event_link")}
                           className="w-full bg-custom-gray-200 rounded-lg py-1"
                           type="text"
                           id="link"
@@ -140,12 +173,12 @@ const CreateRecruitment: React.VFC = () => {
                   </label>
                   <span className="block font-bold text-custom-black-base">
                     イベント期間
-                </span>
-                  <div className="flex justify-between">
+                  </span>
+                  <div className="flex justify-between mb-4">
                       <label className="w-5/12 block mb-4" htmlFor="from">
                           <input
-                              value={form.startDate}
-                              onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleForm(e, "startDate")}
+                              value={form.start_date}
+                              onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleForm(e, "start_date")}
                               className="w-full bg-custom-gray-200 rounded-lg py-1"
                               type="date"
                               id="from"
@@ -154,32 +187,40 @@ const CreateRecruitment: React.VFC = () => {
                       <span className="font-bold">~</span>
                       <label className="w-5/12 block mb-4" htmlFor="to">
                           <input
-                              value={form.endDate}
-                              onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleForm(e, "endDate")}
+                              value={form.end_date}
+                              onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleForm(e, "end_date")}
                               className="w-full bg-custom-gray-200 rounded-lg py-1"
                               type="date"
                               id="to"
                           />
                       </label>
                   </div>
+                  <div className="mb-4 flex mx-auto justify-between">
+                      <div className="w-1/2 mx-1">
+                          <SelectLanguage handleSetLanguage={handleSetLanguage} language={language} />
+                      </div>
+                      <div className="w-1/2 mx-1">
+                          <SelectRank handleSetRank={handleSetRank} rank={rank} />
+                      </div>
+                  </div>
                   <label className="block mb-4" htmlFor="num_of_users">
                   <span className="block font-bold text-custom-black-base">
                       募集人数
                   </span>
                       <input
-                          value={form.numOfUsers}
-                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleForm(e, "numOfUsers")}
+                          value={form.num_of_users}
+                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleForm(e, "num_of_users")}
                           className="w-5/12 bg-custom-gray-200 rounded-lg py-1"
                           type="number"
                           id="num_of_users"
                       /> 人
                   </label>
                   <p className="text-center font-bold text-custom-black-100">
-                      現在のチーム人数は<span className="text-custom-blue-base"> {form.numOfUsers+1}人 </span>です
+                      現在のチーム人数は<span className="text-custom-blue-base"> {form.num_of_users+1}人 </span>です
                   </p>
               </form>
               <div className="text-center">
-                  <button type="button" className="w-64 bg-custom-blue-base text-white font-bold text-sm rounded-3xl py-2 px-8">
+                  <button onClick={submitRecruitment} type="button" className="w-64 bg-custom-blue-base text-white font-bold text-sm rounded-3xl py-2 px-8">
                       この内容で作成
                   </button>
               </div>

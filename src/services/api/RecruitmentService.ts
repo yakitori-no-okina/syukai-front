@@ -1,6 +1,6 @@
 import axios from "axios";
 import ApiService from "./ApiService";
-import {Recruitment, RecruitmentDetail} from "../models/recruitment";
+import {Recruitment, RecruitmentDetail, createForm} from "../models/recruitment";
 
 class RecruitmentService extends ApiService{
     async getRecruitmentList(): Promise<Recruitment[]> {
@@ -15,8 +15,9 @@ class RecruitmentService extends ApiService{
         return data
     }
 
-    async addRecruitment(form: RecruitmentDetail): Promise<void> {
+    async addRecruitment(form: createForm): Promise<string> {
         await axios.post(`${this.url}/recruitment/add`, form)
+        return "ok"
     }
 
     async requestRecruitment(userId: number, approvalId: number): Promise<void> {
