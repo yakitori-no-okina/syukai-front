@@ -5,8 +5,8 @@ import useRecruitments from "../../hooks/use-recruitments";
 
 const RecruitmentList: React.VFC = () => {
     const { recruitments }= useRecruitments()
-    return (
-        recruitments ?
+    return recruitments ? (
+
         <div className="container px-6 py-14 box-border mx-auto h-screen">
             <div className="flex justify-center">
                 <div className="w-96 mx-auto text-center mt-10">
@@ -20,8 +20,8 @@ const RecruitmentList: React.VFC = () => {
                 <RecruitmentListComponent RecruitmentList={recruitments}/>
             </div>
         </div>
-            : <div />
-    )
+
+    ) : <div />
 }
 
 export default RecruitmentList;

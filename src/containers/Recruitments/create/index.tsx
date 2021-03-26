@@ -15,7 +15,7 @@ type Prop = {
 
 const CreateRecruitment: React.VFC = () => {
     const history = useHistory()
-    const [form, setForm] = useState<createForm>(blackForm)
+    const [form, setForm] = useState<createForm>({...blackForm})
     const [language, setLanguage] = useState<Prop>({ label: "", val: undefined})
     const [rank, setRank] = useState<Prop>({ label: "", val: undefined})
 

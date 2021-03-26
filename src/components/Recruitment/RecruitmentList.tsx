@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom"
-import { Recruitment, blankRecruitment } from "../../services/models/recruitment";
+import { Recruitment } from "../../services/models/recruitment";
 import DateService from "../../services/utils/DateService";
 
-const RecruitmentListComponent: React.VFC<{ RecruitmentList: Recruitment[] }> = ({RecruitmentList = blankRecruitment}) =>
+const RecruitmentListComponent: React.VFC<{ RecruitmentList: Recruitment[] }> = ({RecruitmentList}) =>
      (
         <>
             {RecruitmentList.map(item => (

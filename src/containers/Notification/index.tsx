@@ -2,6 +2,7 @@ import React, {useContext} from "react";
 import { Link } from "react-router-dom";
 import useNotification from "../../hooks/use-notification";
 import {UserContext} from "../../providers/AuthProvider";
+import {Notify} from "../../services/models/notify";
 
 const Notification: React.VFC = () => {
     const { userInfo } = useContext(UserContext)
@@ -12,7 +13,7 @@ const Notification: React.VFC = () => {
       <div className="absolute z-30 right-0">
           <div className="container px-4 py-2 box-border mx-auto shadow-lg bg-white rounded-lg w-64 h-80 overflow-y-scroll">
               <ul>
-                  {notification.map(item => (
+                  {notification.map((item: Notify) => (
                       <li key={item.id} className="my-3">
                           <div className="flex">
                               <img className="inline-block rounded-full w-10 h-10" src="https://placehold.jp/150x150.png" alt="" />

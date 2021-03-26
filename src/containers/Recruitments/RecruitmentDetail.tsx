@@ -22,7 +22,7 @@ const RecruitmentContent: React.VFC = () => {
             <div className="bg-custom-gray-100">
                 <div className="container px-6 py-14 box-border mx-auto">
                     <section className="flex flex-col items-center pt-12">
-                        <img className="rounded-full inline-block w-24 mb-6" src={recruitment.owner_icon} alt="" />
+                        <img className="rounded-full inline-block w-24 mb-6" src={recruitment?.owner_icon} alt="" />
                         <h2 className="font-bold text-lg mb-4">{recruitment.message}</h2>
                         <div className="mb-4">
                             <span className="font-bold text-custom-gray-base">
