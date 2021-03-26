@@ -10,9 +10,8 @@ const blackAccount = {
     password: undefined
 }
 
-
 const UserLogin: React.VFC = () => {
-    const { login, user } = useContext(UserContext)
+    const { login } = useContext(UserContext)
     const history = useHistory()
     const [account, setAccount] = useState<Login>(blackAccount);
     const handleAccount = (e: React.ChangeEvent<HTMLInputElement>, val: string): void => setAccount({
@@ -25,9 +24,6 @@ const UserLogin: React.VFC = () => {
         login(account)
         history.push("/recruitment")
     }
-
-    console.log(account)
-    console.log(user)
 
     return (
         <div className="container px-6 py-14 box-border mx-auto h-screen">

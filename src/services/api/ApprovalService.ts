@@ -3,8 +3,8 @@ import ApiService from "./ApiService";
 
 class ApprovalService extends ApiService {
     // TODO shoudApproval?
-    async deleteApproval(approvalWaitId: number, shouldApproval: boolean) {
-        await axios.delete(`/approval/${approvalWaitId}/${shouldApproval}`)
+    async deleteApproval(approvalWaitId: number) {
+        await axios.delete(`${this.url}/approval/${approvalWaitId}`)
     }
 }
 
