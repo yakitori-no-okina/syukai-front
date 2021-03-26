@@ -12,8 +12,8 @@ export type InitUser = {
 };
 
 export type Login = {
-    mail: string,
-    password: string
+    mail: string | undefined,
+    password: string | undefined
 }
 
 export type User = {

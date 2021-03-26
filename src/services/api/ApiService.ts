@@ -1,7 +1,7 @@
 class ApiService {
    url: string
    constructor() {
-       this.url = process.env.REACT_APP_API_URL!
+       this.url = process.env.REACT_APP_API_URL ?? ""
    }
 }
 
