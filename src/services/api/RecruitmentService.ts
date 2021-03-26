@@ -3,8 +3,8 @@ import ApiService from "./ApiService";
 import {Recruitment, RecruitmentDetail, createForm} from "../models/recruitment";
 
 class RecruitmentService extends ApiService{
-    async getRecruitmentList(): Promise<Recruitment[]> {
-        const res = await axios.get(`${this.url}/recruitment`)
+    async getRecruitmentList(user_id: number): Promise<Recruitment[]> {
+        const res = await axios.get(`${this.url}/recruitment/${user_id}/list`)
         const data = res.data as Recruitment[]
         return data
     }

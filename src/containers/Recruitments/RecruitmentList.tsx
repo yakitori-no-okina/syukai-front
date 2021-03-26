@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom"
 import RecruitmentListComponent from "../../components/Recruitment/RecruitmentList";
 import useRecruitments from "../../hooks/use-recruitments";
+import {UserContext} from "../../providers/AuthProvider";
 
 const RecruitmentList: React.VFC = () => {
-    const { recruitments }= useRecruitments()
+    const { userInfo } = useContext(UserContext)
+    const data = JSON.parse(userInfo) as { id: number, token: string };
+    const { recruitments }= useRecruitments(data.id)
 
     return recruitments ? (
         <div className="container px-6 py-14 box-border mx-auto h-screen">
