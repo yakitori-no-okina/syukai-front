@@ -67,7 +67,6 @@ const CreateRecruitment: React.VFC = () => {
     }
 
 
-
     /* eslint-disable */
     const handleImage = (i: any): void => {
         const file = i.target.files[0]
@@ -112,7 +111,6 @@ const CreateRecruitment: React.VFC = () => {
                 [language.label]: rank.val
             }
         }
-
         const res = await (new RecruitmentService()).addRecruitment(inputForm)
         if(res) {
             history.push("/recruitment")
@@ -137,8 +135,8 @@ const CreateRecruitment: React.VFC = () => {
                   <label className="block mb-4" htmlFor="content">
                       <span className="block font-bold text-custom-black-base">募集内容</span>
                       <textarea
-                          value={form.message}
-                          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => handleForm(e, "message")}
+                          value={form.title}
+                          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => handleForm(e, "title")}
                           className="w-full bg-custom-gray-200 rounded-lg p-4"
                           id="content"
                       />

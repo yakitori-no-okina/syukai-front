@@ -79,6 +79,7 @@ export const blankRecruitmentDetail = {
 export type createForm = {
     icon?: string | undefined,
     purpose: number,
+    title: string | undefined,
     message: string | undefined,
     event_link: string | undefined,
     event_name: string | undefined
@@ -97,7 +98,8 @@ export type createForm = {
 export const blackForm: createForm = {
     icon: "https://placehold.jp/150x150.png",
     purpose: 0,
-    message: "aaa",
+    message: "",
+    title: undefined,
     event_link: undefined,
     event_name: undefined,
     start_date: undefined,
