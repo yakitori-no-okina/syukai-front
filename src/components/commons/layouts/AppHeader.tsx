@@ -6,12 +6,12 @@ import Notification from "../../../containers/Notification";
 import ProfileMenu from "../../../containers/Profile/menu";
 
 const AppHeaderComponent: React.VFC<{
-    user: User,
+    user: User | null,
     showNotification: () => void,
     showMenu: () => void,
     isNotifyShow: boolean,
     isMenuShow: boolean
-}> = ({ user, showNotification, showMenu, isNotifyShow, isMenuShow }) => (
+}> = ({ user, showNotification, showMenu, isNotifyShow, isMenuShow }) => user ? (
   <header className="fixed left-0 right-0 z-20 w-hull bg-custom-black-100 shadow-md">
       <div className="container px-6 py-2 mx-auto">
           <div className="relative">
@@ -22,9 +22,6 @@ const AppHeaderComponent: React.VFC<{
                       </h1>
                   </Link>
                   <div className="flex items-center">
-                      <Link to="/search">
-                          <img className="inline-block mx-2" src="/images/icons/header/ion_search_white.svg" alt="search"/>
-                      </Link>
                       <div onClick={showNotification}>
                           <img className="inline-block mx-2" src="/images/icons/header/ion_notifications_white.svg" alt="notifications"/>
                       </div>
@@ -42,6 +39,8 @@ const AppHeaderComponent: React.VFC<{
           </div>
       </div>
   </header>
+): (
+    <div />
 );
 
 export default AppHeaderComponent;

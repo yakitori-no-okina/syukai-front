@@ -1,10 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Link } from "react-router-dom";
 import { Skill } from "../../services/models/skill";
 import useProfile from "../../hooks/use-profile"
+import {UserContext} from "../../providers/AuthProvider";
 
 const Profile: React.VFC = () => {
-    const { profile } = useProfile(1)
+    const { userInfo } = useContext(UserContext)
+    const data = JSON.parse(userInfo) as {id: number, token: string}
+    const { profile } = useProfile(data.id)
 
     const SearchSkill = (skill: Skill) => {
         const result = {

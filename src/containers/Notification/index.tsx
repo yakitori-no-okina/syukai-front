@@ -1,12 +1,14 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Link } from "react-router-dom";
 import useNotification from "../../hooks/use-notification";
+import {UserContext} from "../../providers/AuthProvider";
 
 const Notification: React.VFC = () => {
-  // TODO id修正
-  const { notification } = useNotification(1)
+    const { userInfo } = useContext(UserContext)
+    const data = JSON.parse(userInfo) as {id: number, token: string}
+    const { notification } = useNotification(data.id)
 
-  return (
+  return notification ? (
       <div className="absolute z-30 right-0">
           <div className="container px-4 py-2 box-border mx-auto shadow-lg bg-white rounded-lg w-64 h-80 overflow-y-scroll">
               <ul>
@@ -38,6 +40,8 @@ const Notification: React.VFC = () => {
               </ul>
           </div>
       </div>
+  ): (
+      <div />
   );
 };
 

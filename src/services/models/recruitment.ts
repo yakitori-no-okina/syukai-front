@@ -87,6 +87,7 @@ export type createForm = {
     conditions: {
         backend: number,
         frontend: number,
+        management: number,
         mobile: number,
         AI: number
     },
@@ -104,6 +105,7 @@ export const blackForm: createForm = {
     conditions: {
         backend: 0,
         frontend: 0,
+        management: 0,
         mobile: 0,
         AI: 0
     },

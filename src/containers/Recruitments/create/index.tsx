@@ -98,11 +98,18 @@ const CreateRecruitment: React.VFC = () => {
         {label: "賞を受賞したい", val: 0},
         {label: "新しい技術を触りたい", val: 1},
     ]
-    console.log(form)
 
     const submitRecruitment = async () => {
         if(!form) return
-        const res = await (new RecruitmentService()).addRecruitment(form)
+        const inputForm = {
+            ...form,
+            conditions: {
+                ...form.conditions,
+                [language.label]: rank.val
+            }
+        }
+
+        const res = await (new RecruitmentService()).addRecruitment(inputForm)
         if(res) {
             history.push("/recruitment")
         }

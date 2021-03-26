@@ -1,33 +1,49 @@
-import React, {useState} from "react";
-import { UserContext, User } from "../contexts";
+import React, {createContext, useContext} from "react";
 import {Login, InitUser} from "../services/models/user";
 import AccountService from "../services/api/AccountService";
 
+
+const USER_KEY = "userInfo"
+export type User = {
+    id: number | null,
+    token: string | null,
+}
+
+type userContextValue = {
+    userInfo: string,
+    signUp: (form: InitUser) => void
+    login: (form: Login) => void,
+    logout: () => void
+}
+
+export const UserContext = createContext<userContextValue>({
+    userInfo: localStorage.getItem(USER_KEY)?? "",
+    signUp:  () =>  undefined,
+    login:  () => undefined,
+    logout:  () => undefined
+})
+
+
+
 const AuthProvider: React.FC = ({children}) => {
-    const [user, setUser] = useState<User>({
-        id: null,
-        token: null
-    });
+    const {userInfo} = useContext(UserContext)
 
     const login = async (form: Login): Promise<void> => {
         const res = await (new AccountService()).loginUser(form)
-        setUser(res)
+        localStorage.setItem(USER_KEY, JSON.stringify(res))
     }
 
     const logout =  () => {
-        setUser({
-            id: null,
-            token: null
-        })
+        localStorage.clear()
     }
 
     const signUp = async (form: InitUser) => {
         const res = await (new AccountService()).createUserAccount(form)
-        setUser(res)
+        localStorage.setItem(USER_KEY, JSON.stringify(res))
     }
 
     return (
-        <UserContext.Provider value={{user, login, logout, signUp}}>
+        <UserContext.Provider value={{userInfo, login, logout, signUp}}>
             {children}
         </UserContext.Provider>
     )

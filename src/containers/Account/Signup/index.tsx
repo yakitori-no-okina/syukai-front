@@ -1,8 +1,9 @@
-import React, {useState} from "react";
-import { useLocation } from "react-router-dom";
+import React, {useContext, useState} from "react";
+import { useLocation, useHistory } from "react-router-dom";
 import CreateAccount from "./CreateAccount";
 import SettingProfile from "./SettingProfile";
 import SettingDone from "./SettingDone";
+import {UserContext} from "../../../providers/AuthProvider";
 
 
 type Account = {
@@ -20,7 +21,7 @@ type Form = {
     icon: string | undefined,
     github: string | undefined,
     twitter: string | undefined,
-    link: string | undefined,
+    links: string[] | [],
     about: string | undefined
 }
 
@@ -29,13 +30,14 @@ const blackForm = {
     icon: "https://placehold.jp/150x150.png",
     github: undefined,
     twitter: undefined,
-    link: undefined,
+    links: [],
     about: undefined
 }
 
 
 
 const Signup: React.VFC = () => {
+    const history = useHistory()
     const location = useLocation()
     const query = new URLSearchParams(location.search)
     const step = Number(query.get("step"))
@@ -47,10 +49,20 @@ const Signup: React.VFC = () => {
     })
 
     const [form, setForm] = useState<Form>(blackForm)
-    const handleForm = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, val: string): void => setForm({
-        ...form,
-        [val]: e.target.value
-    })
+    const handleForm = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, val: string): void => {
+        if (val === "links") {
+
+            setForm({
+                ...form,
+                [val]: [e.target.value]
+            })
+        } else {
+            setForm({
+                ...form,
+                [val]: e.target.value
+            })
+        }
+    }
 
     /* eslint-disable */
     const handleImage = (i: any): void => {
@@ -81,6 +93,18 @@ const Signup: React.VFC = () => {
     };
     /* eslint-disable */
 
+    const { signUp } = useContext(UserContext)
+    const createUserAccount = () => {
+        if(!form || !account) return
+        const inputForm = {
+            ...form,
+            ...account
+        }
+        signUp(inputForm)
+        history.push("/recruitment")
+
+    }
+
     return (
         <>
             {step === 1 && (
@@ -90,7 +114,7 @@ const Signup: React.VFC = () => {
                 <SettingProfile form={form} handleForm={handleForm} handleImage={handleImage} />
             )}
             {step === 3 && (
-                <SettingDone account={account} form={form} />
+                <SettingDone createUserAccount={createUserAccount}  />
             )}
         </>
     )

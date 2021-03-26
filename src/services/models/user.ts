@@ -1,14 +1,14 @@
 import { Skill } from "./skill";
 
 export type InitUser = {
-    name: string,
-    icon: string,
-    mail: string,
-    password: string,
-    github: string,
-    twitter: string,
-    about: string,
-    links: string[],
+    name: string | undefined,
+    icon: string | undefined,
+    mail: string | undefined,
+    password: string | undefined,
+    github: string | undefined,
+    twitter: string | undefined,
+    about: string | undefined,
+    links: string[] | [],
 };
 
 export type Login = {
