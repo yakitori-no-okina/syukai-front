@@ -120,9 +120,9 @@ const Profile: React.VFC = () => {
                                     </Link>
                                 )}
                             </div>
-                            <div className="flex flex-wrap justify-between">
+                            <div className="flex flex-wrap mb-6">
                                 {profile.skills.map((skill: Skill) => (
-                                    <div className="inline-block w-40 rounded-lg inline-flex flex-col bg-white p-2 mb-6">
+                                    <div className="inline-block w-36 rounded-lg inline-flex flex-col bg-white p-1 mx-2 mb-4">
                                         <div className="inline-block font-bold text-custom-black-100">{findSkill(skill)?.val}</div>
                                         <div className="relative text-center inline-block p-4">
                                             <p className="inline-block text-6xl rounded-full">{findSkill(skill)?.label}</p>
