@@ -77,7 +77,5 @@ export const blankUser: User = {
             mobile: 0,
             AI: 1
         }
-
-
     ]
 };

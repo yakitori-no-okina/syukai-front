@@ -1,20 +1,34 @@
-// TODO usersが欲しい
 export type Recruitment = {
     id: number,
-    ownerId: number,
-    ownerIcon: string,
-    numOfUsers: number,
-    numOfExistUsers: number,
+    icon: string,
+    num_of_users: number,
     title: string,
-    message: string,
-    startDate: string,
-    endDate: string
+    users: {id: number, name: string, icon: string}[]
+    start_date: string,
+    end_date: string
 };
 
+export const blankRecruitment: Recruitment[] = [
+    {
+        id: 1,
+        icon: "https://placehold.jp/150x150.png",
+        num_of_users: 5,
+        users: [
+            {
+                id: 0,
+                name: "string",
+                icon: "string"
+            }
+        ],
+        title: "バックエンド募集! メンバーが足りません。",
+        start_date: "2021-03-20",
+        end_date: "2021-03-21"
+    }
+];
 
 export type RecruitmentDetail = {
-    ownerId: number,
-    ownerIcon: string,
+    owner_id: number,
+    owner_icon: string,
     event_name: string,
     event_url: string,
     num_of_users: number,
@@ -36,27 +50,14 @@ export type RecruitmentDetail = {
     end_date: string
 };
 
-export const blankRecruitment = [
-    {
-        id: 1,
-        ownerId: 1,
-        ownerIcon: "https://placehold.jp/150x150.png",
-        numOfUsers: 5,
-        numOfExistUsers: 1,
-        title: "openHackU",
-        message: "バックエンド募集! メンバーが足りません。",
-        startDate: "2021-03-20",
-        endDate: "2021-03-21"
-    }
-];
 
 // TODO condition何かきく
 export const blankRecruitmentDetail = {
-    ownerId: 1,
-    ownerIcon: "https://placehold.jp/150x150.png",
-    eventName: "openHackU",
-    eventUrl: "https://hacku.connpass.com/event/201532/",
-    numOfUsers: 1,
+    owner_id: 1,
+    owner_icon: "https://placehold.jp/150x150.png",
+    event_name: "openHackU",
+    event_url: "https://hacku.connpass.com/event/201532/",
+    num_of_users: 1,
     conditions: {
         backend: 0,
         frontend: 1,
@@ -71,6 +72,6 @@ export const blankRecruitmentDetail = {
     title: "openHackU",
     message: "バックエンド募集! メンバーが足りません。",
     purpose: 0,
-    startDate: "2021-03-20",
-    endDate: "2021-03-20"
+    start_date: "2021-03-20",
+    end_date: "2021-03-20"
 };

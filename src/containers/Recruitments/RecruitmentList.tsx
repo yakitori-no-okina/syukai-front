@@ -1,14 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom"
-import { Recruitment, blankRecruitment } from "../../services/models/recruitment";
 import RecruitmentListComponent from "../../components/Recruitment/RecruitmentList";
-// import useRecruitments from "../../hooks/use-recruitments";
+import useRecruitments from "../../hooks/use-recruitments";
 
 const RecruitmentList: React.VFC = () => {
-    const items: Recruitment[] = blankRecruitment
-    // const { recruitments }= useRecruitments()
-    // console.log(recruitments)
+    const { recruitments }= useRecruitments()
     return (
+        recruitments ?
         <div className="container px-6 py-14 box-border mx-auto h-screen">
             <div className="flex justify-center">
                 <div className="w-96 mx-auto text-center mt-10">
@@ -19,9 +17,10 @@ const RecruitmentList: React.VFC = () => {
                 </div>
             </div>
             <div className="flex justify-center py-8">
-                <RecruitmentListComponent RecruitmentList={items}/>
+                <RecruitmentListComponent RecruitmentList={recruitments}/>
             </div>
         </div>
+            : <div />
     )
 }
 
