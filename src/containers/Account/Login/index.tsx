@@ -1,8 +1,7 @@
 import React, {useState, useContext} from "react";
 import {useHistory} from "react-router-dom";
 import { Login } from "../../../services/models/user";
-import {UserContext} from "../../../contexts";
-
+import {UserContext} from "../../../providers/AuthProvider";
 
 
 const blackAccount = {
@@ -32,7 +31,7 @@ const UserLogin: React.VFC = () => {
                     <label className="block mb-4" htmlFor="mail">
                         <span className="block font-bold text-custom-black-base">メールアドレス</span>
                         <input
-                            value={account.mail}
+                            value={account?.mail}
                             onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleAccount(e, "mail")}
                             className="w-full bg-custom-gray-200 rounded-lg py-1"
                             type="mail"
@@ -42,7 +41,7 @@ const UserLogin: React.VFC = () => {
                     <label className="block mb-4" htmlFor="password">
                         <span className="block font-bold text-custom-black-base">パスワード</span>
                         <input
-                            value={account.password}
+                            value={account?.password}
                             onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleAccount(e, "password")}
                             className="w-full bg-custom-gray-200 rounded-lg py-1"
                             type="password"

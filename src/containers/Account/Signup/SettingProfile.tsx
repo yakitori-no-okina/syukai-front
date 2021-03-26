@@ -7,7 +7,7 @@ type Prop = {
     icon: string | undefined,
     github: string | undefined,
     twitter: string | undefined,
-    link: string | undefined,
+    links: string[] | [],
     about: string | undefined
 }
 
@@ -85,8 +85,8 @@ const SettingProfile: React.VFC<{
                           あなたのリンク
                         </span>
                         <input
-                            value={form.link}
-                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleForm(e, "link")}
+                            value={form.links[0]}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleForm(e, "links")}
                             className="w-full bg-custom-gray-200 rounded-lg py-1"
                             type="text"
                             id="link"

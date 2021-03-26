@@ -1,11 +1,19 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
-import React from "react";
-import { Link } from "react-router-dom";
+import React, {useContext} from "react";
+import { Link, useHistory } from "react-router-dom";
+import { UserContext } from "../../../providers/AuthProvider";
 import { User } from "../../../services/models/user";
 
 const ProfileMenu: React.VFC<{
     user: User,
-}> = ({ user }) => (
+}> = ({ user }) => {
+    const history = useHistory()
+    const { logout } = useContext(UserContext)
+    const handleLogout = () => {
+        logout()
+        history.push("/")
+    }
+    return (
         <div className="absolute z-30 right-0">
             <div className="container mx-auto box-border rounded-lg shadow-lg bg-white w-48 h-80">
                 <Link to={`/${user.name}`}>
@@ -24,22 +32,15 @@ const ProfileMenu: React.VFC<{
                         </li>
                     </Link>
                 </ul>
-
                 <div className="h-0.5 w-full bg-custom-gray-200" />
-                <Link to="/">
+                <div onClick={handleLogout}>
                     <div className="flex items-center py-2 px-4">
                         <img className="inline-block w-6" src="/images/icons/profile/ion_log-out-outline-color.svg" alt="" />
                         <p className="break-all text-custom-black-100 leading-none font-bold ml-2">ログアウト</p>
                     </div>
-                </Link>
-                <Link to="/login">
-                    <div className="flex items-center py-2 px-4">
-                        <img className="inline-block w-6" src="/images/icons/profile/ion_log-in-outline-color.svg" alt="" />
-                        <p className="break-all text-custom-black-100 leading-none font-bold ml-2">ログイン</p>
-                    </div>
-                </Link>
+                </div>
             </div>
         </div>
-    );
+    )};
 
 export default ProfileMenu;

@@ -1,9 +1,12 @@
-import React from "react";
+import React, {useContext} from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./tailwind.output.css"
 import "./App.css"
+import { UserContext } from "./providers/AuthProvider";
+
 
 import AppHeader from "./containers/commons/layouts/AppHeader";
+import AppGuestHeader from "./containers/commons/layouts/AppGuestHeader";
 import AppFooter from "./containers/commons/layouts/AppFooter";
 import Home from "./containers/Home";
 import RecruitmentList from "./containers/Recruitments/RecruitmentList";
@@ -12,11 +15,12 @@ import CreateRecruitment from "./containers/Recruitments/create";
 import Profile from "./containers/Profile";
 import EditProfile from "./containers/Profile/edit";
 import UserSkill from "./containers/Profile/skill";
-import Search from "./containers/Search";
 import UserLogin from "./containers/Account/Login";
 import Signup from "./containers/Account/Signup";
 
-const App: React.VFC = () => (
+const App: React.VFC = () => {
+    const { userInfo } = useContext(UserContext)
+    return userInfo ? (
     <Router>
         <AppHeader/>
         <Switch>
@@ -26,13 +30,23 @@ const App: React.VFC = () => (
             <Route path="/recruitment/:id" component={RecruitmentContent} exact />
             <Route path="/login" component={UserLogin} exact />
             <Route path="/signup" component={Signup} />
-            <Route path="/search" component={Search} exact />
             <Route path="/:id" component={Profile} exact />
             <Route path="/:id/edit" component={EditProfile} exact />
             <Route path="/:id/skill" component={UserSkill} exact />
         </Switch>
         <AppFooter/>
     </Router>
-)
+) : (
+        <Router>
+            <AppGuestHeader />
+            <Switch>
+                <Route path="/" component={Home} exact />
+                <Route path="/login" component={UserLogin} exact />
+                <Route path="/signup" component={Signup} />
+            </Switch>
+            <AppFooter/>
+        </Router>
+    )
+}
 
 export default App;

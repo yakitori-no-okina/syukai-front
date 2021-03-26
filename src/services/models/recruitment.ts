@@ -1,23 +1,37 @@
-// TODO usersが欲しい
 export type Recruitment = {
     id: number,
-    ownerId: number,
-    ownerIcon: string,
-    numOfUsers: number,
-    numOfExistUsers: number,
+    icon: string,
+    num_of_users: number,
     title: string,
-    message: string,
-    startDate: string,
-    endDate: string
+    users: {id: number, name: string, icon: string}[]
+    start_date: string,
+    end_date: string
 };
 
+export const blankRecruitment: Recruitment[] = [
+    {
+        id: 1,
+        icon: "https://placehold.jp/150x150.png",
+        num_of_users: 5,
+        users: [
+            {
+                id: 0,
+                name: "string",
+                icon: "string"
+            }
+        ],
+        title: "バックエンド募集! メンバーが足りません。",
+        start_date: "2021-03-20",
+        end_date: "2021-03-21"
+    }
+];
 
 export type RecruitmentDetail = {
-    ownerId: number,
-    ownerIcon: string,
-    eventName: string,
-    eventUrl: string,
-    numOfUsers: number,
+    owner_id: number,
+    owner_icon: string,
+    event_name: string,
+    event_url: string,
+    num_of_users: number,
     conditions: {
       backend: number,
       frontend: number,
@@ -31,32 +45,19 @@ export type RecruitmentDetail = {
     }[],
     title: string,
     message: string,
-    purpose: number,
-    startDate: string,
-    endDate: string
+    purpose: number | undefined,
+    start_date: string,
+    end_date: string
 };
 
-export const blankRecruitment = [
-    {
-        id: 1,
-        ownerId: 1,
-        ownerIcon: "https://placehold.jp/150x150.png",
-        numOfUsers: 5,
-        numOfExistUsers: 1,
-        title: "openHackU",
-        message: "バックエンド募集! メンバーが足りません。",
-        startDate: "2021-03-20",
-        endDate: "2021-03-21"
-    }
-];
 
 // TODO condition何かきく
 export const blankRecruitmentDetail = {
-    ownerId: 1,
-    ownerIcon: "https://placehold.jp/150x150.png",
-    eventName: "openHackU",
-    eventUrl: "https://hacku.connpass.com/event/201532/",
-    numOfUsers: 1,
+    owner_id: 1,
+    owner_icon: "https://placehold.jp/150x150.png",
+    event_name: "openHackU",
+    event_url: "https://hacku.connpass.com/event/201532/",
+    num_of_users: 1,
     conditions: {
         backend: 0,
         frontend: 1,
@@ -71,6 +72,42 @@ export const blankRecruitmentDetail = {
     title: "openHackU",
     message: "バックエンド募集! メンバーが足りません。",
     purpose: 0,
-    startDate: "2021-03-20",
-    endDate: "2021-03-20"
+    start_date: "2021-03-20",
+    end_date: "2021-03-20"
 };
+
+export type createForm = {
+    icon?: string | undefined,
+    purpose: number,
+    message: string | undefined,
+    event_link: string | undefined,
+    event_name: string | undefined
+    start_date: string | undefined,
+    end_date: string | undefined,
+    conditions: {
+        backend: number,
+        frontend: number,
+        management: number,
+        mobile: number,
+        AI: number
+    },
+    num_of_users: number,
+}
+
+export const blackForm: createForm = {
+    icon: "https://placehold.jp/150x150.png",
+    purpose: 0,
+    message: undefined,
+    event_link: undefined,
+    event_name: undefined,
+    start_date: undefined,
+    end_date: undefined,
+    conditions: {
+        backend: 0,
+        frontend: 0,
+        management: 0,
+        mobile: 0,
+        AI: 0
+    },
+    num_of_users: 0
+}

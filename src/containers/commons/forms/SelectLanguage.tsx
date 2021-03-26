@@ -18,7 +18,7 @@ const SelectLanguage: React.VFC<{language: Prop, handleSetLanguage: (e: React.Ch
     ]
     return (
         <>
-            <span className="text-custom-black-100 font-bold">言語は?</span>
+            <span className="text-custom-black-100 font-bold">ポジションは?</span>
             <SelectForm itemList={languageList} val={language} handleChange={handleSetLanguage} />
         </>
     );

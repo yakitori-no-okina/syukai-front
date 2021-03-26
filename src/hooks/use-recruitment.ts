@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react"
-import { Recruitment } from "../services/models/recruitment";
+import { RecruitmentDetail } from "../services/models/recruitment";
 import RecruitmentService from "../services/api/RecruitmentService";
 
 const useRecruitment = (id: number) => {
-    const [recruitment, setRecruitment] = useState<Recruitment | null>(null);
+    const [recruitment, setRecruitment] = useState<RecruitmentDetail | null>(null);
     const [error, setError] = useState<Error | null>(null);
 
     useEffect(() => {
