@@ -23,7 +23,7 @@ export type User = {
     twitter: string,
     about: string,
     links: string[],
-    skills: Skill[],
+    skills: Skill[] | null,
     team_id: number,
     team_icon: string
 };

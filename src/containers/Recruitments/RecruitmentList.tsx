@@ -9,7 +9,7 @@ const RecruitmentList: React.VFC = () => {
     const data = JSON.parse(userInfo) as { id: number, token: string };
     const { recruitments }= useRecruitments(data.id)
 
-    return recruitments ? (
+    return (
         <div className="container px-6 py-14 box-border mx-auto h-screen">
             <div className="flex justify-center">
                 <div className="w-96 mx-auto text-center mt-10">
@@ -19,12 +19,15 @@ const RecruitmentList: React.VFC = () => {
                     </Link>
                 </div>
             </div>
-            <div className="flex justify-center py-8">
-                <RecruitmentListComponent RecruitmentList={recruitments}/>
-            </div>
+            {recruitments && (
+                <div className="flex justify-center py-8">
+                    <RecruitmentListComponent RecruitmentList={recruitments}/>
+                </div>
+
+            )}
         </div>
 
-    ) : <div />
+    )
 }
 
 export default RecruitmentList;

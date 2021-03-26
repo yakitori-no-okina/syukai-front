@@ -105,7 +105,7 @@ const UserSkill: React.VFC = () => {
                         <h2 className="font-bold text-lg mb-4">Skills</h2>
                         <div>
                             <div className="flex flex-wrap justify-between">
-                                {user.skills.map((skill: Skill) => (
+                                {user.skills?.map((skill: Skill) => (
                                     <div className="inline-block w-40 rounded-lg inline-flex flex-col bg-white p-2 mb-6">
                                         <div className="inline-block font-bold text-custom-black-100">{findSkill(skill)?.val}</div>
                                         <div className="relative text-center inline-block p-4">
