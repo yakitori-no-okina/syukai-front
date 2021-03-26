@@ -9,9 +9,9 @@ class RecruitmentService extends ApiService{
         return data
     }
 
-    async getRecruitmentDetail(recruitmentId: number): Promise<Recruitment> {
+    async getRecruitmentDetail(recruitmentId: number): Promise<RecruitmentDetail> {
         const res = await axios.get(`${this.url}/recruitment/${recruitmentId}`)
-        const data = res.data as Recruitment
+        const data = res.data as RecruitmentDetail
         return data
     }
 

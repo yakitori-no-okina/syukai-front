@@ -35,6 +35,7 @@ module.exports = {
     ],
     root: true,
     rules: {
+        "camelcase": "off",
         "no-use-before-define": "off",
         "@typescript-eslint/no-use-before-define": [
             "error"
@@ -96,7 +97,7 @@ module.exports = {
                 explicitSpread: "ignore"
             }
         ],
-        "react/react-in-jsx-scope": "off"
+        "react/react-in-jsx-scope": "off",
     },
     overrides: [
         {

@@ -15,9 +15,9 @@ export type Recruitment = {
 export type RecruitmentDetail = {
     ownerId: number,
     ownerIcon: string,
-    eventName: string,
-    eventUrl: string,
-    numOfUsers: number,
+    event_name: string,
+    event_url: string,
+    num_of_users: number,
     conditions: {
       backend: number,
       frontend: number,
@@ -31,9 +31,9 @@ export type RecruitmentDetail = {
     }[],
     title: string,
     message: string,
-    purpose: number,
-    startDate: string,
-    endDate: string
+    purpose: number | undefined,
+    start_date: string,
+    end_date: string
 };
 
 export const blankRecruitment = [
