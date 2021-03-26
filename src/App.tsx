@@ -21,7 +21,7 @@ import Signup from "./containers/Account/Signup";
 const App: React.VFC = () => {
     const { userInfo } = useContext(UserContext)
     return userInfo ? (
-    <Router>
+    <Router forceRefresh>
         <AppHeader/>
         <Switch>
             <Route path="/" component={Home} exact />
@@ -33,20 +33,21 @@ const App: React.VFC = () => {
             <Route path="/:id" component={Profile} exact />
             <Route path="/:id/edit" component={EditProfile} exact />
             <Route path="/:id/skill" component={UserSkill} exact />
+            <Redirect to="/" exact />
         </Switch>
         <AppFooter/>
     </Router>
 ) : (
+    <>
         <Router>
             <AppGuestHeader />
             <Switch>
                 <Route path="/" component={Home} exact />
                 <Route path="/login" component={UserLogin} exact />
                 <Route path="/signup" component={Signup} />
-                <Redirect to="/" exact />
             </Switch>
-            <AppFooter/>
         </Router>
+    </>
     )
 }
 

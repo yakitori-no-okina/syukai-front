@@ -94,14 +94,17 @@ const Signup: React.VFC = () => {
     /* eslint-disable */
 
     const { signUp } = useContext(UserContext)
-    const createUserAccount = () => {
+    const createUserAccount = async () => {
         if(!form || !account) return
         const inputForm = {
             ...form,
             ...account
         }
         signUp(inputForm)
-        history.push("/recruitment")
+        await new Promise(() => setTimeout(() => {
+            history.push("/recruitment")
+            history.go(0)
+        }, 2000))
 
     }
 

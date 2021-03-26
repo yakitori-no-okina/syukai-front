@@ -9,7 +9,7 @@ const Profile: React.VFC = () => {
     const id = Number(params.id)
     const { userInfo } = useContext(UserContext)
     const data = JSON.parse(userInfo) as {id: number, token: string}
-    const { profile } = useProfile(data.id)
+    const { profile } = useProfile(id)
 
     const SearchSkill = (skill: Skill) => {
         const result = {
