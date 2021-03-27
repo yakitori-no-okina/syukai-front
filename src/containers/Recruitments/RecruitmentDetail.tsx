@@ -74,11 +74,11 @@ const RecruitmentContent: React.VFC = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="text-center">
+                    <form className="text-center">
                         <button onClick={() => requestApprovalRecruitment(data.id, Number(id))} type="button" className="w-64 bg-custom-blue-base text-white font-bold text-sm rounded-3xl py-2 px-8">
                             参加を希望する
                         </button>
-                    </div>
+                    </form>
                 </div>
             </div>
         </>
