@@ -20,7 +20,7 @@ const RecruitmentList: React.VFC = () => {
                 </div>
             </div>
             {recruitments && (
-                <div className="flex justify-center py-8">
+                <div className="flex justify-center flex-wrap py-8">
                     <RecruitmentListComponent RecruitmentList={recruitments}/>
                 </div>
 
