@@ -10,7 +10,7 @@ const RecruitmentList: React.VFC = () => {
     const { recruitments }= useRecruitments(data.id)
 
     return (
-        <div className="container px-6 py-14 box-border mx-auto h-screen">
+        <div className="container px-6 py-14 box-border mx-auto">
             <div className="flex justify-center flex-wrap">
                 <div className="w-96 mx-auto text-center mt-10">
                     <Link to="/recruitment/create" className="inline-flex items-center bg-custom-blue-base text-white font-bold rounded-3xl py-2 px-10">
