@@ -31,7 +31,7 @@ const RecruitmentContent: React.VFC = () => {
             <div className="bg-custom-gray-100">
                 <div className="container px-6 py-14 box-border mx-auto">
                     <section className="flex flex-col items-center pt-12">
-                        <img className="rounded-full inline-block w-24 mb-6" src={recruitment?.owner_icon} alt="" />
+                        <img className="rounded-full inline-block w-24 mb-6" src={recruitment.icon} alt="" />
                         <h2 className="font-bold text-lg mb-4">{recruitment.title}</h2>
                         <div className="mb-4">
                             <span className="font-bold text-custom-gray-base">
@@ -55,7 +55,7 @@ const RecruitmentContent: React.VFC = () => {
                         <div className="mb-6">
                             <h3 className="font-bold text-lg mb-4">イベントURL</h3>
                             <p className="overflow-x-scroll whitespace-nowrap bg-white text-custom-blue-base font-bold rounded-lg px-4 py-2">
-                                <a href={recruitment?.event_url} target="_blank" rel="noreferrer">{recruitment.event_url}</a>
+                                <a href={recruitment.event_url} target="_blank" rel="noreferrer">{recruitment.event_url}</a>
                             </p>
                         </div>
                         <div className="mb-6">

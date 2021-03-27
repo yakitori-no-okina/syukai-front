@@ -27,8 +27,7 @@ export const blankRecruitment: Recruitment[] = [
 ];
 
 export type RecruitmentDetail = {
-    owner_id: number,
-    owner_icon: string,
+    icon: string,
     event_name: string,
     event_url: string,
     num_of_users: number,
@@ -53,8 +52,7 @@ export type RecruitmentDetail = {
 
 // TODO condition何かきく
 export const blankRecruitmentDetail = {
-    owner_id: 1,
-    owner_icon: "https://placehold.jp/150x150.png",
+    icon: "https://placehold.jp/150x150.png",
     event_name: "openHackU",
     event_url: "https://hacku.connpass.com/event/201532/",
     num_of_users: 1,
