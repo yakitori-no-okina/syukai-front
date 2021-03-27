@@ -79,7 +79,7 @@ export type createForm = {
     purpose: number,
     title: string | undefined,
     message: string | undefined,
-    event_link: string | undefined,
+    event_url: string | undefined,
     event_name: string | undefined
     start_date: string | undefined,
     end_date: string | undefined,
@@ -99,7 +99,7 @@ export const blackForm: createForm = {
     purpose: 0,
     message: "",
     title: undefined,
-    event_link: undefined,
+    event_url: undefined,
     event_name: undefined,
     start_date: undefined,
     end_date: undefined,

@@ -173,8 +173,8 @@ const CreateRecruitment: React.VFC = () => {
                           イベントのリンク
                       </span>
                       <input
-                          value={form.event_link}
-                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleForm(e, "event_link")}
+                          value={form.event_url}
+                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleForm(e, "event_url")}
                           className="w-full bg-custom-gray-200 rounded-lg py-1"
                           type="text"
                           id="link"
