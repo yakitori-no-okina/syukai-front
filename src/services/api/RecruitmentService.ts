@@ -21,7 +21,7 @@ class RecruitmentService extends ApiService{
     }
 
     async requestRecruitment(userId: number, approvalId: number): Promise<void> {
-        await axios.post(`${this.url}/recruitment/request/${approvalId}`, userId)
+        await axios.post(`${this.url}/recruitment/request/${approvalId}`, { user_id: userId })
     }
 
     async deleteRecruitmentApproval(recruitmentId: number, userId: number) {
