@@ -1,38 +1,30 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
-import React, { useState } from "react";
-import SelectLanguage from "../../commons/forms/SelectLanguage";
-import SelectRank from "../../commons/forms/SelectRank";
-import {Skill} from "../../../services/models/skill";
-import {blankUser, User} from "../../../services/models/user";
+import React, {useState} from "react";
+import {Skill} from "../../services/models/skill";
+import SelectLanguage from "../../containers/commons/forms/SelectLanguage";
+import SelectRank from "../../containers/commons/forms/SelectRank";
+import {User, blankUser} from "../../services/models/user";
 
-type Prop = {
-    label: string,
-    val: string | number | undefined,
-    img?: undefined
+type Props = {
+    user: User,
+    language: {
+        label: string,
+        val: string | number | undefined,
+        img?: undefined
+    },
+    rank: {
+        label: string,
+        val: string | number | undefined,
+        img?: undefined
+    }
+    handleSetLanguage: (e: React.ChangeEvent<HTMLSelectElement>) => void,
+    handleSetRank: (e: React.ChangeEvent<HTMLSelectElement>) => void,
 }
-
-const UserSkill: React.VFC = () => {
-    const user: User = blankUser;
+const ProfileSkill: React.VFC<Props> = ({ user = blankUser, handleSetRank, handleSetLanguage, language, rank }) => {
     const [isOpen, setValue] = useState<boolean>(false);
-    // const openModal = () => setValue(true);
+
+    const openModal = () => setValue(true);
     const closeModal = () => setValue(false);
-    const [language, setLanguage] = useState<Prop>({label: "", val: undefined})
-    const [rank, setRank] = useState<Prop>({ label: "", val: undefined})
-
-
-    const handleSetLanguage = (e: React.ChangeEvent<HTMLSelectElement>): void => {
-        setLanguage({
-            label: e.target.value,
-            val: ""
-        })
-    }
-
-    const handleSetRank = (e: React.ChangeEvent<HTMLSelectElement>): void => {
-        setRank({
-            label: e.target.value,
-            val: ""
-        })
-    }
 
     const SearchSkill = (skill: Skill) => {
         const result = {
@@ -87,8 +79,6 @@ const UserSkill: React.VFC = () => {
         return target
     }
 
-
-
     return (
         <>
             <div className="bg-custom-gray-100">
@@ -115,17 +105,11 @@ const UserSkill: React.VFC = () => {
                                     </div>
                                 ))}
                             </div>
-                            {
-                                /*
-*
-*
-* <div onClick={openModal} className="inline-block mx-1 cursor-pointer rounded-lg bg-custom-blue-100 border border-custom-gray-base p-2">
-*    <div className="inline-block p-4">
-*        <img className="inline-block w-16" src="/images/icons/commons/ion_add_color.svg" alt="" />
-*    </div>
-*</div>
-*/
-                            }
+                            <div onClick={openModal} className="inline-block mx-1 cursor-pointer rounded-lg bg-custom-blue-100 border border-custom-gray-base p-2">
+                                <div className="inline-block p-4">
+                                    <img className="inline-block w-16" src="/images/icons/commons/ion_add_color.svg" alt="" />
+                                </div>
+                            </div>
                         </div>
                     </section>
                 </div>
@@ -152,7 +136,8 @@ const UserSkill: React.VFC = () => {
                 </div>
             )}
         </>
-    );
+
+    )
 }
 
-export default UserSkill;
+export default ProfileSkill

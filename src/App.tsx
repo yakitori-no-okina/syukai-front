@@ -14,7 +14,7 @@ import RecruitmentContent from "./containers/Recruitments/RecruitmentDetail";
 import CreateRecruitment from "./containers/Recruitments/RecruitmentCreate";
 import Profile from "./containers/Profile";
 import EditProfile from "./containers/Profile/edit";
-import UserSkill from "./containers/Profile/skill";
+import UserSkill from "./containers/Profile/ProfileSkill";
 import UserLogin from "./containers/Account/Login";
 import Signup from "./containers/Account/Signup";
 import Search from "./containers/Search";
