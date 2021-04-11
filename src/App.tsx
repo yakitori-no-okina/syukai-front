@@ -17,6 +17,7 @@ import EditProfile from "./containers/Profile/edit";
 import UserSkill from "./containers/Profile/skill";
 import UserLogin from "./containers/Account/Login";
 import Signup from "./containers/Account/Signup";
+import Search from "./containers/Search";
 
 const App: React.VFC = () => {
     const { userInfo } = useContext(UserContext)
@@ -30,6 +31,7 @@ const App: React.VFC = () => {
             <Route path="/recruitment/:id" component={RecruitmentContent} exact />
             <Route path="/login" component={UserLogin} exact />
             <Route path="/signup" component={Signup} />
+            <Route path="/search" component={Search} />
             <Route path="/:id" component={Profile} exact />
             <Route path="/:id/edit" component={EditProfile} exact />
             <Route path="/:id/skill" component={UserSkill} exact />
