@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { User } from "../../../services/models/user";
 import Notification from "../../../containers/Notification";
-import ProfileMenu from "../../../containers/Profile/menu";
+import ProfileMenu from "../../../containers/Profile/ProfileMenu";
 
 const AppHeaderComponent: React.VFC<{
     user: User | null,
