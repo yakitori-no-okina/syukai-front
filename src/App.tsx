@@ -13,7 +13,7 @@ import RecruitmentList from "./containers/Recruitments/RecruitmentList";
 import RecruitmentContent from "./containers/Recruitments/RecruitmentDetail";
 import CreateRecruitment from "./containers/Recruitments/RecruitmentCreate";
 import Profile from "./containers/Profile";
-import EditProfile from "./containers/Profile/edit";
+import EditProfile from "./containers/Profile/ProfileEdit";
 import UserSkill from "./containers/Profile/ProfileSkill";
 import UserLogin from "./containers/Account/Login";
 import Signup from "./containers/Account/Signup";
