@@ -2,7 +2,7 @@ import React, {useState, useContext} from "react";
 import {useHistory} from "react-router-dom"
 import { Login } from "../../../services/models/user";
 import {UserContext} from "../../../providers/AuthProvider";
-import AccountLoginComponent from "../../../components/Account/AccountLogin";
+import AccountLoginComponent from "../../../components/Account/Login/AccountLogin";
 
 
 const blackAccount = {
