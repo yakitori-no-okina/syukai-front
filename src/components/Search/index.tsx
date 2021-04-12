@@ -5,7 +5,7 @@ import RecruitmentListComponent from "../Recruitment/RecruitmentList";
 import {Recruitment} from "../../services/models/recruitment";
 
 
-type Prop = {
+type Props = {
     handleSetLanguage: (e: React.ChangeEvent<HTMLSelectElement>) => void,
     handleSetRank: (e: React.ChangeEvent<HTMLSelectElement>) => void,
     handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void,
@@ -23,7 +23,7 @@ type Prop = {
     word: string,
 }
 
-const SearchComponent: React.VFC<Prop> = ({ handleSetLanguage, handleSetRank, handleSearch, items, language, rank, word }) =>
+const SearchComponent: React.VFC<Props> = ({ handleSetLanguage, handleSetRank, handleSearch, items, language, rank, word }) =>
     (
         <div className="container px-6 py-14 box-border mx-auto h-screen">
             <div className="my-10 flex w-9/12 mx-auto justify-between">

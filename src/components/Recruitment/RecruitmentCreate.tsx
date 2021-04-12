@@ -3,7 +3,7 @@ import SelectLanguage from "../../containers/commons/forms/SelectLanguage";
 import SelectRank from "../../containers/commons/forms/SelectRank";
 import {createForm} from "../../services/models/recruitment";
 
-type Prop = {
+type Props = {
     handleSetLanguage: (e: React.ChangeEvent<HTMLSelectElement>) => void,
     handleSetRank: (e: React.ChangeEvent<HTMLSelectElement>) => void,
     handleImage: (i: any) => void,
@@ -22,7 +22,7 @@ type Prop = {
     form: createForm
 }
 
-const RecruitmentCreateComponent: React.VFC<Prop> = ({handleSetLanguage, handleSetRank, handleImage, handleForm, submitRecruitment, form, language, rank}) => {
+const RecruitmentCreateComponent: React.VFC<Props> = ({handleSetLanguage, handleSetRank, handleImage, handleForm, submitRecruitment, form, language, rank}) => {
     const purposeList = [
         {label: "賞を受賞したい", val: 0},
         {label: "新しい技術を触りたい", val: 1},

@@ -3,13 +3,13 @@ import {Link} from "react-router-dom";
 import {Skill} from "../../services/models/skill";
 import {User} from "../../services/models/user";
 
-type Prop = {
+type Props = {
     profile: User,
     data: {id: number, token: string},
     id: number
 }
 
-const ProfileComponent: React.VFC<Prop> = ({ profile, data, id }) => {
+const ProfileComponent: React.VFC<Props> = ({ profile, data, id }) => {
     const SearchSkill = (skill: Skill) => {
         const result = {
             skill: "",

@@ -6,7 +6,7 @@ import {UserContext} from "../../providers/AuthProvider";
 import RecruitmentCreateComponent from "../../components/Recruitment/RecruitmentCreate";
 
 
-type Prop = {
+type Props = {
     label: string,
     val: string | number | undefined,
     img?: undefined
@@ -18,8 +18,8 @@ const CreateRecruitment: React.VFC = () => {
     const data = JSON.parse(userInfo) as { id: number, token: string }
     const history = useHistory()
     const [form, setForm] = useState<createForm>({...blackForm})
-    const [language, setLanguage] = useState<Prop>({ label: "", val: undefined})
-    const [rank, setRank] = useState<Prop>({ label: "", val: undefined})
+    const [language, setLanguage] = useState<Props>({ label: "", val: undefined})
+    const [rank, setRank] = useState<Props>({ label: "", val: undefined})
 
     const handleForm = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>, val: string): void => {
         if(val === "num_of_users" || val === "purpose") {
@@ -44,7 +44,7 @@ const CreateRecruitment: React.VFC = () => {
             { label: "mobile", val: "mobile" },
             { label: "AI", val: "AI" },
         ]
-        const result = languageList.find(item => item.val === e.target.value) as Prop
+        const result = languageList.find(item => item.val === e.target.value) as Props
         setLanguage({
             ...result
         })
@@ -59,7 +59,7 @@ const CreateRecruitment: React.VFC = () => {
             { label: "D", val: 2 },
             { label: "E", val: 1 },
         ]
-        const result = rankList.find(item => item.val === Number(e.target.value)) as Prop
+        const result = rankList.find(item => item.val === Number(e.target.value)) as Props
         setRank({
             ...result
         })

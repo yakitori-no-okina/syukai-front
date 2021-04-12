@@ -1,14 +1,14 @@
 import React from "react";
 import SelectForm from "./SelectForm";
 
-type Prop = {
+type Props = {
     label: string,
     val: string | number | undefined,
     img?: undefined
 }
 
 const SelectRank: React.VFC<{
-    rank: Prop,
+    rank: Props,
     handleSetRank: (e: React.ChangeEvent<HTMLSelectElement>) => void,
 }> = ({rank, handleSetRank}) => {
     const rankList = [

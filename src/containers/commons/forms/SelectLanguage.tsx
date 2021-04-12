@@ -1,13 +1,13 @@
 import React from "react";
 import SelectForm from "./SelectForm";
 
-type Prop = {
+type Props = {
     label: string,
     val: string | number | undefined,
     img?: undefined
 }
 
-const SelectLanguage: React.VFC<{language: Prop, handleSetLanguage: (e: React.ChangeEvent<HTMLSelectElement>) => void}> = ({ language, handleSetLanguage }) => {
+const SelectLanguage: React.VFC<{language: Props, handleSetLanguage: (e: React.ChangeEvent<HTMLSelectElement>) => void}> = ({ language, handleSetLanguage }) => {
     const languageList = [
         { label: "", val: undefined},
         { label: "frontend", val: "frontend"},

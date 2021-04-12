@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import SearchComponent from "../../components/Search";
 import {Recruitment, blankRecruitment} from "../../services/models/recruitment";
 
-type Prop = {
+type Props = {
     label: string,
     val: string | number | undefined,
     img?: undefined
@@ -11,8 +11,8 @@ type Prop = {
 
 const Search: React.VFC = () => {
     const items: Recruitment[] = blankRecruitment;
-    const [language, setLanguage] = useState<Prop>({ label: "", val: undefined})
-    const [rank, setRank] = useState<Prop>({ label: "", val: undefined})
+    const [language, setLanguage] = useState<Props>({ label: "", val: undefined})
+    const [rank, setRank] = useState<Props>({ label: "", val: undefined})
     const [word, setWord] = useState<string>("")
 
     const handleSetLanguage = (e: React.ChangeEvent<HTMLSelectElement>): void => {
@@ -24,7 +24,7 @@ const Search: React.VFC = () => {
             { label: "mobile", val: "mobile" },
             { label: "AI", val: "AI" },
         ]
-        const result = languageList.find(item => item.val === e.target.value) as Prop
+        const result = languageList.find(item => item.val === e.target.value) as Props
         setLanguage({
             ...result
         })
@@ -39,7 +39,7 @@ const Search: React.VFC = () => {
             { label: "D", val: 2 },
             { label: "E", val: 1 },
         ]
-        const result = rankList.find(item => item.val === Number(e.target.value)) as Prop
+        const result = rankList.find(item => item.val === Number(e.target.value)) as Props
         setRank({
             ...result
         })

@@ -1,11 +1,11 @@
 import React from "react";
 
-type Prop = {
+type Props = {
     label: string,
     val: string | number | undefined
 }
 
-const SelectForm: React.VFC<{itemList: Prop[], val: Prop, handleChange: (e: React.ChangeEvent<HTMLSelectElement>)=>void}> = ({itemList, handleChange, val}) =>
+const SelectForm: React.VFC<{itemList: Props[], val: Props, handleChange: (e: React.ChangeEvent<HTMLSelectElement>)=>void}> = ({itemList, handleChange, val}) =>
     (
         <div className="container box-border mx-auto">
             <select

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {blankUser, User} from "../../services/models/user";
 import ProfileSkill from "../../components/Profile/ProfileSkill";
 
-type Prop = {
+type Props = {
     label: string,
     val: string | number | undefined,
     img?: undefined
@@ -10,8 +10,8 @@ type Prop = {
 
 const UserSkill: React.VFC = () => {
     const user: User = blankUser;
-    const [language, setLanguage] = useState<Prop>({label: "", val: undefined})
-    const [rank, setRank] = useState<Prop>({ label: "", val: undefined})
+    const [language, setLanguage] = useState<Props>({label: "", val: undefined})
+    const [rank, setRank] = useState<Props>({ label: "", val: undefined})
 
 
     const handleSetLanguage = (e: React.ChangeEvent<HTMLSelectElement>): void => {
