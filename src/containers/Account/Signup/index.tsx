@@ -1,8 +1,8 @@
 import React, {useContext, useState} from "react";
 import { useLocation, useHistory } from "react-router-dom";
-import CreateAccount from "./CreateAccount";
-import SettingProfile from "./SettingProfile";
-import SettingDone from "./SettingDone";
+import AccountCreate from "./AccountCreate";
+import AccountSettingProfile from "./AccountSettingProfile";
+import AccountSettingDone from "./AccountSettingDone";
 import {UserContext} from "../../../providers/AuthProvider";
 
 
@@ -111,13 +111,13 @@ const Signup: React.VFC = () => {
     return (
         <>
             {step === 1 && (
-                <CreateAccount account={account} handleAccount={handleAccount} />
+                <AccountCreate account={account} handleAccount={handleAccount} />
             )}
             {step === 2 && (
-                <SettingProfile form={form} handleForm={handleForm} handleImage={handleImage} />
+                <AccountSettingProfile form={form} handleForm={handleForm} handleImage={handleImage} />
             )}
             {step === 3 && (
-                <SettingDone createUserAccount={createUserAccount}  />
+                <AccountSettingDone createUserAccount={createUserAccount}  />
             )}
         </>
     )
