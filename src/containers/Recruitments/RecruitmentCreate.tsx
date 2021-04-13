@@ -4,6 +4,7 @@ import { createForm, blackForm } from "../../services/models/recruitment";
 import RecruitmentService from "../../services/api/RecruitmentService";
 import {UserContext} from "../../providers/AuthProvider";
 import RecruitmentCreateComponent from "../../components/Recruitment/RecruitmentCreate";
+import ImageConvert from "../../services/utils/ImageConvert";
 
 
 type Props = {
@@ -65,40 +66,15 @@ const CreateRecruitment: React.VFC = () => {
         })
     }
 
-
-    /* eslint-disable */
-    const handleImage = (i: any): void => {
-        const file = i.target.files[0]
-        if (!file) {
-            alert("ファイルを選択して")
-            return
-        }
-        if (file.size > 10000000) {
-            alert("ファイルサイズがでかすぎ")
-            return
-        }
-        if (file.type !== "image/jpeg" && file.type !== "image/png") {
-            alert("jpegかpngで")
-            return
-        }
-
-        const reader: any = new FileReader()
-        reader.onerror = () => alert("画像の読み取りに失敗しました")
-        reader.readAsDataURL(file)
-        reader.onload = () => {
-            const base64 = reader.result as string
-            setForm({
-                ...form,
-                icon: base64
-            })
-        }
+    /*eslint-disable*/
+    const handleImage = async (i: any): Promise<void> => {
+        const image = await ImageConvert(i)
+        setForm({
+            ...form,
+            icon: image
+        })
     };
-    /* eslint-disable */
 
-    const purposeList = [
-        {label: "賞を受賞したい", val: 0},
-        {label: "新しい技術を触りたい", val: 1},
-    ]
 
     const submitRecruitment = async (): Promise<void> => {
         if(!form) return
