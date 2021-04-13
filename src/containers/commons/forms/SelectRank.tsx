@@ -1,5 +1,5 @@
 import React from "react";
-import SelectForm from "./SelectForm";
+import SelectFormComponent from "../../../components/commons/forms/SelectForm";
 
 type Props = {
     label: string,
@@ -23,7 +23,7 @@ const SelectRank: React.VFC<{
     return (
         <>
             <span className="text-custom-black-100 font-bold">ランクは?</span>
-            <SelectForm itemList={rankList} val={rank} handleChange={handleSetRank} />
+            <SelectFormComponent itemList={rankList} val={rank} handleChange={handleSetRank} />
         </>
     );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import SelectForm from "./SelectForm";
+import SelectFormComponent from "../../../components/commons/forms/SelectForm";
 
 type Props = {
     label: string,
@@ -19,7 +19,7 @@ const SelectLanguage: React.VFC<{language: Props, handleSetLanguage: (e: React.C
     return (
         <>
             <span className="text-custom-black-100 font-bold">ポジションは?</span>
-            <SelectForm itemList={languageList} val={language} handleChange={handleSetLanguage} />
+            <SelectFormComponent itemList={languageList} val={language} handleChange={handleSetLanguage} />
         </>
     );
 };
