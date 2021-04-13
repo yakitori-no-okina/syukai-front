@@ -4,6 +4,7 @@ import AccountCreate from "./AccountCreate";
 import AccountSettingProfile from "./AccountSettingProfile";
 import AccountSettingDone from "./AccountSettingDone";
 import {UserContext} from "../../../providers/AuthProvider";
+import ImageConvert from "../../../services/utils/ImageConvert";
 
 
 type Account = {
@@ -65,31 +66,12 @@ const Signup: React.VFC = () => {
     }
 
     /* eslint-disable */
-    const handleImage = (i: any): void => {
-        const file = i.target.files[0]
-        if (!file) {
-            alert("ファイルを選択して")
-            return
-        }
-        if (file.size > 10000000) {
-            alert("ファイルサイズがでかすぎ")
-            return
-        }
-        if (file.type !== "image/jpeg" && file.type !== "image/png") {
-            alert("jpegかpngで")
-            return
-        }
-
-        const reader: any = new FileReader()
-        reader.onerror = () => alert("画像の読み取りに失敗しました")
-        reader.readAsDataURL(file)
-        reader.onload = () => {
-            const base64 = reader.result as string
-            setForm({
-                ...form,
-                icon: base64
-            })
-        }
+    const handleImage = async (i: any): Promise<void> => {
+        const image = await ImageConvert(i)
+        setForm({
+            ...form,
+            icon: image
+        })
     };
     /* eslint-disable */
 
