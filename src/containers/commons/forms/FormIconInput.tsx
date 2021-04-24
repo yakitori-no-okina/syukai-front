@@ -8,7 +8,7 @@ type Props = {
 }
 const FormIconInput: React.FC<Props> = ({ property, handleForm, inputId, icon, children }) =>
      (
-        <label className="block w-5/12" htmlFor={inputId}>
+        <label className="block" htmlFor={inputId}>
             <span className="block font-bold text-custom-black-base">
               <img className="inline-block mr-1 w-4" src={`/images/icons/links/${icon}`} alt="" />
                 {children}

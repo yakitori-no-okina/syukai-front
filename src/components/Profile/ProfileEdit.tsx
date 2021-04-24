@@ -25,12 +25,16 @@ const ProfileEditComponent: React.VFC<Props> = ({ form, handleForm, handleImage 
                         名前
                     </FormInput>
                     <div className="flex justify-between mb-4">
-                        <FormIconInput property={form.github} handleForm={handleForm} inputId="github" icon="ion_logo-github.svg">
-                            github
-                        </FormIconInput>
-                        <FormIconInput property={form.twitter} handleForm={handleForm} inputId="twitter" icon="ion_logo-twitter.svg">
-                            twitter
-                        </FormIconInput>
+                        <div className="w-5/12">
+                            <FormIconInput property={form.github} handleForm={handleForm} inputId="github" icon="ion_logo-github.svg">
+                                github
+                            </FormIconInput>
+                        </div>
+                        <div className="w-5/12">
+                            <FormIconInput property={form.twitter} handleForm={handleForm} inputId="twitter" icon="ion_logo-twitter.svg">
+                                twitter
+                            </FormIconInput>
+                        </div>
                     </div>
                     <FormIconInput property={form.link} handleForm={handleForm} inputId="link" icon="ion_link_color.svg">
                         あなたのリンク
