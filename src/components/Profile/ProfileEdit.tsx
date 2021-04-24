@@ -44,7 +44,7 @@ const ProfileEditComponent: React.VFC<Props> = ({ form, handleForm, handleImage 
                     </FormTextArea>
                 </form>
                 <div className="text-center">
-                    <ButtonPrimary>
+                    <ButtonPrimary handleSubmit={() => undefined}>
                         この内容で保存
                     </ButtonPrimary>
                 </div>

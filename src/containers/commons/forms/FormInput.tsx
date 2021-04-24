@@ -1,7 +1,7 @@
 import React from "react";
 
 type Props = {
-    property: string | undefined,
+    property: string | number | undefined,
     handleForm: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, val: string) => void,
     inputId: string,
 }
