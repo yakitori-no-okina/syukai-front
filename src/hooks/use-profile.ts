@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react"
-import { User } from "../services/models/user";
+import { User, blankUser } from "../services/models/user";
 import UserProfileService from "../services/api/UserProfileService";
 
 const useProfile = (id: number) => {
-    const [profile, setProfile] = useState<User | null>(null);
+    const [profile, setProfile] = useState<User | null>(blankUser);
     const [error, setError] = useState<Error | null>(null);
 
     useEffect(() => {

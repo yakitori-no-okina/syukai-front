@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { Notify } from "../services/models/notify";
+import { Notify, blankNotify } from "../services/models/notify";
 import NotificationService from "../services/api/NotificationService";
 
 const useNotification = (id: number) => {
-    const [notification, setNotification] = useState<Notify[]>([]);
+    const [notification, setNotification] = useState<Notify[]>([...blankNotify]);
     const [error, setError] = useState<Error | null>(null);
 
     useEffect(() => {

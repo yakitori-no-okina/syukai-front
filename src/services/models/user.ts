@@ -49,47 +49,6 @@ export const blankUser: User = {
         "https://tamblog.net/",
     ],
     skills: [
-        {
-            icon: "https://placehold.jp/150x150.png",
-            backend: 5,
-            frontend: 0,
-            management: 0,
-            mobile: 0,
-            AI: 0
-        },
-        {
-            icon: "https://placehold.jp/150x150.png",
-            backend: 0,
-            frontend: 4,
-            management: 0,
-            mobile: 0,
-            AI: 0
-        },
-        {
-            icon: "https://placehold.jp/150x150.png",
-            backend: 0,
-            frontend: 0,
-            management: 3,
-            mobile: 0,
-            AI: 0
-        },
-        {
-
-            icon: "https://placehold.jp/150x150.png",
-            backend: 0,
-            frontend: 0,
-            management: 0,
-            mobile: 1,
-            AI: 0
-        },
-        {
-            icon: "https://placehold.jp/150x150.png",
-            backend: 0,
-            frontend: 0,
-            management: 0,
-            mobile: 0,
-            AI: 1
-        }
     ],
     team_id: 2,
     team_icon: "https://placehold.jp/150x150.png"

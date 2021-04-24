@@ -1,12 +1,12 @@
 /*eslint-disable*/
 import { useState, useEffect } from "react"
 // import { useLocation } from "react-router-dom"
-import { Recruitment } from "../services/models/recruitment";
+import { Recruitment, blankRecruitment } from "../services/models/recruitment";
 import RecruitmentService from "../services/api/RecruitmentService";
 
 const useRecruitments = (user_id: number) => {
     // const location = useLocation()
-    const [recruitments, setRecruitments] = useState<Recruitment[]>([]);
+    const [recruitments, setRecruitments] = useState<Recruitment[]>([...blankRecruitment]);
     const [error, setError] = useState<Error | null>(null);
 
     const load = async (): Promise<void> => {

@@ -22,6 +22,7 @@ const blackForm = {
 
 const EditProfile: React.VFC = () => {
     const [form, setForm] = useState<Form>(blackForm);
+    console.log(form)
 
     const handleForm = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, val: string): void => setForm({
         ...form,
