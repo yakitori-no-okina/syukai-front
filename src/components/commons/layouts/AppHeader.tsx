@@ -29,6 +29,9 @@ const AppHeaderComponent: React.VFC<{
                       <div onClick={showMenu}>
                           <img className="inline-block w-10 rounded-full ml-2" src={user.icon} alt="my icon"/>
                       </div>
+                      <Link to="/search">
+                          <img className="inline-block mx-2" src="/images/icons/header/ion_search_white.svg" alt="search"/>
+                      </Link>
                   </div>
               </div>
               {isNotifyShow && (

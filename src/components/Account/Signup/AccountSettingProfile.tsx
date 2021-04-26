@@ -1,5 +1,10 @@
 import React from "react";
 import StepBarComponent from "../../commons/ui/StepBar";
+import FormIcon from "../../../containers/commons/forms/FormIcon";
+import FormInput from "../../../containers/commons/forms/FormInput";
+import FormIconInput from "../../../containers/commons/forms/FormIconInput";
+import FormTextArea from "../../../containers/commons/forms/FormTextArea";
+import ButtonBlack from "../../../containers/commons/buttons/ButtonBlack";
 
 type Profile = {
     name: string | undefined,
@@ -23,85 +28,36 @@ const AccountSettingProfileComponent: React.VFC<Props> = ({ form, handleForm, ha
             <StepBarComponent num={2} />
             <div className="text-center pt-12 pb-8">
                 <div className="relative inline-block">
-                    <img className="rounded-full inline-block w-24" src={form.icon} alt="" />
-                    <label htmlFor="icon">
-                        <input onChange={(i: React.ChangeEvent<HTMLInputElement>) => handleImage(i)} className="hidden" type="file" id="icon"/>
-                        <img className="inline-block absolute right-0 bottom-0 rounded-full" src="/images/icons/commons/ion_add_circle.svg" alt=""/>
-                    </label>
+                    <FormIcon property={form.icon} handleImage={handleImage} inputId="icon"/>
                 </div>
             </div>
             <form className="px-4 py-6">
-                <label className="block mb-4" htmlFor="userName">
-                    <span className="block font-bold text-custom-black-base">ユーザー名</span>
-                    <input
-                        value={form.name}
-                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleForm(e, "name")}
-                        className="w-full bg-custom-gray-200 rounded-lg py-1"
-                        type="text"
-                        id="userName"
-                    />
-                </label>
-
+                <FormInput handleForm={handleForm} property={form.name} inputId="name">
+                    ユーザー名前
+                </FormInput>
                 <div className="flex justify-between mb-4">
-                    <label className="block w-5/12" htmlFor="github">
-                            <span className="block font-bold text-custom-black-base">
-                              <img className="inline-block mr-1 w-4" src="/images/icons/links/ion_logo-github.svg" alt="" />
-                              github
-                            </span>
-                        <input
-                            value={form.github}
-                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleForm(e, "github")}
-                            className="w-full bg-custom-gray-200 rounded-lg py-1"
-                            type="text"
-                            id="github"
-                        />
-                    </label>
-                    <label className="block w-5/12" htmlFor="twitter">
-                            <span className="block font-bold text-custom-black-base">
-                              <img className="inline-block mr-1 w-4" src="/images/icons/links/ion_logo-twitter.svg" alt="" />
-                              twitter
-                            </span>
-                        <input
-                            value={form.twitter}
-                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleForm(e, "twitter")}
-                            className="w-full bg-custom-gray-200 rounded-lg py-1"
-                            type="text"
-                            id="twitter"
-                        />
-                    </label>
+                    <div className="w-5/12">
+                        <FormIconInput property={form.github} handleForm={handleForm} inputId="github" icon="ion_logo-github.svg">
+                            github
+                        </FormIconInput>
+                    </div>
+                    <div className="w-5/12">
+                        <FormIconInput property={form.twitter} handleForm={handleForm} inputId="twitter" icon="ion_logo-twitter.svg">
+                            twitter
+                        </FormIconInput>
+                    </div>
                 </div>
-
-                <label className="block mb-4" htmlFor="link">
-                        <span className="block font-bold text-custom-black-base">
-                          <img className="inline-block mr-1 w-5" src="/images/icons/links/ion_link_color.svg" alt="" />
-                          あなたのリンク
-                        </span>
-                    <input
-                        value={form.links[0]}
-                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleForm(e, "links")}
-                        className="w-full bg-custom-gray-200 rounded-lg py-1"
-                        type="text"
-                        id="link"
-                    />
-                </label>
-
-                <label className="block mb-4" htmlFor="bio">
-                    <span className="block font-bold text-custom-black-base">自己紹介</span>
-                    <textarea
-                        value={form.about}
-                        onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => handleForm(e, "about")}
-                        className="w-full bg-custom-gray-200 rounded-lg p-4"
-                        id="bio"/>
-                </label>
+                <FormIconInput property={form.links[0]} handleForm={handleForm} inputId="link" icon="ion_link_color.svg">
+                    あなたのリンク
+                </FormIconInput>
+                <FormTextArea property={form.about} handleForm={handleForm} inputId="about">
+                    自己紹介
+                </FormTextArea>
             </form>
             <div className="text-center">
-                <button
-                    onClick={LinkToStep}
-                    type="button"
-                    className="w-64 bg-custom-black-base text-white font-bold text-sm rounded-3xl py-2 px-8"
-                >
+                <ButtonBlack handleSubmit={LinkToStep}>
                     この内容で登録
-                </button>
+                </ButtonBlack>
             </div>
         </div>
     </div>

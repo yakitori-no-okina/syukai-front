@@ -1,10 +1,10 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import AccountLoginComponent from "../../../components/Account/Login/AccountLogin";
+import AccountCreateComponent from "../../../components/Account/Signup/AccountCreate";
 
 const AccountCreate: React.VFC<{
     account: { mail: string | undefined, password: string | undefined },
-    handleAccount: (e: React.ChangeEvent<HTMLInputElement>, val: string) => void
+    handleAccount: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, val: string) => void
 }> = ({ account, handleAccount }) => {
     const history = useHistory()
 
@@ -13,7 +13,7 @@ const AccountCreate: React.VFC<{
         history.push("/signup?step=2")
     }
 
-    return (<AccountLoginComponent account={account} handleAccount={handleAccount} LinkTo={LinkToStep}/>);
+    return (<AccountCreateComponent account={account} handleAccount={handleAccount} LinkTo={LinkToStep}/>);
 }
 
 

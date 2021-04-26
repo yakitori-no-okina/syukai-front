@@ -1,5 +1,6 @@
 import React from "react";
 import StepBarComponent from "../../commons/ui/StepBar";
+import ButtonBlack from "../../../containers/commons/buttons/ButtonBlack";
 
 type Props = {
     createUserAccount: () => void
@@ -11,13 +12,9 @@ const AccountSettingDoneComponent: React.VFC<Props> = ({ createUserAccount }) =>
             <div className="pt-12">
                 <img className="inline-block mb-8" src="/images/account/img_done.svg" alt="" />
                 <div className="text-center">
-                    <button
-                        onClick={createUserAccount}
-                        type="button"
-                        className="w-8/12 bg-custom-black-base text-white font-bold text-sm rounded-3xl py-2 px-8"
-                    >
-                        登録完了🎉
-                    </button>
+                    <ButtonBlack handleSubmit={createUserAccount}>
+                        登録完了
+                    </ButtonBlack>
                 </div>
             </div>
         </div>

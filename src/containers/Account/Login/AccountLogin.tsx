@@ -14,7 +14,7 @@ const UserLogin: React.VFC = () => {
     const history = useHistory()
     const usercontext = useContext(UserContext)
     const [account, setAccount] = useState<Login>(blackAccount);
-    const handleAccount = (e: React.ChangeEvent<HTMLInputElement>, val: string): void => setAccount({
+    const handleAccount = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, val: string): void => setAccount({
         ...account,
         [val]: e.target.value
     })

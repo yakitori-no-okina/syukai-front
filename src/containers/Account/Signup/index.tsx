@@ -44,7 +44,7 @@ const Signup: React.VFC = () => {
     const step = Number(query.get("step"))
 
     const [account, setAccount] = useState<Account>(blackAccount);
-    const handleAccount = (e: React.ChangeEvent<HTMLInputElement>, val: string): void => setAccount({
+    const handleAccount = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, val: string): void => setAccount({
         ...account,
         [val]: e.target.value
     })

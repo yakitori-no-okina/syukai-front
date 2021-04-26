@@ -22,7 +22,7 @@ const ProfileEditComponent: React.VFC<Props> = ({ form, handleForm, handleImage 
                 </div>
                 <form className="px-4 py-6">
                     <FormInput handleForm={handleForm} property={form.name} inputId="name">
-                        名前
+                        ユーザー名前
                     </FormInput>
                     <div className="flex justify-between mb-4">
                         <div className="w-5/12">
