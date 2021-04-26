@@ -1,6 +1,6 @@
 import React from "react";
-import SelectLanguage from "../../containers/commons/forms/SelectLanguage";
-import SelectRank from "../../containers/commons/forms/SelectRank";
+import SelectLanguage from "../commons/forms/SelectLanguage";
+import SelectRank from "../commons/forms/SelectRank";
 import RecruitmentListComponent from "../Recruitment/RecruitmentList";
 import {Recruitment} from "../../services/models/recruitment";
 

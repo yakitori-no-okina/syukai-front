@@ -1,10 +1,10 @@
 import React from "react";
 import { ProfileForm } from "../../services/models/form";
-import FormInput from "../../containers/commons/forms/FormInput";
-import FormIconInput from "../../containers/commons/forms/FormIconInput";
-import FormTextArea from "../../containers/commons/forms/FormTextArea";
-import ButtonPrimary from "../../containers/commons/buttons/ButtonPrimary";
-import FormIcon from "../../containers/commons/forms/FormIcon";
+import FormInput from "../commons/forms/FormInput";
+import FormIconInput from "../commons/forms/FormIconInput";
+import FormTextArea from "../commons/forms/FormTextArea";
+import ButtonPrimary from "../commons/buttons/ButtonPrimary";
+import FormIcon from "../commons/forms/FormIcon";
 
 type Props = {
     form: ProfileForm,

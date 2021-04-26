@@ -1,10 +1,10 @@
 import React from "react";
 import StepBarComponent from "../../commons/ui/StepBar";
-import FormIcon from "../../../containers/commons/forms/FormIcon";
-import FormInput from "../../../containers/commons/forms/FormInput";
-import FormIconInput from "../../../containers/commons/forms/FormIconInput";
-import FormTextArea from "../../../containers/commons/forms/FormTextArea";
-import ButtonBlack from "../../../containers/commons/buttons/ButtonBlack";
+import FormIcon from "../../commons/forms/FormIcon";
+import FormInput from "../../commons/forms/FormInput";
+import FormIconInput from "../../commons/forms/FormIconInput";
+import FormTextArea from "../../commons/forms/FormTextArea";
+import ButtonBlack from "../../commons/buttons/ButtonBlack";
 
 type Profile = {
     name: string | undefined,

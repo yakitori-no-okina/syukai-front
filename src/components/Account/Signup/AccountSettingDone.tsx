@@ -1,6 +1,6 @@
 import React from "react";
 import StepBarComponent from "../../commons/ui/StepBar";
-import ButtonBlack from "../../../containers/commons/buttons/ButtonBlack";
+import ButtonBlack from "../../commons/buttons/ButtonBlack";
 
 type Props = {
     createUserAccount: () => void

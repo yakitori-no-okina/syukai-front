@@ -1,5 +1,5 @@
 import React from "react";
-import SelectFormComponent from "../../../components/commons/forms/SelectForm";
+import SelectFormComponent from "./SelectForm";
 
 type Props = {
     label: string,

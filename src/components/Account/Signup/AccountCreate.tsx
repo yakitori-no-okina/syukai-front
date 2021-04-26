@@ -1,7 +1,7 @@
 import React from "react";
 import StepBarComponent from "../../commons/ui/StepBar";
-import FormInput from "../../../containers/commons/forms/FormInput";
-import ButtonBlack from "../../../containers/commons/buttons/ButtonBlack";
+import FormInput from "../../commons/forms/FormInput";
+import ButtonBlack from "../../commons/buttons/ButtonBlack";
 
 type Props = {
     account: { mail: string | undefined, password: string | undefined },

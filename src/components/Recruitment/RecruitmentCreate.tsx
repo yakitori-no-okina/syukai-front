@@ -1,14 +1,14 @@
 import React from "react";
-import SelectLanguage from "../../containers/commons/forms/SelectLanguage";
-import SelectRank from "../../containers/commons/forms/SelectRank";
+import SelectLanguage from "../commons/forms/SelectLanguage";
+import SelectRank from "../commons/forms/SelectRank";
 import {createForm} from "../../services/models/recruitment";
-import FormIcon from "../../containers/commons/forms/FormIcon";
-import FormTextArea from "../../containers/commons/forms/FormTextArea";
-import FormInput from "../../containers/commons/forms/FormInput";
-import FormIconInput from "../../containers/commons/forms/FormIconInput";
-import ButtonPrimary from "../../containers/commons/buttons/ButtonPrimary";
-import FormTerm from "../../containers/commons/forms/FormTerm";
-import FormSelectPurpose from "../../containers/commons/forms/FormSelectPurpose";
+import FormIcon from "../commons/forms/FormIcon";
+import FormTextArea from "../commons/forms/FormTextArea";
+import FormInput from "../commons/forms/FormInput";
+import FormIconInput from "../commons/forms/FormIconInput";
+import ButtonPrimary from "../commons/buttons/ButtonPrimary";
+import FormTerm from "../commons/forms/FormTerm";
+import FormSelectPurpose from "../commons/forms/FormSelectPurpose";
 
 type Props = {
     handleSetLanguage: (e: React.ChangeEvent<HTMLSelectElement>) => void,

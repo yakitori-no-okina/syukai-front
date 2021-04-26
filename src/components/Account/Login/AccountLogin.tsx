@@ -1,7 +1,7 @@
 import React from "react";
 import {Login} from "../../../services/models/user";
-import FormInput from "../../../containers/commons/forms/FormInput";
-import ButtonPrimary from "../../../containers/commons/buttons/ButtonPrimary";
+import FormInput from "../../commons/forms/FormInput";
+import ButtonPrimary from "../../commons/buttons/ButtonPrimary";
 
 type Props = {
     account: Login,

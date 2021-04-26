@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
 import React, {useState} from "react";
 import {Skill} from "../../services/models/skill";
-import SelectLanguage from "../../containers/commons/forms/SelectLanguage";
-import SelectRank from "../../containers/commons/forms/SelectRank";
+import SelectLanguage from "../commons/forms/SelectLanguage";
+import SelectRank from "../commons/forms/SelectRank";
 import {User, blankUser} from "../../services/models/user";
 
 type Props = {
