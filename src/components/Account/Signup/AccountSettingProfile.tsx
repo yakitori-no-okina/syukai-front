@@ -4,7 +4,7 @@ import FormIcon from "../../commons/forms/FormIcon";
 import FormInput from "../../commons/forms/FormInput";
 import FormIconInput from "../../commons/forms/FormIconInput";
 import FormTextArea from "../../commons/forms/FormTextArea";
-import ButtonBlack from "../../commons/buttons/ButtonBlack";
+import ButtonSubmitBlack from "../../commons/buttons/ButtonSubmitBlack";
 
 type Profile = {
     name: string | undefined,
@@ -55,9 +55,9 @@ const AccountSettingProfileComponent: React.VFC<Props> = ({ form, handleForm, ha
                 </FormTextArea>
             </form>
             <div className="text-center">
-                <ButtonBlack handleSubmit={LinkToStep}>
+                <ButtonSubmitBlack handleSubmit={LinkToStep}>
                     この内容で登録
-                </ButtonBlack>
+                </ButtonSubmitBlack>
             </div>
         </div>
     </div>

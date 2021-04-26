@@ -3,7 +3,7 @@ import { ProfileForm } from "../../services/models/form";
 import FormInput from "../commons/forms/FormInput";
 import FormIconInput from "../commons/forms/FormIconInput";
 import FormTextArea from "../commons/forms/FormTextArea";
-import ButtonPrimary from "../commons/buttons/ButtonPrimary";
+import ButtonSubmitPrimary from "../commons/buttons/ButtonSubmitPrimary";
 import FormIcon from "../commons/forms/FormIcon";
 
 type Props = {
@@ -44,9 +44,9 @@ const ProfileEditComponent: React.VFC<Props> = ({ form, handleForm, handleImage 
                     </FormTextArea>
                 </form>
                 <div className="text-center">
-                    <ButtonPrimary handleSubmit={() => undefined}>
+                    <ButtonSubmitPrimary handleSubmit={() => undefined}>
                         この内容で保存
-                    </ButtonPrimary>
+                    </ButtonSubmitPrimary>
                 </div>
             </div>
         </div>

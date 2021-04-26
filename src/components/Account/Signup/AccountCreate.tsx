@@ -1,7 +1,7 @@
 import React from "react";
 import StepBarComponent from "../../commons/ui/StepBar";
 import FormInput from "../../commons/forms/FormInput";
-import ButtonBlack from "../../commons/buttons/ButtonBlack";
+import ButtonSubmitBlack from "../../commons/buttons/ButtonSubmitBlack";
 
 type Props = {
     account: { mail: string | undefined, password: string | undefined },
@@ -16,14 +16,14 @@ const AccountCreateComponent: React.VFC<Props> = ({ account, handleAccount, Link
                 <FormInput property={account.mail} handleForm={handleAccount} inputId="mail">
                     メールアドレス
                 </FormInput>
-                <FormInput property={account.password} handleForm={handleAccount} inputId="password">
+                <FormInput property={account.password} handleForm={handleAccount} inputId="password" type="password">
                     パスワード
                 </FormInput>
             </form>
             <div className="text-center">
-                <ButtonBlack handleSubmit={LinkTo}>
+                <ButtonSubmitBlack handleSubmit={LinkTo}>
                     プロフィール設定へ
-                </ButtonBlack>
+                </ButtonSubmitBlack>
             </div>
         </div>
     </div>

@@ -3,6 +3,7 @@ import SelectLanguage from "../commons/forms/SelectLanguage";
 import SelectRank from "../commons/forms/SelectRank";
 import RecruitmentListComponent from "../Recruitment/RecruitmentList";
 import {Recruitment} from "../../services/models/recruitment";
+import FormInputSearch from "../commons/forms/FormInputSearch";
 
 
 type Props = {
@@ -35,14 +36,7 @@ const SearchComponent: React.VFC<Props> = ({ handleSetLanguage, handleSetRank, h
                 </div>
             </div>
             <form className="text-center">
-                <div className="relative">
-                    <img className="inline-block absolute mt-2 ml-3 w-6" src="/images/icons/commons/ion_search_color.svg" alt="" />
-                    <input
-                        value={word}
-                        onChange={handleSearch}
-                        className="w-9/12 inline-block py-2 pl-12 pr-4 bg-custom-gray-200 rounded-3xl"
-                        type="text"/>
-                </div>
+                <FormInputSearch word={word} handleSearch={handleSearch}/>
             </form>
             <div className="flex justify-center py-8">
                 <RecruitmentListComponent RecruitmentList={items}/>

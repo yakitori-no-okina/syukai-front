@@ -31,7 +31,7 @@ const NotificationComponent: React.VFC<Props> = ({ notification, handleSubmit, d
                                     <div className="text-right">
                                         <Link
                                             to={`/recruitment/${item.recruitment_id}`}
-                                            className="bg-custom-blue-base text-white  font-bold text-xs rounded-lg py-1 px-6"
+                                            className="bg-custom-blue-base text-white font-bold text-xs rounded-lg py-1 px-6"
                                         >
                                             詳しくみる
                                         </Link>

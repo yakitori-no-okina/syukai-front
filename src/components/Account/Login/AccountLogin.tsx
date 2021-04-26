@@ -1,7 +1,7 @@
 import React from "react";
 import {Login} from "../../../services/models/user";
 import FormInput from "../../commons/forms/FormInput";
-import ButtonPrimary from "../../commons/buttons/ButtonPrimary";
+import ButtonSubmitPrimary from "../../commons/buttons/ButtonSubmitPrimary";
 
 type Props = {
     account: Login,
@@ -16,14 +16,14 @@ const AccountLoginComponent: React.VFC<Props> = ({ account, handleAccount, LinkT
                 <FormInput property={account.mail} handleForm={handleAccount} inputId="mail">
                     メールアドレス
                 </FormInput>
-                <FormInput property={account.password} handleForm={handleAccount} inputId="password">
+                <FormInput property={account.password} handleForm={handleAccount} inputId="password" type="password">
                     パスワード
                 </FormInput>
             </form>
             <div className="text-center">
-                <ButtonPrimary handleSubmit={LinkTo}>
+                <ButtonSubmitPrimary handleSubmit={LinkTo}>
                     ログイン
-                </ButtonPrimary>
+                </ButtonSubmitPrimary>
             </div>
         </div>
     </div>

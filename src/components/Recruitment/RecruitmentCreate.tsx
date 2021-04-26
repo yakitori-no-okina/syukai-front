@@ -6,7 +6,7 @@ import FormIcon from "../commons/forms/FormIcon";
 import FormTextArea from "../commons/forms/FormTextArea";
 import FormInput from "../commons/forms/FormInput";
 import FormIconInput from "../commons/forms/FormIconInput";
-import ButtonPrimary from "../commons/buttons/ButtonPrimary";
+import ButtonSubmitPrimary from "../commons/buttons/ButtonSubmitPrimary";
 import FormTerm from "../commons/forms/FormTerm";
 import FormSelectPurpose from "../commons/forms/FormSelectPurpose";
 
@@ -74,9 +74,9 @@ const RecruitmentCreateComponent: React.VFC<Props> = ({handleSetLanguage, handle
                     現在のチーム人数は<span className="text-custom-blue-base"> {form.num_of_users+1}人 </span>です
                 </p>
                 <div className="text-center mb-6">
-                    <ButtonPrimary handleSubmit={submitRecruitment}>
+                    <ButtonSubmitPrimary handleSubmit={submitRecruitment}>
                         この内容で作成
-                    </ButtonPrimary>
+                    </ButtonSubmitPrimary>
                 </div>
             </form>
         </div>

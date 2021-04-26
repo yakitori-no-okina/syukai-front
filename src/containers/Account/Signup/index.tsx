@@ -42,14 +42,17 @@ const Signup: React.VFC = () => {
     const location = useLocation()
     const query = new URLSearchParams(location.search)
     const step = Number(query.get("step"))
-
     const [account, setAccount] = useState<Account>(blackAccount);
+    const [form, setForm] = useState<Form>(blackForm)
+    const { signUp } = useContext(UserContext)
+
+
+
     const handleAccount = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, val: string): void => setAccount({
         ...account,
         [val]: e.target.value
     })
 
-    const [form, setForm] = useState<Form>(blackForm)
     const handleForm = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, val: string): void => {
         if (val === "links") {
 
@@ -75,7 +78,6 @@ const Signup: React.VFC = () => {
     };
     /* eslint-disable */
 
-    const { signUp } = useContext(UserContext)
     const createUserAccount = async () => {
         if(!form || !account) return
         const inputForm = {
