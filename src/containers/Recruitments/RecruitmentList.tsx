@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom"
 import RecruitmentListComponent from "../../components/Recruitment/RecruitmentList";
 import useRecruitments from "../../hooks/use-recruitments";
 import {UserContext} from "../../providers/AuthProvider";
+import ButtonLinkPrimary from "../../components/commons/buttons/ButtonLinkPrimary";
 
 const RecruitmentList: React.VFC = () => {
     const { userInfo } = useContext(UserContext)
@@ -13,10 +13,9 @@ const RecruitmentList: React.VFC = () => {
         <div className="container px-6 py-14 box-border mx-auto">
             <div className="flex justify-center flex-wrap">
                 <div className="w-96 mx-auto text-center mt-10">
-                    <Link to="/recruitment/create" className="inline-flex items-center bg-custom-blue-base text-white font-bold rounded-3xl py-2 px-10">
-                        <img className="w-5 inline-block mr-1" src="/images/icons/commons/ion_add_white.svg" alt="" />
-                        <span>募集する</span>
-                    </Link>
+                    <ButtonLinkPrimary LinkTo="/recruitment/create">
+                        募集する
+                    </ButtonLinkPrimary>
                 </div>
             </div>
             {recruitments && (

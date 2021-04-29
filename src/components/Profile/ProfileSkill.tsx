@@ -4,6 +4,7 @@ import {Skill} from "../../services/models/skill";
 import SelectLanguage from "../commons/forms/SelectLanguage";
 import SelectRank from "../commons/forms/SelectRank";
 import {User, blankUser} from "../../services/models/user";
+import ButtonSubmitPrimary from "../commons/buttons/ButtonSubmitPrimary";
 
 type Props = {
     user: User,
@@ -127,9 +128,9 @@ const ProfileSkill: React.VFC<Props> = ({ user = blankUser, handleSetRank, handl
                                 </div>
                             </div>
                             <div className="text-center">
-                                <button onClick={closeModal} type="button" className="w-8/12 bg-custom-blue-base text-white font-bold text-sm rounded-3xl py-2 px-8">
+                                <ButtonSubmitPrimary handleSubmit={closeModal}>
                                     この内容で保存
-                                </button>
+                                </ButtonSubmitPrimary>
                             </div>
                         </div>
                     </div>
