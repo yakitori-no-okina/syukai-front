@@ -7,14 +7,14 @@ type Form = {
 
 type Props = {
     itemList: Form[],
-    val: Form,
+    val: number | string | undefined,
     handleChange: (e: React.ChangeEvent<HTMLSelectElement>)=>void
 }
 
 const SelectFormComponent: React.VFC<Props> = ({ itemList, val, handleChange }) => (
     <div className="container box-border mx-auto">
         <select
-            value={val.val}
+            value={val}
             onChange={handleChange}
             className="inline-block bg-transparent font-bold text-custom-black-100 border-none outline-none w-full bg-custom-gray-200 rounded-md py-2 px-4"
         >

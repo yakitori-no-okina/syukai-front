@@ -23,7 +23,7 @@ const SelectRank: React.VFC<{
     return (
         <>
             <span className="text-custom-black-100 font-bold">ランクは?</span>
-            <SelectFormComponent itemList={rankList} val={rank} handleChange={handleSetRank} />
+            <SelectFormComponent itemList={rankList} val={rank.val} handleChange={handleSetRank} />
         </>
     );
 };
